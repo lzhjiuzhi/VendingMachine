@@ -73,8 +73,8 @@ public class MainFrame extends javax.swing.JFrame {
       
         
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("自动售货机");
-        setBackground(new java.awt.Color(255, 255, 255));
+        setTitle("自動販売機");
+        setBackground(new java.awt.Color(245, 140, 100));
 
         jScrollPane1.setViewportBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -104,7 +104,7 @@ public class MainFrame extends javax.swing.JFrame {
 		});
         jLabel1.setText("投币口：");
 
-        jButton2.setFont(new java.awt.Font("幼圆", 1, 12)); // NOI18N
+        jButton2.setFont(new java.awt.Font("幼圆", 1, 15)); // NOI18N
         jButton2.setText("确认投币");
         //注册事件
         jButton2.addActionListener(new ActionListener() {
@@ -279,9 +279,11 @@ public class MainFrame extends javax.swing.JFrame {
 					pay += oncePay;	//得到一共支付的金额
 					break;
 			case 10:
-					//绝对是要找钱的
-					repayment = 10 - need;
-					need = 0;//金额付满
+				    need -= 10;
+					if(need!=0){
+
+						JOptionPane.showMessageDialog(thisJframe, "还需投入："+need+"元");
+					}
 					pay += oncePay;	//得到一共支付的金额
 					break;
 					
