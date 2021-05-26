@@ -73,8 +73,8 @@ create table addDrinkRecords(
 
 
 select * from Administrator;
-insert into administrator values('admin','admin');
-drop table drink;
+insert into Administrator values('admin','admin');
+
 insert into Drink(drinkId,drinkName,drinkImg,price,quantity) values ('01','百事可乐','img/baishi.png',2,50);
 insert into Drink(drinkId,drinkName,drinkImg,price,quantity) values ('02','芬达','img/fenda.png',2,50);
 insert into Drink(drinkId,drinkName,drinkImg,price,quantity) values ('03','雪碧','img/xuebi.png',2,50);
