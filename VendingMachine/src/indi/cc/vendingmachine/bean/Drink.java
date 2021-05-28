@@ -1,11 +1,11 @@
 package indi.cc.vendingmachine.bean;
-//饮料类
+//商品のクラス
 public class Drink {
-	private String id;	//饮料编号
-	private String drinkName;	//饮料名字
-	private String drinkImg;	//饮料图片
-	private int price;	//饮料价格
-	private int quantity;	//饮料数量
+	private String id;	//商品の番号
+	private String drinkName;	//商品の名前
+	private String drinkImg;	//商品の画像
+	private int price;	//商品の価額
+	private int quantity;	//商品の数量
 	
 	public String getId() {
 		return id;

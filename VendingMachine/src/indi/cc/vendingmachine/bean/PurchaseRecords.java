@@ -2,14 +2,14 @@ package indi.cc.vendingmachine.bean;
 
 
 
-//购买记录类
+//購買履歴のクラス
 public class PurchaseRecords {
-	private int customerId;	//顾客编号
-	private String date;	//购买时间
-	private String drinkName;	//购买饮料的名称
-	private int price;	//价格
-	private int payment;	//支付金额
-	private int repayment;	//找回金额
+	private int customerId;	//顧客番号
+	private String date;	//購買の時間
+	private String drinkName;	//購入した商品の名前
+	private int price;	//価額
+	private int payment;	//お支払い金額
+	private int repayment;	//お返しの金額
 	public int getCustomerId() {
 		return customerId;
 	}

@@ -1,13 +1,13 @@
 package indi.cc.vendingmachine.bean;
 
 
-//补充零钱记录
+//硬貨補充の記録
 public class AddRecords {
-	private int id;	//编号
-	private String administrator;	//操作管理员
-	private int  beforeAdd;	//补充前的金额
-	private int addAmount;	//补充零钱金额
-	private int afterAdd;	//补充后的金额
+	private int id;	//番号
+	private String administrator;	//管理員
+	private int  beforeAdd;	//補充前のお金の合計金額
+	private int addAmount;	//補充した硬貨の合計金額
+	private int afterAdd;	//補充後のお金の合計金額
 	public int getBeforeAdd() {
 		return beforeAdd;
 	}
@@ -20,7 +20,7 @@ public class AddRecords {
 	public void setAfterAdd(int afterAdd) {
 		this.afterAdd = afterAdd;
 	}
-	private String date;	//补充时间
+	private String date;	//補充時間
 	
 	public int getId() {
 		return id;

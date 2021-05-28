@@ -1,13 +1,13 @@
 package indi.cc.vendingmachine.bean;
-//补充饮料数量的记录类
+//商品補充の数量に関するクラス
 public class AddDrinkRecords {
-	private int id;	//编号
-	private String administrator;	//操作管理员
-	private String drinkName;	//饮料名称
-	private String date;	//添加时间
-	private int befroeNum;	//添加前的数量
-	private int addNum;	//添加的数量
-	private int nowNum;	//现在的数量
+	private int id;	//番号
+	private String administrator;	//管理員
+	private String drinkName;	//商品の名前
+	private String date;	//補充の時間
+	private int befroeNum;	//補充する前の数量
+	private int addNum;	//補充した分の商品数量
+	private int nowNum;	//現在の商品数量
 	public int getId() {
 		return id;
 	}

@@ -2,19 +2,19 @@ package indi.cc.vendingmachine.bean;
 
 import indi.cc.vendingmachine.dao.AdminManageHelper;
 
-//自动售货机类
+//自動販売機のクラス
 public class VendingMachine {
-	private int totalAmount;	//总金额
-	private int coin;	//硬币零钱
+	private int totalAmount;	//お会計の合計金額
+	private int coin;	//硬貨
 
 	
-	 //使用静态属性保存该类的一个实例  
+	 //staticを使い、インスタンスを保存する
     private static VendingMachine instance;  
-    //构造器私有化，避免该类被多次实例化  
+    // privateを使い、複数の自動販売機のインスタンスが生成されることを防ぐ
     private VendingMachine(){  
       
     }  
-    //提供静态方法返回该类实例   
+    //staticメソッドでインスタンスを戻し
     public static VendingMachine getInstance(){  
         //实例化类实例前，先检查该实例是否存在  
         if(instance == null){  

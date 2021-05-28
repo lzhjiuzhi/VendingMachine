@@ -2,13 +2,13 @@ package indi.cc.vendingmachine.bean;
 
 
 
-//取现记录类
+//お金引き出しの記録
 public class CashRecords {
-	private int id;	//编号
-	private String administrator;	//操作管理员
-	private int beforeCash;	//取现前的金额
-	private int cash;	//取现金额
-	private int afterCash;	//取现后的金额
+	private int id;	//番号
+	private String administrator;	//操作の管理員
+	private int beforeCash;	//引き出し前の合計金額
+	private int cash;	//引き出した分の金額
+	private int afterCash;	//お金を引き出した後、今の在庫合計金額
 	public int getBeforeCash() {
 		return beforeCash;
 	}
@@ -21,7 +21,7 @@ public class CashRecords {
 	public void setAfterCash(int afterCash) {
 		this.afterCash = afterCash;
 	}
-	private String date;	//取现时间
+	private String date;	//お金を引き出した時間
 	
 	
 	public int getId() {

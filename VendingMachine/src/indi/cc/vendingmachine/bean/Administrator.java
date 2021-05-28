@@ -1,5 +1,5 @@
 package indi.cc.vendingmachine.bean;
-//系统管理员类
+//システム管理員
 public class Administrator {
 	private String username;
 	private String password;
