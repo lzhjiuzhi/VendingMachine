@@ -89,7 +89,7 @@ public class MainFrame extends javax.swing.JFrame {
                 }  
             }  
         }); 
-        jButton1.setFont(new java.awt.Font("幼圆", 1, 12)); // NOI18N
+        jButton1.setFont(new java.awt.Font("幼圆", 1, 20)); // NOI18N
         jButton1.setText("管理员入口");
         //注册事件
         jButton1.addActionListener(new ActionListener() {
