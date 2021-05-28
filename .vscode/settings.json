@@ -1,0 +1,6 @@
+{
+    "java.project.sourcePaths": [
+        "out/production/VendingMachine/indi/cc/vendingmachine/run",
+        "VendingMachine/src/indi/cc/vendingmachine/run"
+    ]
+}
