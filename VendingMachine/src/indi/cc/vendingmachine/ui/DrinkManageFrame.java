@@ -42,9 +42,9 @@ public class DrinkManageFrame extends JDialog {
 	private Administrator admin;
 		/**
 		 * 
-		 * @param owner ËüµÄ¸¸´°¿Ú
-		 * @param title ´°¿ÚÃû
-		 * @param modal Ö¸¶¨µÄÄ£Ê½´°¿Ú£¬»¹ÓĞ·ÇÄ£Ê½´°¿Ú
+		 * @param owner å®ƒçš„çˆ¶çª—å£
+		 * @param title çª—å£å
+		 * @param modal æŒ‡å®šçš„æ¨¡å¼çª—å£ï¼Œè¿˜æœ‰éæ¨¡å¼çª—å£
 		 */
 		public DrinkManageFrame(JFrame owner, String title, boolean modal,Administrator admin){
 			super(owner, title, modal);
@@ -57,58 +57,58 @@ public class DrinkManageFrame extends JDialog {
 	             
 	    private void initComponents() {
 	    	AdminManageHelper helper = new AdminManageHelper();	
-	    	drinks = helper.getAllDrink();	//»ñµÃËùÓĞÒûÁÏ
+	    	drinks = helper.getAllDrink();	//è·å¾—æ‰€æœ‰é¥®æ–™
 	    	
 	        jLabel2 = new javax.swing.JLabel();
 	        jSeparator1 = new javax.swing.JSeparator();
 	        jSeparator2 = new javax.swing.JSeparator();
 	        jTextField1 = new javax.swing.JTextField(drinks.get(count).getId());
-	        jTextField1.setEditable(false);//ÉèÖÃ²»¿É±à¼­
+	        jTextField1.setEditable(false);//è®¾ç½®ä¸å¯ç¼–è¾‘
 	        jLabel3 = new javax.swing.JLabel();
 	        jTextField2 = new javax.swing.JTextField(drinks.get(count).getDrinkName());
-	        jTextField2.setEditable(false);//ÉèÖÃ²»¿É±à¼­
+	        jTextField2.setEditable(false);//è®¾ç½®ä¸å¯ç¼–è¾‘
 	        jLabel4 = new javax.swing.JLabel();
-	        jTextField3 = new javax.swing.JTextField(drinks.get(count).getPrice()+"Ôª");
-	        jTextField3.setEditable(false);//ÉèÖÃ²»¿É±à¼­
+	        jTextField3 = new javax.swing.JTextField(drinks.get(count).getPrice()+"å††");
+	        jTextField3.setEditable(false);//è®¾ç½®ä¸å¯ç¼–è¾‘
 	        jSeparator3 = new javax.swing.JSeparator();
 	        jSeparator4 = new javax.swing.JSeparator();
 	        jLabel1 = new javax.swing.JLabel();
-	        jTextField4 = new javax.swing.JTextField(drinks.get(count).getQuantity()+"Æ¿");
-	        jTextField4.setEditable(false);//ÉèÖÃ²»¿É±à¼­
+	        jTextField4 = new javax.swing.JTextField(drinks.get(count).getQuantity()+"å€‹");
+	        jTextField4.setEditable(false);//è®¾ç½®ä¸å¯ç¼–è¾‘
 	        jButton4 = new javax.swing.JButton();
 	        jButton5 = new javax.swing.JButton();
 	        jButton6 = new javax.swing.JButton();
 	        jButton7 = new javax.swing.JButton();
 	        jButton1 = new javax.swing.JButton();
 	        jButton2 = new javax.swing.JButton();
-	        jButton3 = new javax.swing.JButton(new ImageIcon(drinks.get(0).getDrinkImg()));	//Í¼Æ¬°´Å¥
+	        jButton3 = new javax.swing.JButton(new ImageIcon(drinks.get(0).getDrinkImg()));	//å›¾ç‰‡æŒ‰é’®
 	        
 
 	
-	        jLabel2.setFont(new java.awt.Font("Ó×Ô²", 1, 12)); // NOI18N
-	        jLabel2.setText("±àºÅ£º");
+	        jLabel2.setFont(new java.awt.Font("å¹¼åœ†", 1, 12)); // NOI18N
+	        jLabel2.setText("ç•ªå·ï¼š");
 	
 	        jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
 	
 	       
 	
-	        jLabel3.setFont(new java.awt.Font("Ó×Ô²", 1, 12)); // NOI18N
-	        jLabel3.setText("ÒûÁÏÃû£º");
+	        jLabel3.setFont(new java.awt.Font("å¹¼åœ†", 1, 12)); // NOI18N
+	        jLabel3.setText("å•†å“ã®åå‰ï¼š");
 	
 	        
 	
-	        jLabel4.setFont(new java.awt.Font("Ó×Ô²", 1, 12)); // NOI18N
-	        jLabel4.setText("¼Û¸ñ£º");
+	        jLabel4.setFont(new java.awt.Font("å¹¼åœ†", 1, 12)); // NOI18N
+	        jLabel4.setText("ä¾¡é¡ï¼š");
 	
 	       
 	
 	        jSeparator3.setOrientation(javax.swing.SwingConstants.VERTICAL);
 	
-	        jLabel1.setFont(new java.awt.Font("Ó×Ô²", 1, 12)); // NOI18N
-	        jLabel1.setText("ÊıÁ¿£º");
+	        jLabel1.setFont(new java.awt.Font("å¹¼åœ†", 1, 12)); // NOI18N
+	        jLabel1.setText("æ•°é‡ï¼š");
 	
-	        jButton4.setFont(new java.awt.Font("Ó×Ô²", 1, 12)); // NOI18N
-	        jButton4.setText("ÉÏÒ»Ìõ");
+	        jButton4.setFont(new java.awt.Font("å¹¼åœ†", 1, 12)); // NOI18N
+	        jButton4.setText("å‰ã®é …ç›®ã«æˆ»ã‚Š");
 	        jButton4.addActionListener(new ActionListener() {
 				
 				@Override
@@ -116,7 +116,7 @@ public class DrinkManageFrame extends JDialog {
 					// TODO Auto-generated method stub
 					
 					if(count<=0){
-						JOptionPane.showMessageDialog(jd, "ÒÑ¾­ÊÇ×îÇ°Ò»ÌõÁË!!");
+						JOptionPane.showMessageDialog(jd, "ã‚‚ã†ä¸€ç•ªæœ€åˆã®é …ç›®ã§ã™ï¼");
 						return ;
 					}else{
 						count--;
@@ -125,8 +125,8 @@ public class DrinkManageFrame extends JDialog {
 				}
 			});
 	
-	        jButton5.setFont(new java.awt.Font("Ó×Ô²", 1, 12)); // NOI18N
-	        jButton5.setText("ÏÂÒ»Ìõ");
+	        jButton5.setFont(new java.awt.Font("å¹¼åœ†", 1, 12)); // NOI18N
+	        jButton5.setText("æ¬¡ã®é …ç›®");
 	       jButton5.addActionListener(new ActionListener() {
 			
 			@Override
@@ -134,7 +134,7 @@ public class DrinkManageFrame extends JDialog {
 				// TODO Auto-generated method stub
 				
 				if(count>=drinks.size()-1){
-					JOptionPane.showMessageDialog(jd, "ÒÑ¾­ÊÇ×îºóÒ»ÌõÁË!!");
+					JOptionPane.showMessageDialog(jd, "ã‚‚ã†ä¸€ç•ªæœ€å¾Œã®é …ç›®ã§ã™ï¼");
 					return ;
 				}else{
 					count++;
@@ -143,21 +143,21 @@ public class DrinkManageFrame extends JDialog {
 			}
 		});
 	
-	        jButton6.setFont(new java.awt.Font("Ó×Ô²", 1, 12)); // NOI18N
-	        jButton6.setText("ĞŞ¸ÄÒûÁÏĞÅÏ¢");
+	        jButton6.setFont(new java.awt.Font("å¹¼åœ†", 1, 12)); // NOI18N
+	        jButton6.setText("å•†å“ã®æƒ…å ±ã‚’å¤‰æ›´");
 	       jButton6.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
-				UpdateDrinkFrame drinkFrame = new UpdateDrinkFrame(jd, "ĞŞ¸ÄÒûÁÏĞÅÏ¢", true, drinks.get(count));
-				drinks = helper.getAllDrink();	//¸üĞÂËùÓĞÒûÁÏ
-				updateContent();	//¸üĞÂ×´Ì¬
+				UpdateDrinkFrame drinkFrame = new UpdateDrinkFrame(jd, "å•†å“ã®æƒ…å ±ã‚’å¤‰æ›´", true, drinks.get(count));
+				drinks = helper.getAllDrink();	//æ›´æ–°æ‰€æœ‰é¥®æ–™
+				updateContent();	//æ›´æ–°çŠ¶æ€
 			}
 		});
 	
-	        jButton7.setFont(new java.awt.Font("Ó×Ô²", 1, 12)); // NOI18N
-	        jButton7.setText("É¾³ı¸ÃÒûÁÏ");
+	        jButton7.setFont(new java.awt.Font("å¹¼åœ†", 1, 12)); // NOI18N
+	        jButton7.setText("å½“å•†å“ã‚’å‰Šé™¤");
 	        jButton7.addActionListener(new ActionListener() {
 				
 				@Override
@@ -165,45 +165,45 @@ public class DrinkManageFrame extends JDialog {
 					// TODO Auto-generated method stub
 					AdminManageHelper helper = new AdminManageHelper();
 					if(helper.deleteDrink(drinks.get(count))){
-						JOptionPane.showMessageDialog(jd, "É¾³ı³É¹¦!!");
-						drinks = helper.getAllDrink();	//¸üĞÂËùÓĞÒûÁÏ
-						if(count==0){	//É¾³ıµÄÊÇµÚÒ»Ìõ
-							//²»ĞèÒª¸Ä±ä
-						}else{	//ÆäËûÇé¿ö
+						JOptionPane.showMessageDialog(jd, "å‰Šé™¤ã§ãã¾ã—ãŸï¼ï¼");
+						drinks = helper.getAllDrink();	//æ›´æ–°æ‰€æœ‰é¥®æ–™
+						if(count==0){	//åˆ é™¤çš„æ˜¯ç¬¬ä¸€æ¡
+							//ä¸éœ€è¦æ”¹å˜
+						}else{	//å…¶ä»–æƒ…å†µ
 							count--;
 						}
-						updateContent();//¸üĞÂ×´Ì¬
+						updateContent();//æ›´æ–°çŠ¶æ€
 						return ;
 					}else {
-						JOptionPane.showMessageDialog(jd, "É¾³ıÊ§°Ü!!");
+						JOptionPane.showMessageDialog(jd, "å‰Šé™¤ã§ãã¾ã›ã‚“ã§ã—ãŸï¼ï¼");
 						return ;
 					}
 					
 				}
 			});
 
-        jButton1.setFont(new java.awt.Font("Ó×Ô²", 1, 12)); // NOI18N
-        jButton1.setText("Ìí¼ÓĞÂÒûÁÏ");
+        jButton1.setFont(new java.awt.Font("å¹¼åœ†", 1, 12)); // NOI18N
+        jButton1.setText("æ–°ã—ã„å•†å“ã‚’è¿½åŠ ");
         jButton1.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
-				AddDrinkFrame drinkFrame = new AddDrinkFrame(jd, "Ìí¼ÓĞÂÒûÁÏ", true,admin);
-				drinks = helper.getAllDrink();	//¸üĞÂËùÓĞÒûÁÏ
-				updateContent();//¸üĞÂ×´Ì¬
+				AddDrinkFrame drinkFrame = new AddDrinkFrame(jd, "æ–°ã—ã„å•†å“ã‚’è¿½åŠ ", true,admin);
+				drinks = helper.getAllDrink();	//æ›´æ–°æ‰€æœ‰é¥®æ–™
+				updateContent();//æ›´æ–°çŠ¶æ€
 			}
 		});
 
-        jButton2.setFont(new java.awt.Font("Ó×Ô²", 1, 12)); // NOI18N
-        jButton2.setText("²¹³ä¸ÃÒûÁÏ");
+        jButton2.setFont(new java.awt.Font("å¹¼åœ†", 1, 12)); // NOI18N
+        jButton2.setText("å½“å•†å“ã‚’è£œå……");
         jButton2.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
-				AddQuantityDrinkFrame drinkFrame = new AddQuantityDrinkFrame(jd, "²¹³ä"+drinks.get(count).getDrinkName()+"ÒûÁÏ", true,drinks.get(count),admin);
-				updateContent();//¸üĞÂ×´Ì¬
+				AddQuantityDrinkFrame drinkFrame = new AddQuantityDrinkFrame(jd, "è£œå……"+drinks.get(count).getDrinkName()+"å•†å“", true,drinks.get(count),admin);
+				updateContent();//æ›´æ–°çŠ¶æ€
 			}
 		});
 
@@ -310,12 +310,12 @@ public class DrinkManageFrame extends JDialog {
         
         
     }
-	    //¸üĞÂ½çÃæÖĞµÄÄÚÈİ
+	    //æ›´æ–°ç•Œé¢ä¸­çš„å†…å®¹
 	    private void updateContent(){
 	    	jTextField1.setText(drinks.get(count).getId());
 	    	jTextField2.setText(drinks.get(count).getDrinkName());
-	    	jTextField3.setText(drinks.get(count).getPrice()+"Ôª");
-	    	jTextField4.setText(drinks.get(count).getQuantity()+"Æ¿");
+	    	jTextField3.setText(drinks.get(count).getPrice()+"å††");
+	    	jTextField4.setText(drinks.get(count).getQuantity()+"å€‹");
 	    	jButton3.setIcon(new ImageIcon(drinks.get(count).getDrinkImg()));
 	    	jButton3.updateUI();
         }
