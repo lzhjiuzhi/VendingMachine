@@ -40,57 +40,57 @@ public class AdminChoose extends javax.swing.JFrame {
         jButton6 = new JButton();
         jButton3 = new JButton();
 
-        setTitle("¹ÜÀíÔ±£º"+admin.getUsername());
+        setTitle("ç®¡ç†å“¡ï¼š"+admin.getUsername());
         setBackground(new java.awt.Color(255, 255, 255));
 
-        jButton1.setFont(new java.awt.Font("Ó×Ô²", 1, 12)); // NOI18N
-        jButton1.setText("Ìí¼ÓĞÂ¹ÜÀíÔ±");
+        jButton1.setFont(new java.awt.Font("å¹¼åœ†", 1, 12)); // NOI18N
+        jButton1.setText("æ–°ã—ã„ç®¡ç†å“¡ã‚’è¿½åŠ ");
         jButton1.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				AddAdminFrame addAdminFrame = new AddAdminFrame(jf, "Ìí¼ÓĞÂ¹ÜÀíÔ±", true);
+				AddAdminFrame addAdminFrame = new AddAdminFrame(jf, "æ–°ã—ã„ç®¡ç†å“¡ã‚’è¿½åŠ ", true);
 			}
 		});
 
-        jButton2.setFont(new java.awt.Font("Ó×Ô²", 1, 12)); // NOI18N
-        jButton2.setText("ĞŞ¸ÄÃÜÂë");
+        jButton2.setFont(new java.awt.Font("å¹¼åœ†", 1, 12)); // NOI18N
+        jButton2.setText("ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã‚’å¤‰æ›´");
         jButton2.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				UpdatePasswordFrame frame = new UpdatePasswordFrame(jf, "ĞŞ¸ÄÃÜÂë", true,admin);
+				UpdatePasswordFrame frame = new UpdatePasswordFrame(jf, "ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã‚’å¤‰æ›´", true,admin);
 			}
 		});
 
-        jButton4.setFont(new java.awt.Font("Ó×Ô²", 1, 12)); // NOI18N
-        jButton4.setText("½ğ¶î¹ÜÀí");
+        jButton4.setFont(new java.awt.Font("å¹¼åœ†", 1, 12)); // NOI18N
+        jButton4.setText("é‡‘é¡ã‚’ç®¡ç†");
         jButton4.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
-				CashManageFrame frame = new CashManageFrame(jf, "½ğ¶î¹ÜÀí", true,admin);
+				CashManageFrame frame = new CashManageFrame(jf, "é‡‘é¡ã‚’ç®¡ç†", true,admin);
 			}
 		});
         
         
-        jButton5.setFont(new java.awt.Font("Ó×Ô²", 1, 12)); // NOI18N
-        jButton5.setText("¼ÇÂ¼²é¿´");
+        jButton5.setFont(new java.awt.Font("å¹¼åœ†", 1, 12)); // NOI18N
+        jButton5.setText("å±¥æ­´ã‚’è¡¨ç¤º");
         jButton5.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
-				RecordsManageFrame frame = new RecordsManageFrame(jf, "¼ÇÂ¼²é¿´", true);
+				RecordsManageFrame frame = new RecordsManageFrame(jf, "å±¥æ­´ã‚’è¡¨ç¤º", true);
 			}
 		});
        
 
-        jButton6.setFont(new java.awt.Font("Ó×Ô²", 1, 12)); // NOI18N
-        jButton6.setText("ÍË³öÏµÍ³");
+        jButton6.setFont(new java.awt.Font("å¹¼åœ†", 1, 12)); // NOI18N
+        jButton6.setText("ãƒ­ã‚°ã‚¢ã‚¦ãƒˆ");
         jButton6.addActionListener(new ActionListener() {
     		
     		@Override
@@ -102,14 +102,14 @@ public class AdminChoose extends javax.swing.JFrame {
     		}
     	});
       
-        jButton3.setFont(new java.awt.Font("Ó×Ô²", 1, 12)); // NOI18N
-        jButton3.setText("ÒûÁÏ¹ÜÀí");
+        jButton3.setFont(new java.awt.Font("å¹¼åœ†", 1, 12)); // NOI18N
+        jButton3.setText("å•†å“ã‚’ç®¡ç†");
         jButton3.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
-				DrinkManageFrame drinkManage = new DrinkManageFrame(jf, "ÒûÁÏ¹ÜÀí", true,admin);
+				DrinkManageFrame drinkManage = new DrinkManageFrame(jf, "å•†å“ã‚’ç®¡ç†", true,admin);
 			}
 		});
         
