@@ -30,9 +30,9 @@ public class UpdatePasswordFrame extends javax.swing.JDialog {
 	    private Administrator admin;
 	 /**
 	 * 
-	 * @param owner ËüµÄ¸¸´°¿Ú
-	 * @param title ´°¿ÚÃû
-	 * @param modal Ö¸¶¨µÄÄ£Ê½´°¿Ú£¬»¹ÓĞ·ÇÄ£Ê½´°¿Ú
+	 * @param owner å®ƒçš„çˆ¶çª—å£
+	 * @param title çª—å£å
+	 * @param modal æŒ‡å®šçš„æ¨¡å¼çª—å£ï¼Œè¿˜æœ‰éæ¨¡å¼çª—å£
 	 */
 	public UpdatePasswordFrame(JFrame owner, String title, boolean modal,Administrator admin){
     	super(owner, title, modal);
@@ -59,13 +59,13 @@ public class UpdatePasswordFrame extends javax.swing.JDialog {
 
        
 
-        jLabel1.setText("¾ÉÃÜÂë:");
+        jLabel1.setText("å¤ã„ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ï¼š");
 
-        jLabel2.setText("ĞÂÃÜÂë:");
+        jLabel2.setText("æ–°ã—ã„ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ï¼š");
 
-        jLabel3.setText("È·ÈÏÃÜÂë:");
+        jLabel3.setText("ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ç¢ºèªï¼š");
 
-        jButton1.setText("ĞŞ¸Ä");
+        jButton1.setText("å¤‰æ›´");
         jButton1.addActionListener(new ActionListener() {
 			
 			@Override
@@ -75,26 +75,26 @@ public class UpdatePasswordFrame extends javax.swing.JDialog {
 				String newPass = String.valueOf(jPasswordField1.getPassword());
 				String rePass = String.valueOf(jPasswordField2.getPassword());
 				if(oldPass.equals("")){
-					JOptionPane.showMessageDialog(jd, "¾ÉÃÜÂë²»ÄÜÎª¿Õ!!");
+					JOptionPane.showMessageDialog(jd, "å¤ã„ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã¯ç©ºã«ã§ãã¾ã›ã‚“ï¼ï¼");
 					return ;
 				}else if(newPass.equals("")){
-					JOptionPane.showMessageDialog(jd, "ĞÂÃÜÂë²»ÄÜÎª¿Õ!!");
+					JOptionPane.showMessageDialog(jd, "æ–°ã—ã„ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã¯ç©ºã«ã§ãã¾ã›ã‚“ï¼ï¼");
 					return ;
 				}else if(rePass.equals("")){
-					JOptionPane.showMessageDialog(jd, "È·ÈÏÃÜÂë²»ÄÜÎª¿Õ!!");
+					JOptionPane.showMessageDialog(jd, "ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ç¢ºèªã¯ç©ºã«ã§ãã¾ã›ã‚“ï¼ï¼");
 					return ;
 				}else if(!newPass.equals(rePass)){
-					JOptionPane.showMessageDialog(jd, "Á½´ÎÃÜÂë²»Ò»ÖÂ!!");
+					JOptionPane.showMessageDialog(jd, "äºŒå›å…¥åŠ›ã—ãŸãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã¯ä¸€è‡´ã—ã¦ã„ã¾ã›ã‚“ï¼ï¼");
 					return ;
 				}else{
 					Administrator newAdmin = new Administrator(admin.getUsername(), newPass);
 					AdminManageHelper manageHelper = new AdminManageHelper();
 					if(manageHelper.getAdmin(admin).getPassword().equals(oldPass)&&manageHelper.updatePassword(admin, newAdmin)){
-						JOptionPane.showMessageDialog(jd, "ĞŞ¸Ä³É¹¦!!");
+						JOptionPane.showMessageDialog(jd, "å¤‰æ›´ã§ãã¾ã—ãŸï¼ï¼");
 						jd.dispose();
 						return ;
 					}else{
-						JOptionPane.showMessageDialog(jd, "ĞŞ¸ÄÊ§°Ü!!");
+						JOptionPane.showMessageDialog(jd, "å¤‰æ›´ã§ãã¾ã›ã‚“ã§ã—ãŸï¼ï¼");
 						jd.dispose();
 						return ;
 					}
@@ -102,7 +102,7 @@ public class UpdatePasswordFrame extends javax.swing.JDialog {
 			}
 		});
 
-        jButton2.setText("È¡Ïû");
+        jButton2.setText("ã‚­ãƒ£ãƒ³ã‚»ãƒ«");
         jButton2.addActionListener(new ActionListener() {
 			
 			@Override
