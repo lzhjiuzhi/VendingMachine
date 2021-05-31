@@ -24,9 +24,9 @@ public class AddAdminFrame extends javax.swing.JDialog {
 	    private JDialog jd;
 	    /**
 		 * 
-		 * @param owner ËüµÄ¸¸´°¿Ú
-		 * @param title ´°¿ÚÃû
-		 * @param modal Ö¸¶¨µÄÄ£Ê½´°¿Ú£¬»¹ÓĞ·ÇÄ£Ê½´°¿Ú
+		 * @param owner å®ƒçš„çˆ¶çª—å£
+		 * @param title çª—å£å
+		 * @param modal æŒ‡å®šçš„æ¨¡å¼çª—å£ï¼Œè¿˜æœ‰éæ¨¡å¼çª—å£
 		 */
 		public AddAdminFrame(JFrame owner, String title, boolean modal){
 	    	super(owner, title, modal);
@@ -51,15 +51,15 @@ public class AddAdminFrame extends javax.swing.JDialog {
         jButton2 = new javax.swing.JButton();
 
 
-        jLabel1.setText("ÓÃ»§Ãû:");
+        jLabel1.setText("ãƒ¦ãƒ¼ã‚¶ãƒ¼å:");
 
-        jLabel2.setText("ÃÜÂë:");
+        jLabel2.setText("ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰:");
 
-        jLabel3.setText("È·ÈÏÃÜÂë:");
+        jLabel3.setText("ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ç¢ºèª:");
 
        
 
-        jButton1.setText("´´½¨");
+        jButton1.setText("ä½œæˆ");
         jButton1.addActionListener(new ActionListener() {
 			
 			@Override
@@ -69,26 +69,26 @@ public class AddAdminFrame extends javax.swing.JDialog {
 				String password = String.valueOf(jPasswordField1.getPassword());
 				String rePassword = String.valueOf(jPasswordField2.getPassword());
 				if(username.equals("")){
-					JOptionPane.showMessageDialog(jd, "ÓÃ»§Ãû²»ÄÜ¿Õ!!");
+					JOptionPane.showMessageDialog(jd, "ãƒ¦ãƒ¼ã‚¶ãƒ¼åã¯ç©ºã«ã§ãã¾ã›ã‚“ï¼ï¼");
 					return ;
 				}else if(password.equals("")){
-					JOptionPane.showMessageDialog(jd, "ÃÜÂë²»ÄÜÎª¿Õ!!");
+					JOptionPane.showMessageDialog(jd, "ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã¯ç©ºã«ã§ãã¾ã›ã‚“ï¼ï¼");
 					return ;
 				}else if(rePassword.equals("")){
-					JOptionPane.showMessageDialog(jd, "È·ÈÏÃÜÂë²»ÄÜÎª¿Õ!!");
+					JOptionPane.showMessageDialog(jd, "ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ç¢ºèªã¯ç©ºã«ã§ãã¾ã›ã‚“ï¼ï¼");
 					return ;
 				}else if(!password.equals(rePassword)){
-					JOptionPane.showMessageDialog(jd, "Á½´ÎÃÜÂë²»Ò»ÖÂ!!");
+					JOptionPane.showMessageDialog(jd, "2å›å…¥åŠ›ã—ãŸãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã¯ä¸€è‡´ã—ã¦ã„ãªã„ã§ã™ï¼");
 					return ;
 				}else {
 					Administrator admin = new Administrator(username, password);
 					AdminManageHelper manageHelper = new AdminManageHelper();
 					if(manageHelper.addAdmin(admin)){
-						JOptionPane.showMessageDialog(jd, "´´½¨³É¹¦!!");
+						JOptionPane.showMessageDialog(jd, "ä½œæˆã§ãã¾ã—ãŸï¼ï¼");
 						jd.dispose();
 						return ;
 					}else{
-						JOptionPane.showMessageDialog(jd, "´´½¨Ê§°Ü!!");
+						JOptionPane.showMessageDialog(jd, "ä½œæˆã§ãã¾ã›ã‚“ã§ã—ãŸï¼ï¼");
 						jd.dispose();
 						return ;
 					}
@@ -96,7 +96,7 @@ public class AddAdminFrame extends javax.swing.JDialog {
 			}
 		});
 
-        jButton2.setText("È¡Ïû");
+        jButton2.setText("ã‚­ãƒ£ãƒ³ã‚»ãƒ«");
         jButton2.addActionListener(new ActionListener() {
 			
 			@Override
