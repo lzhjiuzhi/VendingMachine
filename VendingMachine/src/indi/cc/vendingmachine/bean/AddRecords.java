@@ -3,7 +3,7 @@ package indi.cc.vendingmachine.bean;
 
 //补充零钱记录
 public class AddRecords {
-	private int id;	//编号
+	private int id;	//IDです
 	private String administrator;	//操作管理员
 	private int  beforeAdd;	//补充前的金额
 	private int addAmount;	//补充零钱金额
