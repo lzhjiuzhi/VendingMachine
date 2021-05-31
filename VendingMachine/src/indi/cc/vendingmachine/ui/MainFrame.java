@@ -39,14 +39,14 @@ public class MainFrame extends javax.swing.JFrame {
     private JSeparator jSeparator2;
     private JTextField jTextField1;
     private JFrame thisJframe;
-    private int price = 0;	//Ó¦¸¶½ğ¶î
-    private int need = 0;	//»¹Ğè½ğ¶î
-    private Drink chooseDrink;	//Ñ¡ÖĞµÄÒûÁÏ
-    private int pay = 0;	//×ÜÖ§¸¶µÄ½ğ¶î
+    private int price = 0;	//åº”ä»˜é‡‘é¢
+    private int need = 0;	//è¿˜éœ€é‡‘é¢
+    private Drink chooseDrink;	//é€‰ä¸­çš„é¥®æ–™
+    private int pay = 0;	//æ€»æ”¯ä»˜çš„é‡‘é¢
     public MainFrame() {
-    	//¶ÔÒûÁÏ»ú¶ÔÏó½øĞĞ³õÊ¼»¯
+    	//å¯¹é¥®æ–™æœºå¯¹è±¡è¿›è¡Œåˆå§‹åŒ–
     	AdminManageHelper helper = new AdminManageHelper();
-    	helper.getVendingMachine();//³õÊ¼»¯ÒûÁÏ»ú
+    	helper.getVendingMachine();//åˆå§‹åŒ–é¥®æ–™æœº
         initComponents();
         upateJpanel();
         WindowUtil.setFrameCenter(this);
@@ -69,29 +69,29 @@ public class MainFrame extends javax.swing.JFrame {
         jSeparator1 = new JSeparator();
         jSeparator2 = new JSeparator();
         jLabel5 = new JLabel();
-        jPanel1.setLayout(new GridLayout(0,2));//ÉèÖÃÍø¸ñ²¼¾Ö
+        jPanel1.setLayout(new GridLayout(0,2));//è®¾ç½®ç½‘æ ¼å¸ƒå±€
       
         
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("×Ô„ÓØœ‰Ó™C");
+        setTitle("è‡ªå‹•è²©å£²æ©Ÿ");
         setBackground(new java.awt.Color(245, 140, 100));
 
         jScrollPane1.setViewportBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        //ÏŞÖÆÖ»ÄÜÊäÈëÊı×Ö  (Ä£°å´úÂë)
+        //é™åˆ¶åªèƒ½è¾“å…¥æ•°å­—  (æ¨¡æ¿ä»£ç )
         jTextField1.addKeyListener(new KeyAdapter(){  
             public void keyTyped(KeyEvent e) {  
                 int keyChar = e.getKeyChar();                 
                 if(keyChar >= KeyEvent.VK_0 && keyChar <= KeyEvent.VK_9){  
                       
                 }else{  
-                    e.consume(); //¹Ø¼ü£¬ÆÁ±Îµô·Ç·¨ÊäÈë  
+                    e.consume(); //å…³é”®ï¼Œå±è”½æ‰éæ³•è¾“å…¥  
                 }  
             }  
         }); 
-        jButton1.setFont(new java.awt.Font("Ó×Ô²", 1, 12)); // NOI18N
-        jButton1.setText("¹ÜÀíÔ±Èë¿Ú");
-        //×¢²áÊÂ¼ş
+        jButton1.setFont(new java.awt.Font("å¹¼åœ†", 1, 12)); // NOI18N
+        jButton1.setText("ç®¡ç†å“¡ã®å…¥å£");
+        //æ³¨å†Œäº‹ä»¶
         jButton1.addActionListener(new ActionListener() {
 			
 			@Override
@@ -102,27 +102,27 @@ public class MainFrame extends javax.swing.JFrame {
 				
 			}
 		});
-        jLabel1.setText("Í¶±Ò¿Ú£º");
+        jLabel1.setText("ãŠé‡‘ã®æŠ•å…¥å£ï¼š");
 
-        jButton2.setFont(new java.awt.Font("Ó×Ô²", 1, 15)); // NOI18N
-        jButton2.setText("È·ÈÏÍ¶±Ò");
-        //×¢²áÊÂ¼ş
+        jButton2.setFont(new java.awt.Font("å¹¼åœ†", 1, 15)); // NOI18N
+        jButton2.setText("æŠ•å…¥ã‚’ç¢ºèª");
+        //æ³¨å†Œäº‹ä»¶
         jButton2.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				computing();//´¦ÀíÍ¶±ÒºÍ³öÒûÁÏ
+				computing();//å¤„ç†æŠ•å¸å’Œå‡ºé¥®æ–™
 				
 			}
 		});
        
 
-        jLabel2.setText("»¹Ó¦Í¶Èë£º");
+        jLabel2.setText("è¶³ã‚Šãªã„æŠ•å…¥é‡‘é¡ï¼š");
 
-        jLabel3.setText("0Ôª");
+        jLabel3.setText("0å††");
 
-        jLabel4.setText("Ñ¡ÖĞµÄÒûÁÏ£º");
+        jLabel4.setText("é¸æŠã—ãŸå•†å“ï¼š");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -193,23 +193,23 @@ public class MainFrame extends javax.swing.JFrame {
     
     private void upateJpanel(){
     	AdminManageHelper manageHelper = new AdminManageHelper();
-    	Vector<Drink> drinks = manageHelper.getAllDrink();	//»ñµÃËùÓĞµÄÒûÁÏ
+    	Vector<Drink> drinks = manageHelper.getAllDrink();	//è·å¾—æ‰€æœ‰çš„é¥®æ–™
     	 for(int i=0;i<drinks.size();i++){
          	Drink drink = drinks.get(i);   	
          	String s;
-         	JButton jb;//°´Å¥
-         	//¶ÔÊıÁ¿Îª0µÄÒûÁÏ½øĞĞÅĞ¶Ï²¢ÇÒ´¦Àí
+         	JButton jb;//æŒ‰é’®
+         	//å¯¹æ•°é‡ä¸º0çš„é¥®æ–™è¿›è¡Œåˆ¤æ–­å¹¶ä¸”å¤„ç†
          	if(drinks.get(i).getQuantity()==0){
-         		s = drink.getDrinkName()+"|ÒÑÊÛ¿Õ";
+         		s = drink.getDrinkName()+"|å£²ã‚Šåˆ‡ã‚Œ";
          		jb = new JButton(s,new ImageIcon(drink.getDrinkImg()));
-         		jb.setEnabled(false);//ÉèÖÃ²»¿ÉÓÃ
+         		jb.setEnabled(false);//è®¾ç½®ä¸å¯ç”¨
          	}else{
-         		s = drink.getDrinkName()+"|¼Û¸ñ:"+drink.getPrice()+"Ôª|ÊıÁ¿:"+drink.getQuantity();
+         		s = drink.getDrinkName()+"|ä¾¡é¡ï¼š"+drink.getPrice()+"å††|æ•°é‡ï¼š"+drink.getQuantity();
          		jb = new JButton(s,new ImageIcon(drink.getDrinkImg()));
          	}
-         	//¶ÔÒûÁÏ»úµÄÁãÇ®Ğ¡ÓÚ10µÄÊ±ºò(ÎŞ·¨ÕÒÁãµÄÊ±ºò)½øĞĞÅĞ¶ÏºÍ´¦Àí
+         	//å¯¹é¥®æ–™æœºçš„é›¶é’±å°äº10çš„æ—¶å€™(æ— æ³•æ‰¾é›¶çš„æ—¶å€™)è¿›è¡Œåˆ¤æ–­å’Œå¤„ç†
          	if(VendingMachine.getInstance().getCoin()<10){
-         		jb.setEnabled(false);	//ÉèÖÃ²»¿ÉÓÃ¡£
+         		jb.setEnabled(false);	//è®¾ç½®ä¸å¯ç”¨ã€‚
          	}
          	
          	jb.addActionListener(new ActionListener() {
@@ -218,13 +218,13 @@ public class MainFrame extends javax.swing.JFrame {
  				public void actionPerformed(ActionEvent e) {
  					// TODO Auto-generated method stub
  					if(pay!=0){
- 						JOptionPane.showMessageDialog(thisJframe, "ÇëÍê³ÉÖ§¸¶!!");
+ 						JOptionPane.showMessageDialog(thisJframe, "ãŠæ”¯æ‰•ã„ã‚’å®Œäº†ã—ã¦ãã ã•ã„ï¼ï¼");
  					}else{
 	 					chooseDrink = drink;
 	 					jLabel5.setIcon((new ImageIcon(drink.getDrinkImg())));
-	 					jLabel3.setText(drink.getPrice()+"Ôª");
+	 					jLabel3.setText(drink.getPrice()+"å††");
 	 					price = drink.getPrice();
-	 					need = price;	//ÉèÖÃ»¹ĞèµÄ½ğ¶î
+	 					need = price;	//è®¾ç½®è¿˜éœ€çš„é‡‘é¢
 	 					jLabel5.updateUI();
  					}
  				}
@@ -234,9 +234,9 @@ public class MainFrame extends javax.swing.JFrame {
     }
     
     
-    //¼ÆËã´¦ÀíÍ¶±ÒµÄ·½·¨
+    //è®¡ç®—å¤„ç†æŠ•å¸çš„æ–¹æ³•
     private void computing(){
-    	int repayment = 0;	//¤ª¤Ä¤ê
+    	int repayment = 0;	//ãŠã¤ã‚Š
 		int oncePay = 0;	//First inserted amount
 		String s = jTextField1.getText().trim();
 		if(!s.equals("")){
@@ -246,15 +246,15 @@ public class MainFrame extends javax.swing.JFrame {
 		if(price==0){
 			
 			if(oncePay!=0){
-				JOptionPane.showMessageDialog(thisJframe, "Please choose a drink and add coins!!");
-				JOptionPane.showMessageDialog(thisJframe, "Please get your money back!!");
+				JOptionPane.showMessageDialog(thisJframe, "å•†å“ã‚’é¸æŠã—ã€ãŠé‡‘ã‚’ã„ã‚Œã¦ãã ã•ã„ï¼ï¼");
+				JOptionPane.showMessageDialog(thisJframe, "ãŠè¿”ã—é‡‘é¡ã‚’ãŠå—ã‘å–ã‚Šãã ã•ã„ï¼ï¼");
 				jTextField1.setText("");
 			}else{
-				JOptionPane.showMessageDialog(thisJframe, "Please choose a drink");
+				JOptionPane.showMessageDialog(thisJframe, "å•†å“ã‚’é¸æŠã—ã¦ãã ã•ã„");
 				jTextField1.setText("");
 			}
 		}else if(price!=0 && oncePay==0){
-			JOptionPane.showMessageDialog(thisJframe, "Please insert coins");
+			JOptionPane.showMessageDialog(thisJframe, "ãŠé‡‘ã‚’ã„ã‚Œã¦ãã ã•ã„");
 			jTextField1.setText("");
 		}else{
 			
@@ -262,93 +262,93 @@ public class MainFrame extends javax.swing.JFrame {
 			case 10:
 					need = need - 10;
 					if(need!=0){
-						JOptionPane.showMessageDialog(thisJframe, "Amount needed£º"+need+"ƒÒ");
+						JOptionPane.showMessageDialog(thisJframe, "å¿…è¦ãªé‡‘é¡ï¼š"+need+"å††");
 					}
 					pay += oncePay;	//
 					break;
 			case 50:
 					if(need<50){	//
 						repayment = 50 - need;
-						need = 0;	//½ğ¶î¸¶Âú
-					}else{//Ö§¸¶µÄ5ÔªÇ®Ğ¡ÓÚÓÚ»¹ĞèµÄ½ğ¶î,»¹Ğè¼ÌĞø¸¶Ç®
+						need = 0;	//é‡‘é¢ä»˜æ»¡
+					}else{//æ”¯ä»˜çš„5å…ƒé’±å°äºäºè¿˜éœ€çš„é‡‘é¢,è¿˜éœ€ç»§ç»­ä»˜é’±
 						need = need - 50;	
 						if(need!=0){
-							JOptionPane.showMessageDialog(thisJframe, "Amount needed£º"+need+"ƒÒ");
+							JOptionPane.showMessageDialog(thisJframe, "å¿…è¦ãªé‡‘é¡ï¼š"+need+"å††");
 						}
 					}
-					pay += oncePay;	//µÃµ½Ò»¹²Ö§¸¶µÄ½ğ¶î
+					pay += oncePay;	//å¾—åˆ°ä¸€å…±æ”¯ä»˜çš„é‡‘é¢
 					break;
 			case 100:
 					if(need<100){	//
 						repayment = 100 - need;
-						need = 0;	//½ğ¶î¸¶Âú
-					}else{//Ö§¸¶µÄ5ÔªÇ®Ğ¡ÓÚÓÚ»¹ĞèµÄ½ğ¶î,»¹Ğè¼ÌĞø¸¶Ç®
+						need = 0;	//é‡‘é¢ä»˜æ»¡
+					}else{//æ”¯ä»˜çš„5å…ƒé’±å°äºäºè¿˜éœ€çš„é‡‘é¢,è¿˜éœ€ç»§ç»­ä»˜é’±
 						need = need - 100;	
 						if(need!=0){
-							JOptionPane.showMessageDialog(thisJframe, "Amount needed£º"+need+"ƒÒ");
+							JOptionPane.showMessageDialog(thisJframe, "å¿…è¦ãªé‡‘é¡ï¼š"+need+"å††");
 						}
 					}
-					pay += oncePay;	//µÃµ½Ò»¹²Ö§¸¶µÄ½ğ¶î
+					pay += oncePay;	//å¾—åˆ°ä¸€å…±æ”¯ä»˜çš„é‡‘é¢
 					break;
 //				    need -= 10;
 //					if(need!=0){
 //
-//						JOptionPane.showMessageDialog(thisJframe, "Amount needed£º"+need+"ƒÒ");
+//						JOptionPane.showMessageDialog(thisJframe, "Amount neededï¼š"+need+"å††");
 //					}
-//					pay += oncePay;	//µÃµ½Ò»¹²Ö§¸¶µÄ½ğ¶î
+//					pay += oncePay;	//å¾—åˆ°ä¸€å…±æ”¯ä»˜çš„é‡‘é¢
 //					break;
 			case 500:
 					if(need<500){	//
 					repayment = 500 - need;
-					need = 0;	//½ğ¶î¸¶Âú
-					}else{//Ö§¸¶µÄ5ÔªÇ®Ğ¡ÓÚÓÚ»¹ĞèµÄ½ğ¶î,»¹Ğè¼ÌĞø¸¶Ç®
+					need = 0;	//é‡‘é¢ä»˜æ»¡
+					}else{//æ”¯ä»˜çš„5å…ƒé’±å°äºäºè¿˜éœ€çš„é‡‘é¢,è¿˜éœ€ç»§ç»­ä»˜é’±
 						need = need - 500;	
 						if(need!=0){
-						JOptionPane.showMessageDialog(thisJframe, "Amount needed£º"+need+"ƒÒ");
+						JOptionPane.showMessageDialog(thisJframe, "å¿…è¦ãªé‡‘é¡ï¼š"+need+"å††");
 						}
 					}
-				pay += oncePay;	//µÃµ½Ò»¹²Ö§¸¶µÄ½ğ¶î
+				pay += oncePay;	//å¾—åˆ°ä¸€å…±æ”¯ä»˜çš„é‡‘é¢
 				break;
 			case 1000:
 				if(need<1000){	//
 				repayment = 1000 - need;
-				need = 0;	//½ğ¶î¸¶Âú
-				}else{//Ö§¸¶µÄ5ÔªÇ®Ğ¡ÓÚÓÚ»¹ĞèµÄ½ğ¶î,»¹Ğè¼ÌĞø¸¶Ç®
+				need = 0;	//é‡‘é¢ä»˜æ»¡
+				}else{//æ”¯ä»˜çš„5å…ƒé’±å°äºäºè¿˜éœ€çš„é‡‘é¢,è¿˜éœ€ç»§ç»­ä»˜é’±
 					need = need - 1000;	
 					if(need!=0){
-					JOptionPane.showMessageDialog(thisJframe, "Amount needed£º"+need+"ƒÒ");
+					JOptionPane.showMessageDialog(thisJframe, "å¿…è¦ãªé‡‘é¡ï¼š"+need+"å††");
 					}
 				}
-				pay += oncePay;	//µÃµ½Ò»¹²Ö§¸¶µÄ½ğ¶î
+				pay += oncePay;	//å¾—åˆ°ä¸€å…±æ”¯ä»˜çš„é‡‘é¢
 				break;
 				
 			case 5000:
 				if(need<5000){	//
 				repayment = 5000 - need;
-				need = 0;	//½ğ¶î¸¶Âú
-				}else{//Ö§¸¶µÄ5ÔªÇ®Ğ¡ÓÚÓÚ»¹ĞèµÄ½ğ¶î,»¹Ğè¼ÌĞø¸¶Ç®
+				need = 0;	//é‡‘é¢ä»˜æ»¡
+				}else{//æ”¯ä»˜çš„5å…ƒé’±å°äºäºè¿˜éœ€çš„é‡‘é¢,è¿˜éœ€ç»§ç»­ä»˜é’±
 					need = need - 5000;	
 					if(need!=0){
-					JOptionPane.showMessageDialog(thisJframe, "Amount needed£º"+need+"ƒÒ");
+					JOptionPane.showMessageDialog(thisJframe, "å¿…è¦ãªé‡‘é¡ï¼š"+need+"å††");
 					}
 				}
-				pay += oncePay;	//µÃµ½Ò»¹²Ö§¸¶µÄ½ğ¶î
+				pay += oncePay;	//å¾—åˆ°ä¸€å…±æ”¯ä»˜çš„é‡‘é¢
 				break;
 				
 			case 10000:
 				if(need<10000){	//
 				repayment = 10000 - need;
-				need = 0;	//½ğ¶î¸¶Âú
-				}else{//Ö§¸¶µÄ5ÔªÇ®Ğ¡ÓÚÓÚ»¹ĞèµÄ½ğ¶î,»¹Ğè¼ÌĞø¸¶Ç®
+				need = 0;	//é‡‘é¢ä»˜æ»¡
+				}else{//æ”¯ä»˜çš„5å…ƒé’±å°äºäºè¿˜éœ€çš„é‡‘é¢,è¿˜éœ€ç»§ç»­ä»˜é’±
 					need = need - 10000;	
 					if(need!=0){
-					JOptionPane.showMessageDialog(thisJframe, "Amount needed£º"+need+"ƒÒ");
+					JOptionPane.showMessageDialog(thisJframe, "å¿…è¦ãªé‡‘é¡ï¼š"+need+"å††");
 					}
 				}
-			pay += oncePay;	//µÃµ½Ò»¹²Ö§¸¶µÄ½ğ¶î
+			pay += oncePay;	//å¾—åˆ°ä¸€å…±æ”¯ä»˜çš„é‡‘é¢
 			break;
 			default:
-					JOptionPane.showMessageDialog(thisJframe, "¤³¤ÎÓ²Ø›¤ÏÊ¹ÓÃ¤Ç¤­¤Ş¤»¤ó");
+					JOptionPane.showMessageDialog(thisJframe, "ã“ã®ç¡¬è²¨ã¯ä½¿ç”¨ã§ãã¾ã›ã‚“");
 					JOptionPane.showMessageDialog(thisJframe, "Please get your money back");
 					jTextField1.setText("");
 					break;
@@ -356,41 +356,41 @@ public class MainFrame extends javax.swing.JFrame {
 			
 			
 			if(repayment!=0){
-				JOptionPane.showMessageDialog(thisJframe, "Return£º"+repayment+"ƒÒ");
+				JOptionPane.showMessageDialog(thisJframe, "ãŠè¿”ã—é‡‘é¡ï¼š"+repayment+"å††");
 			}
-			if(price!=0 && need==0){//¸¶¿î³É¹¦
-				JOptionPane.showMessageDialog(thisJframe, "Purchased! Please wait for it to come out!!");
-				//¶ÔÓ¦µÄÒûÁÏÊıÁ¿ĞèÒª¼õÉÙ!!
-				//¹Ë¿Í²Ù×÷µÄ°ïÖúÀàÊµÏÖÒûÁÏÊıÁ¿µÄ¼õÉÙ
+			if(price!=0 && need==0){//ä»˜æ¬¾æˆåŠŸ
+				JOptionPane.showMessageDialog(thisJframe, "è³¼å…¥å®Œæˆï¼å•†å“ãŒå‡ºã‚‹ã¾ã§ãŠå¾…ã¡ãã ã•ã„ï¼ï¼");
+				//å¯¹åº”çš„é¥®æ–™æ•°é‡éœ€è¦å‡å°‘!!
+				//é¡¾å®¢æ“ä½œçš„å¸®åŠ©ç±»å®ç°é¥®æ–™æ•°é‡çš„å‡å°‘
 				CustomerManageHelper helper = new CustomerManageHelper();
-				helper.buyDrink(chooseDrink);//¹ºÂòÒûÁÏ
-				//Ìí¼Ó¹Ë¿Í¹ºÂòµÄ¼ÍÂ¼
+				helper.buyDrink(chooseDrink);//è´­ä¹°é¥®æ–™
+				//æ·»åŠ é¡¾å®¢è´­ä¹°çš„çºªå½•
 				PurchaseRecords record = new PurchaseRecords();
 				record.setDrinkName(chooseDrink.getDrinkName());
 				record.setPrice(chooseDrink.getPrice());
-				record.setPayment(pay);	//×Ü¹²Ö§¸¶µÄ½ğ¶î
+				record.setPayment(pay);	//æ€»å…±æ”¯ä»˜çš„é‡‘é¢
 				record.setRepayment(repayment);
 				helper.addPurchaseRecords(record);
-				//ÕÒ»ØÁãÇ®Ö®ºóĞèÒª½«ÒûÁÏ»úµÄÁãÇ®Êı¼õÉÙ
+				//æ‰¾å›é›¶é’±ä¹‹åéœ€è¦å°†é¥®æ–™æœºçš„é›¶é’±æ•°å‡å°‘
 				AdminManageHelper adminManageHelper = new AdminManageHelper();
-				VendingMachine.getInstance().setCoin(VendingMachine.getInstance().getCoin()-repayment);//¼õÈ¥ÕÒ»ØµÄÁãÇ®
-				//ÒûÁÏ»úµÄ×Ü½ğ¶îÒªÔö¼Ó
-				VendingMachine.getInstance().setTotalAmount(VendingMachine.getInstance().getTotalAmount()+oncePay);//Ôö¼ÓÖ§¸¶µÄÇ®
+				VendingMachine.getInstance().setCoin(VendingMachine.getInstance().getCoin()-repayment);//å‡å»æ‰¾å›çš„é›¶é’±
+				//é¥®æ–™æœºçš„æ€»é‡‘é¢è¦å¢åŠ 
+				VendingMachine.getInstance().setTotalAmount(VendingMachine.getInstance().getTotalAmount()+oncePay);//å¢åŠ æ”¯ä»˜çš„é’±
 				adminManageHelper.updateVendingMachine(VendingMachine.getInstance());
 				
-				//¸üĞÂ½çÃæ
-				jPanel1.removeAll();//ÒÆ³ıÃæ°åÉÏµÄ¿Ø¼ş
+				//æ›´æ–°ç•Œé¢
+				jPanel1.removeAll();//ç§»é™¤é¢æ¿ä¸Šçš„æ§ä»¶
 				jPanel1.updateUI();
-				upateJpanel();	//¸üĞÂÃæ°åÉÏµÄ°´Å¥
+				upateJpanel();	//æ›´æ–°é¢æ¿ä¸Šçš„æŒ‰é’®
 				jPanel1.updateUI();
-				need = 0;	//ÉèÖÃ»ØÔ­À´µÄÖµ
-				price = 0;	//ÉèÖÃ»ØÔ­À´µÄÖµ
-				pay = 0;	//ÉèÖÃ»ØÔ­À´µÄÖµ
+				need = 0;	//è®¾ç½®å›åŸæ¥çš„å€¼
+				price = 0;	//è®¾ç½®å›åŸæ¥çš„å€¼
+				pay = 0;	//è®¾ç½®å›åŸæ¥çš„å€¼
 				jLabel5.setIcon(null);
 				jLabel5.updateUI();
 			}
 			jTextField1.setText("");
-			jLabel3.setText(need+"ƒÒ");
+			jLabel3.setText(need+"å††");
 		}
 		
     }
