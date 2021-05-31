@@ -1,12 +1,5 @@
 package indi.cc.vendingmachine.ui;
 
-import indi.cc.vendingmachine.bean.Drink;
-import indi.cc.vendingmachine.bean.PurchaseRecords;
-import indi.cc.vendingmachine.bean.VendingMachine;
-import indi.cc.vendingmachine.dao.AdminManageHelper;
-import indi.cc.vendingmachine.dao.CustomerManageHelper;
-import indi.cc.vendingmachine.util.WindowUtil;
-
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -14,6 +7,7 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.Vector;
 
+import javax.swing.GroupLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -24,8 +18,16 @@ import javax.swing.JScrollPane;
 import javax.swing.JSeparator;
 import javax.swing.JTextField;
 
+import indi.cc.vendingmachine.bean.Drink;
+import indi.cc.vendingmachine.bean.PurchaseRecords;
+import indi.cc.vendingmachine.bean.VendingMachine;
+import indi.cc.vendingmachine.dao.AdminManageHelper;
+import indi.cc.vendingmachine.dao.CustomerManageHelper;
+import indi.cc.vendingmachine.util.WindowUtil;
+
 public class MainFrame extends javax.swing.JFrame {
                         
+	// 状態を入れるための変数
     private JButton jButton1;
     private JButton jButton2;
     private JLabel jLabel1;
@@ -39,23 +41,26 @@ public class MainFrame extends javax.swing.JFrame {
     private JSeparator jSeparator2;
     private JTextField jTextField1;
     private JFrame thisJframe;
-    private int price = 0;	//Ӧ�����
-    private int need = 0;	//������
-    private Drink chooseDrink;	//ѡ�е�����
-    private int pay = 0;	//��֧���Ľ��
+    
+    private int price = 0;	// 支払に必要な金額
+    private int need = 0;	// まだ必要な金額
+    private Drink chooseDrink;	// 選択されたドリンク
+    private int pay = 0;	// 総支払額
+    
     public MainFrame() {
-    	//�����ϻ�������г�ʼ��
-    	AdminManageHelper helper = new AdminManageHelper();
-    	helper.getVendingMachine();//��ʼ�����ϻ�
+    	// 飲料機オブジェクトの初期化
+    	AdminManageHelper helper = new AdminManageHelper();	// 管理者ヘルパークラスをインスタンス化
+    	helper.getVendingMachine(); // 飲料機の初期化
         initComponents();
         upateJpanel();
-        WindowUtil.setFrameCenter(this);
-        this.setResizable(false);
-        this.setVisible(true);
+        WindowUtil.setFrameCenter(this);	// ウインドウにフレームをセット
+        this.setResizable(false);	// サイズ変更は不可
+        this.setVisible(true);	// フレームを表示
     }
 
-                             
+    // コンストラクタで呼び出せれる
     private void initComponents() {
+    	// メンバ変数に値を格納していく
     	this.thisJframe = this;
         jButton1 = new JButton();
         jLabel1 = new JLabel();
@@ -65,79 +70,113 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel3 = new JLabel();
         jLabel4 = new JLabel();
         jPanel1 = new JPanel();
-        jScrollPane1 = new JScrollPane(jPanel1);
+        jScrollPane1 = new JScrollPane(jPanel1);	// スクロール可能なビュー
         jSeparator1 = new JSeparator();
         jSeparator2 = new JSeparator();
         jLabel5 = new JLabel();
-        jPanel1.setLayout(new GridLayout(0,2));//�������񲼾�
+        jPanel1.setLayout(new GridLayout(0,2));	// グリッドレイアウトを設定する。2列の表示になる。行は任意の数
       
-        
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("�Ԅ�؜�әC");
-        setBackground(new java.awt.Color(245, 140, 100));
+        // WindowConstants -> ウィンドウのクローズ操作を制御する定数
+        // EXIT_ON_CLOSE -> 終了するアプリケーションのデフォルトのウィンドウにクローズ・オペレーション
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);	// デフォルトのクローズ操作の指定
+        setTitle("自動販売機");	// タイトル(画面最上部)
+        setBackground(new java.awt.Color(245, 140, 100));	// 背景色をRGBで設定、変えても変化なし
 
+        // 直線ボーダーを作成し、スクロールパネルに追加
         jScrollPane1.setViewportBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        //����ֻ����������  (ģ�����)
-        jTextField1.addKeyListener(new KeyAdapter(){  
-            public void keyTyped(KeyEvent e) {  
-                int keyChar = e.getKeyChar();                 
-                if(keyChar >= KeyEvent.VK_0 && keyChar <= KeyEvent.VK_9){  
+        // 数字のみの入力制限（テンプレートコード）
+        // キーボードが押されたときのイベントを追加
+        jTextField1.addKeyListener(new KeyAdapter(){
+        	// キーボードを入力するときに呼び出せれる。
+            public void keyTyped(KeyEvent e) {
+                int keyChar = e.getKeyChar();	// イベントに関連する文字を返す
+                // ASCII 文字の 0 以上 9以下か確認する
+                if(keyChar >= KeyEvent.VK_0 && keyChar <= KeyEvent.VK_9){
                       
-                }else{  
-                    e.consume(); //�ؼ������ε��Ƿ�����  
-                }  
-            }  
-        }); 
-        jButton1.setFont(new java.awt.Font("��Բ", 1, 12)); // NOI18N
-        jButton1.setText("����Ա���");
-        //ע���¼�
+                }else{
+                    e.consume();	// 不正な入力をブロックする。
+                }
+            }
+        });
+        
+        jButton1.setFont(new java.awt.Font("幼圆", 1, 12)); // ボタンのフォントを指定
+        jButton1.setText("管理员入口");	// ボタンのテキストを指定
+        
+        // 登録の問題
+        // ボタンにアクションイベントを受け取れるようにする
         jButton1.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				thisJframe.dispose();
-				LoginFrame loginFrame = new LoginFrame();
+				thisJframe.dispose();	// ウインドウを破棄して、リソースを解放
+				LoginFrame loginFrame = new LoginFrame();	// ログインフレームを作成
 
 				
 			}
 		});
-        jLabel1.setText("Ͷ�ҿڣ�");
+        jLabel1.setText("投币口：");	// 文字の指定
 
-        jButton2.setFont(new java.awt.Font("��Բ", 1, 15)); // NOI18N
-        jButton2.setText("ȷ��Ͷ��");
-        //ע���¼�
+        jButton2.setFont(new java.awt.Font("幼圆", 1, 15)); // フォントを指定
+        jButton2.setText("确认投币");		// 文字の指定
+        
+        // ボタンにアクションイベントを追加
+        // 計算する処理を行う
         jButton2.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				computing();//����Ͷ�Һͳ�����
+				computing();	// お金と飲み物を使って計算
 				
 			}
 		});
        
+        // 文字の記入
+        jLabel2.setText("还应投入：");
 
-        jLabel2.setText("��ӦͶ�룺");
+        jLabel3.setText("0元");
 
-        jLabel3.setText("0Ԫ");
+        jLabel4.setText("选中的饮料：");
 
-        jLabel4.setText("ѡ�е����ϣ�");
-
+        // フレームはペインと呼ばれる層が重なって成り立っている
+        // getContentPane(ボタンなどのコンポーネントを含める層)を取得
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
+        getContentPane().setLayout(layout);	// layoutを設定
+        
+        // 全体の画面
+        // 水平軸に沿ってコンポーネントの配置とサイズを指定するように設定
         layout.setHorizontalGroup(
+        		
+        	// 配置方法Alignment.LEADINGでParallelGroup(子の配置とサイズ設定を行うGroup)を作成し、返す
+        	// Alignment.LEADING -> 要素が原点に配置されるように指定する。左から右方向の水平軸の場合、左端に揃えて配置する
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+            
+            // SequentialGroup(要素の配置とサイズ設定を1つずつ順番に行うGroup)を作成し、返す
+//            .addGroup(layout.createSequentialGroup()
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            	// コンポーネント間で幅を作る
+//                .addContainerGap()
+                // 指定のサイズで、このGroupにComponentを追加。最小、推奨、最大サイズの順番
+                // PREFERRED_SIZE -> getPreferredSize(推奨サイズ)を得る
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 540, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                // もっとも近いコンポーネント間の推奨ギャップを表す要素を追加
+                // RELATED -> 2つのコンポーネントが視覚的に関連しており、これらのコンポーネントが同じ親の下に配置されることを示す列挙値
+//                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                
+                
+                // 配置方法Alignment.LEADINGでParallelGroup(子の配置とサイズ設定を行うGroup)を作成し、返す
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                	// SequentialGroup(要素の配置とサイズ設定を1つずつ順番に行うGroup)を作成し、返す
+                	// 右側の各ボタンやラベルの大きさを変えれる
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        	// 管理者用のボタン
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
                                 .addComponent(jButton1))
+                            
+                            // ラベル
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addGap(10, 10, 10)
@@ -156,36 +195,115 @@ public class MainFrame extends javax.swing.JFrame {
                                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap())))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 419, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addGap(10, 10, 10)
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(44, 44, 44)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3))
-                        .addGap(33, 33, 33)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(3, 3, 3)
-                                .addComponent(jLabel1))
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton2)
-                        .addGap(10, 10, 10)
-                        .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(4, 4, 4)
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(15, Short.MAX_VALUE))
+        
+        GroupLayout.SequentialGroup vGroup = layout.createSequentialGroup();
+        vGroup.addGroup(
+        		layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+        		.addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 419, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
+        
+        vGroup.addGroup(
+        		layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+        		.addComponent(jButton1)
+                .addGap(10, 10, 10)
+//                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+//                .addGap(44, 44, 44)
+//                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+//                    .addComponent(jLabel2)
+//                    .addComponent(jLabel3))
+//                .addGap(33, 33, 33)
+//                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+//                    .addGroup(layout.createSequentialGroup()
+//                        .addGap(3, 3, 3)
+//                        .addComponent(jLabel1))
+//                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+//                .addGap(18, 18, 18)
+//                .addComponent(jButton2)
+//                .addGap(10, 10, 10)
+//                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+//                .addGap(4, 4, 4)
+//                .addComponent(jLabel4)
+////                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+//                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        
+        vGroup.addGroup(
+        		layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+        		.addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(44, 44, 44)
+        );
+        
+        vGroup.addGroup(
+        		layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+        		.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel2)
+                        .addComponent(jLabel3))
+                    .addGap(33, 33, 33)
+        );
+        
+        vGroup.addGroup(
+        		layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+        		.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(3, 3, 3)
+                            .addComponent(jLabel1))
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(18, 18, 18)
+        );
+        
+        vGroup.addGroup(
+        		layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+        		.addComponent(jButton2)
+                .addGap(10, 10, 10)
+        );
+        
+        vGroup.addGroup(
+        		layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+        		.addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(4, 4, 4)
+        );
+        
+        vGroup.addGroup(
+        		layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+        		 .addComponent(jLabel4)
+        		 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        
+        layout.setVerticalGroup(vGroup);
+        
+//        layout.setVerticalGroup(
+//        	// 上端に揃えて配置
+//            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+//            .addGroup(layout.createSequentialGroup()
+//                .addContainerGap()
+//                // 下端に揃えて配置する
+//                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+//                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 419, javax.swing.GroupLayout.PREFERRED_SIZE)
+////              .addGroup(layout.createSequentialGroup()
+//                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+//                    .addComponent(jButton1)
+//                    .addGap(10, 10, 10)
+//                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+//                    .addGap(44, 44, 44)
+//                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+//                        .addComponent(jLabel2)
+//                        .addComponent(jLabel3))
+//                    .addGap(33, 33, 33)
+//                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+//                        .addGroup(layout.createSequentialGroup()
+//                            .addGap(3, 3, 3)
+//                            .addComponent(jLabel1))
+//                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+//                    .addGap(18, 18, 18)
+//                    .addComponent(jButton2)
+//                    .addGap(10, 10, 10)
+//                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+//                    .addGap(4, 4, 4)
+//                    .addComponent(jLabel4)
+////                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+//                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)))
+//                .addContainerGap(15, Short.MAX_VALUE))
+//        );
 
         pack();
     }
@@ -193,23 +311,23 @@ public class MainFrame extends javax.swing.JFrame {
     
     private void upateJpanel(){
     	AdminManageHelper manageHelper = new AdminManageHelper();
-    	Vector<Drink> drinks = manageHelper.getAllDrink();	//������е�����
+    	Vector<Drink> drinks = manageHelper.getAllDrink();	//获得所有的饮料
     	 for(int i=0;i<drinks.size();i++){
          	Drink drink = drinks.get(i);   	
          	String s;
-         	JButton jb;//��ť
-         	//������Ϊ0�����Ͻ����жϲ��Ҵ���
+         	JButton jb;//按钮
+         	//对数量为0的饮料进行判断并且处理
          	if(drinks.get(i).getQuantity()==0){
-         		s = drink.getDrinkName()+"|���ۿ�";
+         		s = drink.getDrinkName()+"|已售空";
          		jb = new JButton(s,new ImageIcon(drink.getDrinkImg()));
-         		jb.setEnabled(false);//���ò�����
+         		jb.setEnabled(false);//设置不可用
          	}else{
-         		s = drink.getDrinkName()+"|�۸�:"+drink.getPrice()+"Ԫ|����:"+drink.getQuantity();
+         		s = drink.getDrinkName()+"|价格:"+drink.getPrice()+"元|数量:"+drink.getQuantity();
          		jb = new JButton(s,new ImageIcon(drink.getDrinkImg()));
          	}
-         	//�����ϻ�����ǮС��10��ʱ��(�޷������ʱ��)�����жϺʹ���
+         	//对饮料机的零钱小于10的时候(无法找零的时候)进行判断和处理
          	if(VendingMachine.getInstance().getCoin()<10){
-         		jb.setEnabled(false);	//���ò����á�
+         		jb.setEnabled(false);	//设置不可用。
          	}
          	
          	jb.addActionListener(new ActionListener() {
@@ -218,13 +336,13 @@ public class MainFrame extends javax.swing.JFrame {
  				public void actionPerformed(ActionEvent e) {
  					// TODO Auto-generated method stub
  					if(pay!=0){
- 						JOptionPane.showMessageDialog(thisJframe, "�����֧��!!");
+ 						JOptionPane.showMessageDialog(thisJframe, "请完成支付!!");
  					}else{
 	 					chooseDrink = drink;
 	 					jLabel5.setIcon((new ImageIcon(drink.getDrinkImg())));
-	 					jLabel3.setText(drink.getPrice()+"Ԫ");
+	 					jLabel3.setText(drink.getPrice()+"元");
 	 					price = drink.getPrice();
-	 					need = price;	//���û���Ľ��
+	 					need = price;	//设置还需的金额
 	 					jLabel5.updateUI();
  					}
  				}
@@ -234,27 +352,27 @@ public class MainFrame extends javax.swing.JFrame {
     }
     
     
-    //���㴦��Ͷ�ҵķ���
+    //计算处理投币的方法
     private void computing(){
-    	int repayment = 0;	//�һؽ��
-		int oncePay = 0;	//һ��֧�����
+    	int repayment = 0;	//找回金额
+		int oncePay = 0;	//一次支付金额
 		String s = jTextField1.getText().trim();
 		if(!s.equals("")){
-			 oncePay = Integer.parseInt(s);//�õ�Ͷ�ҵĽ��
+			 oncePay = Integer.parseInt(s);//得到投币的金额
 		} 
 		
 		if(price==0){
 			
 			if(oncePay!=0){
-				JOptionPane.showMessageDialog(thisJframe, "��ѡ��һ��������Ͷ��!!");
-				JOptionPane.showMessageDialog(thisJframe, "����ȡ�����Ǯ!!");
+				JOptionPane.showMessageDialog(thisJframe, "请选择一款饮料再投币!!");
+				JOptionPane.showMessageDialog(thisJframe, "请您取回你的钱!!");
 				jTextField1.setText("");
 			}else{
-				JOptionPane.showMessageDialog(thisJframe, "��ѡ��һ������!!");
+				JOptionPane.showMessageDialog(thisJframe, "请选择一款饮料!!");
 				jTextField1.setText("");
 			}
 		}else if(price!=0 && oncePay==0){
-			JOptionPane.showMessageDialog(thisJframe, "��Ͷ��!!");
+			JOptionPane.showMessageDialog(thisJframe, "请投币!!");
 			jTextField1.setText("");
 		}else{
 			
@@ -262,75 +380,75 @@ public class MainFrame extends javax.swing.JFrame {
 			case 1:
 					need = need - 1;
 					if(need!=0){
-						JOptionPane.showMessageDialog(thisJframe, "����Ͷ�룺"+need+"Ԫ");
+						JOptionPane.showMessageDialog(thisJframe, "还需投入："+need+"元");
 					}
-					pay += oncePay;	//�õ�һ��֧���Ľ��
+					pay += oncePay;	//得到一共支付的金额
 					break;
 			case 5:
-					if(need<5){	//֧����5ԪǮ���ڻ���Ľ��,���һ�Ǯ
+					if(need<5){	//支付的5元钱大于还需的金额,则找回钱
 						repayment = 5 - need;
-						need = 0;	//����
-					}else{//֧����5ԪǮС���ڻ���Ľ��,���������Ǯ
+						need = 0;	//金额付满
+					}else{//支付的5元钱小于于还需的金额,还需继续付钱
 						need = need - 5;	
 						if(need!=0){
-							JOptionPane.showMessageDialog(thisJframe, "����Ͷ�룺"+need+"Ԫ");
+							JOptionPane.showMessageDialog(thisJframe, "还需投入："+need+"元");
 						}
 					}
-					pay += oncePay;	//�õ�һ��֧���Ľ��
+					pay += oncePay;	//得到一共支付的金额
 					break;
 			case 10:
 				    need -= 10;
 					if(need!=0){
 
-						JOptionPane.showMessageDialog(thisJframe, "����Ͷ�룺"+need+"Ԫ");
+						JOptionPane.showMessageDialog(thisJframe, "还需投入："+need+"元");
 					}
-					pay += oncePay;	//�õ�һ��֧���Ľ��
+					pay += oncePay;	//得到一共支付的金额
 					break;
 					
 			default:
-					JOptionPane.showMessageDialog(thisJframe, "��Ͷ��1ԪӲ�һ�5Ԫֽ��,10Ԫֽ��!!");
-					JOptionPane.showMessageDialog(thisJframe, "����ȡ�����Ǯ!!");
+					JOptionPane.showMessageDialog(thisJframe, "请投入1元硬币或5元纸币,10元纸币!!");
+					JOptionPane.showMessageDialog(thisJframe, "请您取回你的钱!!");
 					jTextField1.setText("");
 					break;
 			}
 			
 			
 			if(repayment!=0){
-				JOptionPane.showMessageDialog(thisJframe, "һ���һ�����"+repayment+"Ԫ");
+				JOptionPane.showMessageDialog(thisJframe, "一共找回您："+repayment+"元");
 			}
-			if(price!=0 && need==0){//����ɹ�
-				JOptionPane.showMessageDialog(thisJframe, "���Ѿ��ɹ����������,��ȴ�����!!");
-				//��Ӧ������������Ҫ����!!
-				//�˿Ͳ����İ�����ʵ�����������ļ���
+			if(price!=0 && need==0){//付款成功
+				JOptionPane.showMessageDialog(thisJframe, "您已经成功购买该饮料,请等待出柜!!");
+				//对应的饮料数量需要减少!!
+				//顾客操作的帮助类实现饮料数量的减少
 				CustomerManageHelper helper = new CustomerManageHelper();
-				helper.buyDrink(chooseDrink);//��������
-				//���ӹ˿͹���ļ�¼
+				helper.buyDrink(chooseDrink);//购买饮料
+				//添加顾客购买的纪录
 				PurchaseRecords record = new PurchaseRecords();
 				record.setDrinkName(chooseDrink.getDrinkName());
 				record.setPrice(chooseDrink.getPrice());
-				record.setPayment(pay);	//�ܹ�֧���Ľ��
+				record.setPayment(pay);	//总共支付的金额
 				record.setRepayment(repayment);
 				helper.addPurchaseRecords(record);
-				//�һ���Ǯ֮����Ҫ�����ϻ�����Ǯ������
+				//找回零钱之后需要将饮料机的零钱数减少
 				AdminManageHelper adminManageHelper = new AdminManageHelper();
-				VendingMachine.getInstance().setCoin(VendingMachine.getInstance().getCoin()-repayment);//��ȥ�һص���Ǯ
-				//���ϻ����ܽ��Ҫ����
-				VendingMachine.getInstance().setTotalAmount(VendingMachine.getInstance().getTotalAmount()+oncePay);//����֧����Ǯ
+				VendingMachine.getInstance().setCoin(VendingMachine.getInstance().getCoin()-repayment);//减去找回的零钱
+				//饮料机的总金额要增加
+				VendingMachine.getInstance().setTotalAmount(VendingMachine.getInstance().getTotalAmount()+oncePay);//增加支付的钱
 				adminManageHelper.updateVendingMachine(VendingMachine.getInstance());
 				
-				//���½���
-				jPanel1.removeAll();//�Ƴ�����ϵĿؼ�
+				//更新界面
+				jPanel1.removeAll();//移除面板上的控件
 				jPanel1.updateUI();
-				upateJpanel();	//��������ϵİ�ť
+				upateJpanel();	//更新面板上的按钮
 				jPanel1.updateUI();
-				need = 0;	//���û�ԭ����ֵ
-				price = 0;	//���û�ԭ����ֵ
-				pay = 0;	//���û�ԭ����ֵ
+				need = 0;	//设置回原来的值
+				price = 0;	//设置回原来的值
+				pay = 0;	//设置回原来的值
 				jLabel5.setIcon(null);
 				jLabel5.updateUI();
 			}
 			jTextField1.setText("");
-			jLabel3.setText(need+"Ԫ");
+			jLabel3.setText(need+"元");
 		}
 		
     }
