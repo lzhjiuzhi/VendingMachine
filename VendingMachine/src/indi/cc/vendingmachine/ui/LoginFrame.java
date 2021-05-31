@@ -44,10 +44,10 @@ public class LoginFrame extends javax.swing.JFrame {
         jButton1 = new JButton();
 
         
-        setTitle("¹ÜÀíÔ±µÇÂ½");
+        setTitle("ç®¡ç†å“¡ç™»éŒ²");
         getContentPane().setLayout(null);
 
-        jLabel1.setText("ÃÜÂë£º");
+        jLabel1.setText("ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ï¼š");
         getContentPane().add(jLabel1);
         jLabel1.setBounds(60, 100, 50, 24);
 
@@ -55,7 +55,7 @@ public class LoginFrame extends javax.swing.JFrame {
         getContentPane().add(jTextField1);
         jTextField1.setBounds(110, 50, 114, 21);
 
-        jLabel2.setText("ÓÃ»§Ãû£º");
+        jLabel2.setText("ãƒ¦ãƒ¼ã‚¶ãƒ¼åï¼š");
         getContentPane().add(jLabel2);
         jLabel2.setBounds(60, 50, 60, 24);
 
@@ -63,8 +63,8 @@ public class LoginFrame extends javax.swing.JFrame {
         getContentPane().add(jPasswordField1);
         jPasswordField1.setBounds(110, 100, 113, 21);
 
-        jButton1.setText("µÇÂ½");
-       //×¢²áÊÂ¼ş
+        jButton1.setText("ç™»éŒ²");
+       //æ³¨å†Œäº‹ä»¶
         jButton1.addActionListener(new ActionListener() {
 			
 			@Override
@@ -73,24 +73,24 @@ public class LoginFrame extends javax.swing.JFrame {
 				String username = jTextField1.getText().trim();
 				String password = String.valueOf(jPasswordField1.getPassword());
 				if(username.equals("")){
-					JOptionPane.showMessageDialog(jf, "ÓÃ»§Ãû²»ÄÜÎª¿Õ!!");
+					JOptionPane.showMessageDialog(jf, "ãƒ¦ãƒ¼ã‚¶ãƒ¼åã¯ç©ºã«ã§ãã¾ã›ã‚“ï¼ï¼");
 					return ;
 				}else if(password.equals("")){
-					JOptionPane.showMessageDialog(jf, "ÃÜÂë²»ÄÜÎª¿Õ!!");
+					JOptionPane.showMessageDialog(jf, "ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã¯ç©ºã«ã§ãã¾ã›ã‚“ï¼ï¼");
 					return ;
 				}else{
 					Administrator admin = new Administrator(username,password);
 					AdminManageHelper manageHelper = new AdminManageHelper();
 					if(manageHelper.Login(admin)){
-						JOptionPane.showMessageDialog(jf, "µÇÂ½³É¹¦!!");
+						JOptionPane.showMessageDialog(jf, "ç™»éŒ²ã§ãã¾ã—ãŸï¼ï¼");
 						AdminChoose adminChoose = new AdminChoose(admin);
 						jf.dispose();
 						return ;
 					}else{
-						JOptionPane.showMessageDialog(jf, "ÓÃ»§Ãû»òÃÜÂë´íÎó!!");
+						JOptionPane.showMessageDialog(jf, "ãƒ¦ãƒ¼ã‚¶ãƒ¼åã¾ãŸã¯ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã¯é–“é•ã£ã¦ã„ã¾ã™ï¼ï¼");
 						jTextField1.setText("");
 						jPasswordField1.setText("");
-						jTextField1.requestFocus();//»ñÈ¡½¹µã
+						jTextField1.requestFocus();//è·å–ç„¦ç‚¹
 						return ;
 					}
 				}
@@ -100,7 +100,7 @@ public class LoginFrame extends javax.swing.JFrame {
         
         getContentPane().add(jButton1);
         jButton1.setBounds(140, 150, 60, 23);
-        //×¢²á´°¿ÚÊÂ¼ş
+        //æ³¨å†Œçª—å£äº‹ä»¶
         this.addWindowListener(new WindowListener() {
 			
 			@Override
