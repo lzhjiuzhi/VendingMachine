@@ -4,7 +4,7 @@ import indi.cc.vendingmachine.bean.VendingMachine;
 import indi.cc.vendingmachine.util.WindowUtil;
 
 import javax.swing.JDialog;
-//½ğ¶î²éÑ¯½çÃæ
+//é‡‘é¢æŸ¥è¯¢ç•Œé¢
 
 public class AmountQuery extends javax.swing.JDialog {
 	  
@@ -15,9 +15,9 @@ public class AmountQuery extends javax.swing.JDialog {
 	                  
 		/**
 		 * 
-		 * @param owner ËüµÄ¸¸´°¿Ú
-		 * @param title ´°¿ÚÃû
-		 * @param modal Ö¸¶¨µÄÄ£Ê½´°¿Ú£¬»¹ÓĞ·ÇÄ£Ê½´°¿Ú
+		 * @param owner å®ƒçš„çˆ¶çª—å£
+		 * @param title çª—å£å
+		 * @param modal æŒ‡å®šçš„æ¨¡å¼çª—å£ï¼Œè¿˜æœ‰éæ¨¡å¼çª—å£
 		 */
 		public AmountQuery(JDialog owner, String title, boolean modal){
 			super(owner, title, modal);
@@ -34,18 +34,18 @@ public class AmountQuery extends javax.swing.JDialog {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField( VendingMachine.getInstance().getTotalAmount()+"Ôª");
+        jTextField1 = new javax.swing.JTextField( VendingMachine.getInstance().getTotalAmount()+"å††");
         jTextField1.setEditable(false);
-        jTextField2 = new javax.swing.JTextField(VendingMachine.getInstance().getCoin()+"Ôª");
+        jTextField2 = new javax.swing.JTextField(VendingMachine.getInstance().getCoin()+"å††");
         jTextField2.setEditable(false);
         
        
         
-        jLabel1.setFont(new java.awt.Font("Ó×Ô²", 1, 12)); // NOI18N
-        jLabel1.setText("×Ü½ğ¶î:");
+        jLabel1.setFont(new java.awt.Font("å¹¼åœ†", 1, 12)); // NOI18N
+        jLabel1.setText("åˆè¨ˆé‡‘é¡ï¼š");
 
-        jLabel2.setFont(new java.awt.Font("Ó×Ô²", 1, 12)); // NOI18N
-        jLabel2.setText("ÁãÇ®:");
+        jLabel2.setFont(new java.awt.Font("å¹¼åœ†", 1, 12)); // NOI18N
+        jLabel2.setText("ãŠè¿”ã—é‡‘é¡ï¼š");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
