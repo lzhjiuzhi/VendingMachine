@@ -54,7 +54,7 @@ public class AddCoinFrame extends javax.swing.JDialog {
                 if(keyChar >= KeyEvent.VK_0 && keyChar <= KeyEvent.VK_9){  
                       
                 }else{  
-                    e.consume(); //大切、条件を満たさない入力を遮断 
+                    e.consume(); //大切、条件を満たさない入力を遮断
                 }  
             }  
         }); 
@@ -79,7 +79,7 @@ public class AddCoinFrame extends javax.swing.JDialog {
 					record.setBeforeAdd(VendingMachine.getInstance().getCoin());//補充前のお金の在庫金額
 					VendingMachine.getInstance().setCoin(Integer.parseInt(inputValue)+VendingMachine.getInstance().getCoin());
 					helper.updateVendingMachine(VendingMachine.getInstance());
-					JOptionPane.showMessageDialog(jd, "補充した金額:"+inputValue+"円!!");	
+					JOptionPane.showMessageDialog(jd, "補充した金額："+inputValue+"円！！");	
 					record.setAddAmount(Integer.parseInt(inputValue));//補充金額を設定
 					record.setAfterAdd(VendingMachine.getInstance().getCoin());
 					helper.addAddRecords(record);	///補充履歴
