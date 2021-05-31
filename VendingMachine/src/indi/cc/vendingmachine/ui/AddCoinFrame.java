@@ -13,7 +13,7 @@ import indi.cc.vendingmachine.util.WindowUtil;
 
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
-//Ìí¼ÓÁãÇ®½çÃæ
+//æ·»åŠ é›¶é’±ç•Œé¢
 
 public class AddCoinFrame extends javax.swing.JDialog {
     
@@ -24,9 +24,9 @@ public class AddCoinFrame extends javax.swing.JDialog {
 	private Administrator admin;
 	/**
 	 * 
-	 * @param owner ËüµÄ¸¸´°¿Ú
-	 * @param title ´°¿ÚÃû
-	 * @param modal Ö¸¶¨µÄÄ£Ê½´°¿Ú£¬»¹ÓÐ·ÇÄ£Ê½´°¿Ú
+	 * @param owner å®ƒçš„çˆ¶çª—å£
+	 * @param title çª—å£å
+	 * @param modal æŒ‡å®šçš„æ¨¡å¼çª—å£ï¼Œè¿˜æœ‰éžæ¨¡å¼çª—å£
 	 */
 	public AddCoinFrame(JDialog owner, String title, boolean modal,Administrator admin){
 		super(owner, title, modal);
@@ -42,26 +42,26 @@ public class AddCoinFrame extends javax.swing.JDialog {
         jLabel1 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        jTextField1.requestFocus();//»ñÈ¡½¹µã
+        jTextField1.requestFocus();//èŽ·å–ç„¦ç‚¹
        
 
-        jLabel1.setFont(new java.awt.Font("Ó×Ô²", 1, 12)); // NOI18N
-        jLabel1.setText("ÇëÌí¼ÓÁãÇ®:");
+        jLabel1.setFont(new java.awt.Font("å¹¼åœ†", 1, 12)); // NOI18N
+        jLabel1.setText("ç´°ã‹ã„ãŠé‡‘ã‚’ã„ã‚Œã¦ãã ã•ã„ï¼š");
         jTextField1.addKeyListener(new KeyAdapter(){  
-        	//ÏÞÖÆÖ»ÄÜÊäÈëÊý×Ö
+        	//é™åˆ¶åªèƒ½è¾“å…¥æ•°å­—
             public void keyTyped(KeyEvent e) {  
                 int keyChar = e.getKeyChar();                 
                 if(keyChar >= KeyEvent.VK_0 && keyChar <= KeyEvent.VK_9){  
                       
                 }else{  
-                    e.consume(); //¹Ø¼ü£¬ÆÁ±Îµô·Ç·¨ÊäÈë  
+                    e.consume(); //å…³é”®ï¼Œå±è”½æŽ‰éžæ³•è¾“å…¥  
                 }  
             }  
         }); 
        
 
-        jButton1.setFont(new java.awt.Font("Ó×Ô²", 1, 12)); // NOI18N
-        jButton1.setText("Ìí¼Ó");
+        jButton1.setFont(new java.awt.Font("å¹¼åœ†", 1, 12)); // NOI18N
+        jButton1.setText("è¿½åŠ ");
         jButton1.addActionListener(new ActionListener() {
 			
 			@Override
@@ -69,20 +69,20 @@ public class AddCoinFrame extends javax.swing.JDialog {
 				// TODO Auto-generated method stub
 				String inputValue = jTextField1.getText().trim();
 				if(inputValue.equals("")||Integer.parseInt(inputValue)==0){
-					JOptionPane.showMessageDialog(jd, "Çë·ÅÈëÁãÇ®!!");
+					JOptionPane.showMessageDialog(jd, "ç´°ã‹ã„ãŠé‡‘ã‚’ã„ã‚Œã¦ãã ã•ã„ï¼ï¼");
 					jTextField1.setText("");
 				}else{
 					AdminManageHelper helper = new AdminManageHelper();
-					//¼ÇÂ¼²¹³äÁãÇ®µÄ¼ÇÂ¼
+					//è®°å½•è¡¥å……é›¶é’±çš„è®°å½•
 					AddRecords record = new AddRecords();
-					record.setAdministrator(admin.getUsername());//²Ù×÷¹ÜÀíÔ±
-					record.setBeforeAdd(VendingMachine.getInstance().getCoin());//»ñÈ¡²¹³äÇ°µÄÁãÇ®½ð¶î
+					record.setAdministrator(admin.getUsername());//æ“ä½œç®¡ç†å‘˜
+					record.setBeforeAdd(VendingMachine.getInstance().getCoin());//èŽ·å–è¡¥å……å‰çš„é›¶é’±é‡‘é¢
 					VendingMachine.getInstance().setCoin(Integer.parseInt(inputValue)+VendingMachine.getInstance().getCoin());
 					helper.updateVendingMachine(VendingMachine.getInstance());
-					JOptionPane.showMessageDialog(jd, "ÄúÒÑ²¹³äÁËÁãÇ®:"+inputValue+"Ôª!!");	
-					record.setAddAmount(Integer.parseInt(inputValue));//ÉèÖÃÌí¼ÓµÄ½ð¶î
+					JOptionPane.showMessageDialog(jd, "è£œå……ã—ãŸé‡‘é¡"+inputValue+"å††ï¼ï¼");	
+					record.setAddAmount(Integer.parseInt(inputValue));//è®¾ç½®æ·»åŠ çš„é‡‘é¢
 					record.setAfterAdd(VendingMachine.getInstance().getCoin());
-					helper.addAddRecords(record);	///Ìí¼Ó¼ÍÂ¼
+					helper.addAddRecords(record);	///æ·»åŠ çºªå½•
 					
 					jd.dispose();
 				}
