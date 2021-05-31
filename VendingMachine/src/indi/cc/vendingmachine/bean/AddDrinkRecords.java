@@ -1,7 +1,7 @@
 package indi.cc.vendingmachine.bean;
 //补充饮料数量的记录类
 public class AddDrinkRecords {
-	private int id;	//编号
+	private int id;	//IDです
 	private String administrator;	//操作管理员
 	private String drinkName;	//饮料名称
 	private String date;	//添加时间
