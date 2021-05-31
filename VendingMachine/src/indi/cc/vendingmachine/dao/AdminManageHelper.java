@@ -10,7 +10,7 @@ import indi.cc.vendingmachine.bean.Drink;
 import indi.cc.vendingmachine.bean.PurchaseRecords;
 import indi.cc.vendingmachine.bean.VendingMachine;
 
-//管理员操作数据库帮助类
+//管理員操作データベースのhelperクラス
 public class AdminManageHelper {
 	private SqlHelper helper;
 	
@@ -19,9 +19,9 @@ public class AdminManageHelper {
 	}
 	
 	/**
-	 * 得到管理员对象 
-	 * @param admin 管理员
-	 * @return 返回管理员对象
+	 * 管理員インスタンスを取得
+	 * @param admin 管理員
+	 * @return 管理員インスタンスを戻り
 	 */
 	public Administrator getAdmin(Administrator admin){
 		helper = new SqlHelper();
@@ -34,9 +34,9 @@ public class AdminManageHelper {
 	
 	
 	/**
-	 * 管理员登陆
-	 * @param admin 管理员
-	 * @return 返回是否登陆成功
+	 * 管理員登録
+	 * @param admin 管理員
+	 * @return 登録成功かどうかを戻り
 	 */
 	public boolean Login(Administrator admin){
 		Administrator administrator = getAdmin(admin);
@@ -47,9 +47,9 @@ public class AdminManageHelper {
 	}
 	
 	/**
-	 * 添加管理员
-	 * @param admin	管理员
-	 * @return 返回是否添加成功
+	 * 管理員を追加
+	 * @param admin	管理員
+	 * @return 管理員が追加されたかどうかを戻り
 	 */
 	public boolean addAdmin(Administrator admin){
 		helper = new SqlHelper();
@@ -59,10 +59,10 @@ public class AdminManageHelper {
 	}
 	
 	/**
-	 * 修改管理员密码
-	 * @param oldAdmin 旧管理员
-	 * @param newAdmin 新管理员
-	 * @return 返回是否修改成功
+	 * 管理者のパスワードを変更
+	 * @param oldAdmin 元の管理者
+	 * @param newAdmin 新しい管理者
+	 * @return 変更されたかどうかを戻り
 	 */
 	public boolean updatePassword(Administrator oldAdmin,Administrator newAdmin){
 		helper = new SqlHelper();
@@ -73,8 +73,8 @@ public class AdminManageHelper {
 	
 	
 	/**
-	 * 返回所有的饮料
-	 * @return 所有的饮料集合
+	 * すべての商品を戻り
+	 * @return すべての商品のコレクションを戻り
 	 */
 	public Vector<Drink> getAllDrink(){
 		helper = new SqlHelper();
@@ -84,9 +84,9 @@ public class AdminManageHelper {
 	}
 	
 	/**
-	 * 添加饮料
-	 * @param drink 饮料对象
-	 * @return	是否添加成功
+	 * 商品を追加
+	 * @param drink 商品のインスタンス
+	 * @return	追加できたかどうかを戻り
 	 */
 	public boolean addDrink(Drink drink){
 		helper = new SqlHelper();
@@ -96,10 +96,10 @@ public class AdminManageHelper {
 	}
 	
 	/**
-	 * 修改饮料信息
-	 * @param oldDrink 旧饮料对象
-	 * @param drink 饮料对象
-	 * @return 返回是否修改成功
+	 * 商品の情報を変更
+	 * @param oldDrink 古い商品のインスタンス
+	 * @param drink 商品のインスタンス
+	 * @return 変更できたかどうかを戻り
 	 */
 	public boolean updateDrink(Drink oldDrink,Drink drink){
 		helper = new SqlHelper();
@@ -109,9 +109,9 @@ public class AdminManageHelper {
 	}
 	
 	/**
-	 * 删除饮料
-	 * @param drink 饮料对象
-	 * @return 返回是否修改成功
+	 * 商品を削除
+	 * @param drink 商品のインスタンス
+	 * @return 削除できたかどうかを戻り
 	 */
 	public boolean deleteDrink(Drink drink){
 		helper = new SqlHelper();
@@ -121,8 +121,8 @@ public class AdminManageHelper {
 	}
 	
 	/**
-	 * 修改饮料数量
-	 * @param drink 饮料对象
+	 * 商品の数量を変更
+	 * @param drink 商品のインスタンス
 	 * @return
 	 */
 	public boolean updateDrinkNum(Drink drink){
@@ -134,7 +134,7 @@ public class AdminManageHelper {
 	
 	
 	/**
-	 * 初始化饮料机对象
+	 * 初始化饮料机对象　商品のインスタンスを初期化
 	 * 
 	 */
 	public void getVendingMachine(){
@@ -145,9 +145,9 @@ public class AdminManageHelper {
 	
 	
 	/**
-	 * 修改饮料机对象
-	 * @param machine 饮料机对象
-	 * @return 返回是否修改成功
+	 * マシンのインスタンスを変更
+	 * @param machine マシンのインスタンス
+	 * @return 変更できたかどうかを戻り
 	 */
 	public boolean updateVendingMachine(VendingMachine machine){
 		helper = new SqlHelper();
@@ -157,8 +157,8 @@ public class AdminManageHelper {
 	}
 	
 	/**
-	 * 获得所有的零钱补充记录
-	 * @return 返回零钱补充记录集合
+	 * 細かいお金の補充履歴　
+	 * @return 細かいお金の補充履歴のコレクションを戻り
 	 */
 	public Vector<AddRecords> getAllAddRecords(){
 		helper = new SqlHelper();
@@ -169,8 +169,8 @@ public class AdminManageHelper {
 	
 	
 	/**
-	 * 添加补充零钱记录
-	 * @param record 补充零钱记录
+	 * 細かいお金の補充履歴を追加
+	 * @param record 細かいお金の補充履歴
 	 */
 	public void addAddRecords(AddRecords record){
 		helper = new SqlHelper();
@@ -181,8 +181,8 @@ public class AdminManageHelper {
 	
 	
 	/**
-	 * 获得所有的取现记录
-	 * @return 返回取现记录集合
+	 * すべてのお金の引き出し履歴を取得
+	 * @return お金の引き出し履歴のコレクションを戻り
 	 */
 	public Vector<CashRecords> getAllCashRecords(){
 		helper = new SqlHelper();
@@ -193,7 +193,7 @@ public class AdminManageHelper {
 	
 	
 	/**
-	 * 添加取现记录
+	 * お金の引き出し履歴を追加
 	 * @param record
 	 */
 	public void addCashRecords(CashRecords record){
@@ -204,8 +204,8 @@ public class AdminManageHelper {
 	}
 	
 	/**
-	 * 获得所有的顾客购买记录
-	 * @return 返回顾客购买记录集合
+	 * すべての顧客の購入履歴を取得
+	 * @return 顧客の購入履歴のコレクションを戻り
 	 */
 	public Vector<PurchaseRecords> getAllPurchaseRecords(){
 		helper = new SqlHelper();
@@ -216,8 +216,8 @@ public class AdminManageHelper {
 	
 	
 	/**
-	 * 得到所有添加饮料的记录
-	 * @return 返回所有添加饮料记录
+	 * すべての商品の補充履歴を取得
+	 * @return すべての商品の補充履歴を戻り
 	 */
 	public Vector<AddDrinkRecords> getAllAddDrinkRecords(){
 		helper = new SqlHelper();
@@ -228,8 +228,8 @@ public class AdminManageHelper {
 	
 	
 	/**
-	 * 添加饮料补充记录
-	 * @param record 饮料补充记录
+	 * 商品の補充履歴を追加
+	 * @param record 商品の補充履歴
 	 */
 	public void addAddDrinkRecords(AddDrinkRecords record){
 		helper = new SqlHelper();

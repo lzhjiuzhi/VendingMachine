@@ -24,9 +24,9 @@ public class AddAdminFrame extends javax.swing.JDialog {
 	    private JDialog jd;
 	    /**
 		 * 
-		 * @param owner 它的父窗口
-		 * @param title 窗口名
-		 * @param modal 指定的模式窗口，还有非模式窗口
+		 * @param owner 親レベルのwindow
+		 * @param title windowの名前
+		 * @param modal 指定されたmodalとmodelessのwindow
 		 */
 		public AddAdminFrame(JFrame owner, String title, boolean modal){
 	    	super(owner, title, modal);
@@ -51,15 +51,15 @@ public class AddAdminFrame extends javax.swing.JDialog {
         jButton2 = new javax.swing.JButton();
 
 
-        jLabel1.setText("用户名:");
+        jLabel1.setText("ユーザー名:");
 
-        jLabel2.setText("密码:");
+        jLabel2.setText("パスワード:");
 
-        jLabel3.setText("确认密码:");
+        jLabel3.setText("パスワード確認:");
 
        
 
-        jButton1.setText("创建");
+        jButton1.setText("作成");
         jButton1.addActionListener(new ActionListener() {
 			
 			@Override
@@ -69,26 +69,26 @@ public class AddAdminFrame extends javax.swing.JDialog {
 				String password = String.valueOf(jPasswordField1.getPassword());
 				String rePassword = String.valueOf(jPasswordField2.getPassword());
 				if(username.equals("")){
-					JOptionPane.showMessageDialog(jd, "用户名不能空!!");
+					JOptionPane.showMessageDialog(jd, "ユーザー名を設定してください！");
 					return ;
 				}else if(password.equals("")){
-					JOptionPane.showMessageDialog(jd, "密码不能为空!!");
+					JOptionPane.showMessageDialog(jd, "パスワードを設定してください！");
 					return ;
 				}else if(rePassword.equals("")){
-					JOptionPane.showMessageDialog(jd, "确认密码不能为空!!");
+					JOptionPane.showMessageDialog(jd, "パスワード確認を入力してください");
 					return ;
 				}else if(!password.equals(rePassword)){
-					JOptionPane.showMessageDialog(jd, "两次密码不一致!!");
+					JOptionPane.showMessageDialog(jd, "パスワードやパスワード確認は一致しない");
 					return ;
 				}else {
 					Administrator admin = new Administrator(username, password);
 					AdminManageHelper manageHelper = new AdminManageHelper();
 					if(manageHelper.addAdmin(admin)){
-						JOptionPane.showMessageDialog(jd, "创建成功!!");
+						JOptionPane.showMessageDialog(jd, "作成完了！");
 						jd.dispose();
 						return ;
 					}else{
-						JOptionPane.showMessageDialog(jd, "创建失败!!");
+						JOptionPane.showMessageDialog(jd, "作成できませんでした！");
 						jd.dispose();
 						return ;
 					}
@@ -96,7 +96,7 @@ public class AddAdminFrame extends javax.swing.JDialog {
 			}
 		});
 
-        jButton2.setText("取消");
+        jButton2.setText("キャンセル");
         jButton2.addActionListener(new ActionListener() {
 			
 			@Override

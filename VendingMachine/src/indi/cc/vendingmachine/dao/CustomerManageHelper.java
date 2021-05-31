@@ -3,12 +3,12 @@ package indi.cc.vendingmachine.dao;
 import indi.cc.vendingmachine.bean.Drink;
 import indi.cc.vendingmachine.bean.PurchaseRecords;
 
-//顾客操作数据库帮助类
+//顧客操作データベースのhelperクラス
 public class CustomerManageHelper {
 	private SqlHelper helper;
 	/**
-	 * 添加顾客购买记录
-	 * @param record 购买记录
+	 * 顧客の購入履歴を追加
+	 * @param record 購入履歴
 	 */
 	public void addPurchaseRecords(PurchaseRecords record){
 		helper = new SqlHelper();
@@ -17,8 +17,8 @@ public class CustomerManageHelper {
 	}
 	
 	/**
-	 * 购买饮料
-	 * @param drink 饮料对象
+	 * 商品を購入
+	 * @param drink 商品のインスタンス
 	 */
 	public void buyDrink(Drink drink){
 		helper = new SqlHelper();

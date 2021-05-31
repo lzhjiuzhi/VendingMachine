@@ -17,17 +17,17 @@ import java.sql.SQLException;
 import java.util.Vector;
 
 public class SqlHelper implements JdbcConfig{
-	//定义连接数据库所需要的对象
+	//データベースに接続するのに必要なインスタンスを定義
 		private PreparedStatement ps = null;
 		private ResultSet rs = null;
 		private Connection ct = null;
 		
 
-		//获得数据库的连接
+		//データベースとのconnectionを取得
 		private  void init(){
 			try {
 				Class.forName(DRIVER);
-				ct = DriverManager.getConnection(URL, USERNAME, PASSWORD);// 获得数据库连接
+				ct = DriverManager.getConnection(URL, USERNAME, PASSWORD);// データベースとのconnectionを取得
 			} catch (ClassNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -42,7 +42,7 @@ public class SqlHelper implements JdbcConfig{
 			this.init();
 		}
 		
-		//关闭数据库资源
+		//データベースのリソースをシャットダウン
 		public void close()	{
 			try {
 				if(rs!=null) rs.close();
@@ -55,13 +55,13 @@ public class SqlHelper implements JdbcConfig{
 		}
 					
 ///////////////////////////////
-//管理员操作////////////////////
+//管理員操作////////////////////
 ///////////////////////////////		
 		
 		/**
-		 * 得到管理员对象
-		 * @param admin 管理员
-		 * @return	返回管理员对象
+		 * 管理員のインスタンスを取得
+		 * @param admin 管理員
+		 * @return	管理員のインスタンスを戻り
 		 */
 		public Administrator getAdmin(Administrator admin){
 			Administrator administrator = new Administrator();
@@ -81,9 +81,9 @@ public class SqlHelper implements JdbcConfig{
 		}
 		
 		/**
-		 * 添加管理员
-		 * @param admin 管理员
-		 * @return	返回是否添加成功
+		 * 管理員を追加
+		 * @param admin 管理員
+		 * @return	追加できたかどうかを戻り
 		 */
 		public boolean addAdmin(Administrator admin){
 			boolean b = true;
@@ -103,10 +103,10 @@ public class SqlHelper implements JdbcConfig{
 		}
 		
 		/**
-		 * 修改管理员密码
-		 * @param oldAdmin 旧管理员
-		 * @param newAdmin 新管理员
-		 * @return 是否修改成功
+		 * 管理員のパスワードを変更
+		 * @param oldAdmin 元の管理員
+		 * @param newAdmin 新しい管理員
+		 * @return 変更できたかどうかを戻り
 		 */
 		public boolean updateAdmin(Administrator oldAdmin,Administrator newAdmin){
 			boolean b = true;
@@ -127,9 +127,9 @@ public class SqlHelper implements JdbcConfig{
 		
 		
 		/**
-		 * 根据id号返回指定的饮料
-		 * @param drink 饮料对象
-		 * @return 返回饮料对象
+		 * id番号に基づいて、指定された商品を戻り
+		 * @param drink 商品のインスタンス
+		 * @return 返回饮料对象商品のインスタンを戻り
 		 */
 		public Drink getDrink(Drink drink){
 			try {
@@ -154,7 +154,7 @@ public class SqlHelper implements JdbcConfig{
 		
 		
 		/**
-		 * 获得所有饮料集合
+		 * すべての商品のコレクションを取得
 		 * @return
 		 */
 		public Vector<Drink> getAllDrink(){
@@ -180,7 +180,7 @@ public class SqlHelper implements JdbcConfig{
 		
 		
 		/**
-		 * 添加饮料
+		 * 商品を追加
 		 * @param drink
 		 * @return
 		 */
@@ -205,9 +205,9 @@ public class SqlHelper implements JdbcConfig{
 		
 		
 		/**
-		 * 修改饮料信息
-		 * @param oldDrink 旧饮料
-		 * @param drink 饮料
+		 * 商品の情報を変更
+		 * @param oldDrink 古い商品
+		 * @param drink 商品
 		 * @return
 		 */
 		public boolean updateDrink(Drink oldDrink,Drink drink){
@@ -230,9 +230,9 @@ public class SqlHelper implements JdbcConfig{
 		}
 		
 		/**
-		 * 删除饮料
-		 * @param drink 饮料对象
-		 * @return 返回是否删除成功
+		 * 商品を削除
+		 * @param drink 商品のインスタンス
+		 * @return 削除できたかどうかを戻り
 		 */
 		public boolean deleteDrink(Drink drink){
 			boolean b = true;
@@ -252,8 +252,8 @@ public class SqlHelper implements JdbcConfig{
 		
 		
 		/**
-		 * 修改饮料数量
-		 * @param drink 饮料对象
+		 * 商品数量を変更
+		 * @param drink 商品のインスタンス
 		 * @return
 		 */
 		public boolean updateDrinkNum(Drink drink){
@@ -274,8 +274,8 @@ public class SqlHelper implements JdbcConfig{
 		
 		
 		/**
-		 * 获得饮料机对象
-		 * @return 返回饮料机对象
+		 * マシンのインスタンスを取得
+		 * @return マシンのインスタンスを戻り
 		 */
 		public VendingMachine getVendingMachine(){
 			VendingMachine machine = VendingMachine.getInstance();
@@ -295,9 +295,9 @@ public class SqlHelper implements JdbcConfig{
 		
 		
 		/**
-		 * 修改饮料机对象
-		 * @param machine 饮料机对象
-		 * @return 返回是否修改成功
+		 * マシンのインスタンスを変更
+		 * @param machine マシンのインスタンス
+		 * @return 変更できたかどうかを戻り
 		 */
 		public boolean updateVendingMachine(VendingMachine machine){
 			boolean b = true;
@@ -318,8 +318,8 @@ public class SqlHelper implements JdbcConfig{
 		
 		
 		/**
-		 * 获得顾客购买记录
-		 * @return 返回购买记录
+		 * 顧客の購入履歴を取得
+		 * @return 購入履歴を戻り
 		 */
 		public Vector<PurchaseRecords> getAllPurchaseRecords(){
 			Vector<PurchaseRecords> records = new Vector<PurchaseRecords>();
@@ -346,8 +346,8 @@ public class SqlHelper implements JdbcConfig{
 		
 		
 		/**
-		 * 获得所有的补充零钱记录
-		 * @return 返回补充零钱记录集合
+		 * 細かいお金の補充履歴を取得
+		 * @return 細かいお金の補充履歴のコレクションを戻り
 		 */
 		public Vector<AddRecords> getAllAddRecords(){
 			Vector<AddRecords> records = new Vector<AddRecords>();
@@ -375,8 +375,8 @@ public class SqlHelper implements JdbcConfig{
 		
 		
 		/**
-		 * 添加补充零钱记录
-		 * @param record 补充零钱记录
+		 * 細かいお金の補充履歴を追加
+		 * @param record 細かいお金の補充履歴
 		 */
 		public void addAddRecords(AddRecords record){
 			try {
@@ -394,8 +394,8 @@ public class SqlHelper implements JdbcConfig{
 		
 		
 		/**
-		 * 得到所有的取现记录
-		 * @return 返回取现记录集合
+		 * すべてのお金の引き出し記録を取得
+		 * @return 引き出し履歴のコレクションを戻り
 		 */
 		public Vector<CashRecords> getAllCashRecords(){
 			Vector<CashRecords> records = new Vector<CashRecords>();
@@ -421,7 +421,7 @@ public class SqlHelper implements JdbcConfig{
 		
 		
 		/**
-		 * 添加取现记录
+		 * お金の引き出し履歴を追加
 		 * @param record
 		 */
 		public void addCashRecords(CashRecords record){
@@ -440,8 +440,8 @@ public class SqlHelper implements JdbcConfig{
 		
 		
 		/**
-		 * 得到所有添加饮料的记录
-		 * @return 返回所有添加饮料记录
+		 * 商品の補充履歴を取得
+		 * @return すべての商品の補充履歴を戻り
 		 */
 		public Vector<AddDrinkRecords> getAllAddDrinkRecords(){
 			Vector<AddDrinkRecords> records = new Vector<AddDrinkRecords>();
@@ -468,8 +468,8 @@ public class SqlHelper implements JdbcConfig{
 		
 		
 		/**
-		 * 添加饮料补充记录
-		 * @param record 饮料补充记录
+		 * 商品の補充履歴を追加
+		 * @param record 商品の補充履歴
 		 */
 		public void addAddDrinkRecords(AddDrinkRecords record){
 			try {
@@ -489,12 +489,12 @@ public class SqlHelper implements JdbcConfig{
 		
 		
 ///////////////////////////
-//顾客操作/////////////////
+//顧客操作/////////////////
 //////////////////////////		
 		
 		/**
-		 * 添加顾客购买记录
-		 * @param record 购买记录
+		 * 顧客購入履歴を追加
+		 * @param record 購入履歴
 		 */
 		public void addPurchaseRecords(PurchaseRecords record){
 			try {
@@ -512,8 +512,8 @@ public class SqlHelper implements JdbcConfig{
 		
 		
 		/**
-		 * 购买饮料
-		 * @param drink 饮料对象
+		 * 商品購入
+		 * @param drink 商品のインスタンス
 		 */
 		public void buyDrink(Drink drink){
 			try {

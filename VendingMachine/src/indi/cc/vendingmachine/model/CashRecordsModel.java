@@ -10,34 +10,34 @@ import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import javax.swing.table.AbstractTableModel;
 
-//取现记录数据模型
+//お金の引き出し履歴モデル
 public class CashRecordsModel extends AbstractTableModel{
 	AdminManageHelper helper = null;
-	private  Vector<String> columnNames = null;	//列名
-	private Vector<Vector<String>> rowData = null;	//行数据
+	private  Vector<String> columnNames = null;	//列の名前
+	private Vector<Vector<String>> rowData = null;	//行のデータ
 	
 	
 	 public CashRecordsModel(JDialog jd) {
 			helper = new AdminManageHelper();
-			Vector<CashRecords> records = helper.getAllCashRecords();	//得到所有的取现补充记录
+			Vector<CashRecords> records = helper.getAllCashRecords();	//お金の引き出しや補充履歴を取得
 			
 			columnNames = new Vector<String>();
 			rowData = new Vector<Vector<String>>();
-			columnNames.add("编号");
-			columnNames.add("操作管理员");
-			columnNames.add("取现前的金额");
-			columnNames.add("取现金额");
-			columnNames.add("取现后的金额");
-			columnNames.add("取现的时间");
+			columnNames.add("番号");
+			columnNames.add("操作管理員");
+			columnNames.add("お金の引き出し前の金額");
+			columnNames.add("引き出したお金");
+			columnNames.add("引き出し後の金額");
+			columnNames.add("引き出し時間");
 			
 			if(records!=null){
 				for(CashRecords record : records){
 					Vector<String> hang = new Vector<String>();
 					hang.add(String.valueOf(record.getId()));
 					hang.add(record.getAdministrator());
-					hang.add(record.getBeforeCash()+"元");
-					hang.add(record.getCash()+"元");
-					hang.add(record.getAfterCash()+"元");
+					hang.add(record.getBeforeCash()+"円");
+					hang.add(record.getCash()+"円");
+					hang.add(record.getAfterCash()+"円");
 					hang.add(record.getDate());
 					rowData.add(hang);
 					
@@ -47,36 +47,36 @@ public class CashRecordsModel extends AbstractTableModel{
 			
 			
 			if(getRowCount()!=0){
-				JOptionPane.showMessageDialog(jd, "一共有"+getRowCount()+"条记录！");
+				JOptionPane.showMessageDialog(jd, "合計"+getRowCount()+"件履歴");
 				return ;
 			}else{
-				JOptionPane.showMessageDialog(jd, "没有任何记录！");
+				JOptionPane.showMessageDialog(jd, "履歴がありません");
 				return ;
 			}
 		}
 	
 	
 	
-	//得到共有多少行
+	//取得した行の数
 			@Override
 			public int getRowCount() {
 				// TODO Auto-generated method stub
 				return this.rowData.size();
 			}
-			//得到共有多少列
+			//取得した列の数
 			@Override
 			public int getColumnCount() {
 				// TODO Auto-generated method stub
 				return this.columnNames.size();
 			}
-			//得到某行某列的数据
+			//ある行ある列のデータを取得
 			@Override
 			public Object getValueAt(int rowIndex, int columnIndex) {
 				// TODO Auto-generated method stub
 				return ((Vector)this.rowData.get(rowIndex)).get(columnIndex);
 			}
 			
-			//重写方法 getColumnName
+			//メソッドオーバライド getColumnName
 			@Override  
 			public String getColumnName(int column) {
 				// TODO Auto-generated method stub

@@ -14,14 +14,14 @@ public class VendingMachine {
     private VendingMachine(){  
       
     }  
-    //staticメソッドでインスタンスを戻し
+    //staticメソッドでインスタンスを戻り
     public static VendingMachine getInstance(){  
-        //实例化类实例前，先检查该实例是否存在  
+        //インスタンスを作る前に、インスタンスもう既に存在しているかどうかをチェック
         if(instance == null){  
-            //如果不存在，则新建一个实例  
+            //存在しないなら、新しいインスタンスを生成  
             instance = new VendingMachine();  
         }  
-        //返回该类的成员变量：该类的实例   
+        //お戻り値：クラスのインスタンス   
         return instance;      
     }  
 	
