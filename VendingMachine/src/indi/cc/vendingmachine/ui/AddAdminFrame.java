@@ -75,7 +75,7 @@ public class AddAdminFrame extends javax.swing.JDialog {
 					JOptionPane.showMessageDialog(jd, "パスワードを設定してください！");
 					return ;
 				}else if(rePassword.equals("")){
-					JOptionPane.showMessageDialog(jd, "パスワード確認を入力してください");
+					JOptionPane.showMessageDialog(jd, "パスワード確認を入力してください！");
 					return ;
 				}else if(!password.equals(rePassword)){
 					JOptionPane.showMessageDialog(jd, "パスワードやパスワード確認は一致しない");

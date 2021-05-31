@@ -18,7 +18,7 @@ public class PurchaseRecordsModel extends AbstractTableModel{
 	
 	 public PurchaseRecordsModel(JDialog jd) {
 			helper = new AdminManageHelper();
-			Vector<PurchaseRecords> records = helper.getAllPurchaseRecords();	//購買履歴を取得
+			Vector<PurchaseRecords> records = helper.getAllPurchaseRecords();	//購買履歴を取得する
 			
 			columnNames = new Vector<String>();
 			rowData = new Vector<Vector<String>>();

@@ -2,7 +2,7 @@ package indi.cc.vendingmachine.bean;
 
 import indi.cc.vendingmachine.dao.AdminManageHelper;
 
-//自動販売機のクラス
+//自動販売機クラス
 public class VendingMachine {
 	private int totalAmount;	//お会計の合計金額
 	private int coin;	//硬貨

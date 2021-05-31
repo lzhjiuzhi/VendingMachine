@@ -19,7 +19,7 @@ public class AddRecordModel extends AbstractTableModel{
 	
 	 public AddRecordModel(JDialog jd) {
 			helper = new AdminManageHelper();
-			Vector<AddRecords> records = helper.getAllAddRecords();	//すべての細かいお金の補充履歴を取得
+			Vector<AddRecords> records = helper.getAllAddRecords();	//すべての細かいお金の補充履歴を取得する
 			
 			columnNames = new Vector<String>();
 			rowData = new Vector<Vector<String>>();

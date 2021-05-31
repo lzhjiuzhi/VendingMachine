@@ -13,7 +13,7 @@ import indi.cc.vendingmachine.util.WindowUtil;
 
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
-//¼š¤«¤¤¤ª½ð¤ÎÑa³äwindow
+//¼š¤«¤¤¤ª½ð¤ÎÑa³ä¤Îwindow
 
 public class AddCoinFrame extends javax.swing.JDialog {
     

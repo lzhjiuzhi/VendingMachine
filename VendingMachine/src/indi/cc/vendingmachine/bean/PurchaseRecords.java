@@ -4,7 +4,7 @@ package indi.cc.vendingmachine.bean;
 
 //購買履歴のクラス
 public class PurchaseRecords {
-	private int customerId;	//顧客番号
+	private int customerId;	//顧客の番号
 	private String date;	//購買の時間
 	private String drinkName;	//購入した商品の名前
 	private int price;	//価額

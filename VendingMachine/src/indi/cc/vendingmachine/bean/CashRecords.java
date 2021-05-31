@@ -8,7 +8,7 @@ public class CashRecords {
 	private String administrator;	//操作の管理員
 	private int beforeCash;	//引き出し前の合計金額
 	private int cash;	//引き出した分の金額
-	private int afterCash;	//お金を引き出した後、今の在庫合計金額
+	private int afterCash;	//お金を引き出した後、今のお金の在庫合計金額
 	public int getBeforeCash() {
 		return beforeCash;
 	}

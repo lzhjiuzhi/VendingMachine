@@ -17,7 +17,7 @@ public class AddDrinkRecordsModel extends AbstractTableModel{
 	
 	 public AddDrinkRecordsModel(JDialog jd) {
 			helper = new AdminManageHelper();
-			Vector<AddDrinkRecords> records = helper.getAllAddDrinkRecords();	//すべての補充履歴を取得
+			Vector<AddDrinkRecords> records = helper.getAllAddDrinkRecords();	//すべての補充履歴を取得する
 			
 			columnNames = new Vector<String>();
 			rowData = new Vector<Vector<String>>();

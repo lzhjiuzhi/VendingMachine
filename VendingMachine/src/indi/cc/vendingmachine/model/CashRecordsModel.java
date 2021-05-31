@@ -10,7 +10,7 @@ import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import javax.swing.table.AbstractTableModel;
 
-//お金の引き出し履歴モデル
+//お金の引き出し履歴のモデル
 public class CashRecordsModel extends AbstractTableModel{
 	AdminManageHelper helper = null;
 	private  Vector<String> columnNames = null;	//列の名前

@@ -17,7 +17,7 @@ import java.sql.SQLException;
 import java.util.Vector;
 
 public class SqlHelper implements JdbcConfig{
-	//データベースに接続するのに必要なインスタンスを定義
+	//データベースに接続するのに必要なインスタンスを定義する
 		private PreparedStatement ps = null;
 		private ResultSet rs = null;
 		private Connection ct = null;

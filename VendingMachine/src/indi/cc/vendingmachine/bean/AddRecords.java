@@ -1,7 +1,7 @@
 package indi.cc.vendingmachine.bean;
 
 
-//Ó²Ø›Ña³ä¤ÎÓ›åh
+//Ó²Ø›Ña³ä¤ÎÂÄšs
 public class AddRecords {
 	private int id;	//·¬ºÅ
 	private String administrator;	//¹ÜÀí†T

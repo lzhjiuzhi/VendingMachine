@@ -3,7 +3,7 @@ package indi.cc.vendingmachine.dao;
 import indi.cc.vendingmachine.bean.Drink;
 import indi.cc.vendingmachine.bean.PurchaseRecords;
 
-//顧客操作データベースのhelperクラス
+//顧客操作データベースhelperのクラス
 public class CustomerManageHelper {
 	private SqlHelper helper;
 	/**

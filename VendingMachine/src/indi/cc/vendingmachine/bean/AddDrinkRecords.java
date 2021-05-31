@@ -1,5 +1,5 @@
 package indi.cc.vendingmachine.bean;
-//商品補充の数量に関するクラス
+//商品補充数量に関するクラス
 public class AddDrinkRecords {
 	private int id;	//番号
 	private String administrator;	//管理員

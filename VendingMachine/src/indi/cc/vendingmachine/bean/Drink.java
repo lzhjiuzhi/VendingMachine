@@ -4,7 +4,7 @@ public class Drink {
 	private String id;	//商品の番号
 	private String drinkName;	//商品の名前
 	private String drinkImg;	//商品の画像
-	private int price;	//商品の価額
+	private int price;	//商品の値段
 	private int quantity;	//商品の数量
 	
 	public String getId() {

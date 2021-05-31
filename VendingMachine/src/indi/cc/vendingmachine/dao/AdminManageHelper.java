@@ -10,7 +10,7 @@ import indi.cc.vendingmachine.bean.Drink;
 import indi.cc.vendingmachine.bean.PurchaseRecords;
 import indi.cc.vendingmachine.bean.VendingMachine;
 
-//管理員操作データベースのhelperクラス
+//管理員操作データベースhelperのクラス
 public class AdminManageHelper {
 	private SqlHelper helper;
 	
