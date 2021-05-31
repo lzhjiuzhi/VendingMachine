@@ -28,13 +28,13 @@ public class AddDrinkFrame extends javax.swing.JDialog {
 	    private javax.swing.JTextField jTextField4;
 	    private JDialog jd;
 	    private Administrator admin;
-	    private String filepath = null;	//ÎÄ¼şÂ·¾¶
-	    private String fileName = null;	//ÎÄ¼şÃû
+	    private String filepath = null;	//æ–‡ä»¶è·¯å¾„
+	    private String fileName = null;	//æ–‡ä»¶å
 	/**
 	 * 
-	 * @param owner ËüµÄ¸¸´°¿Ú
-	 * @param title ´°¿ÚÃû
-	 * @param modal Ö¸¶¨µÄÄ£Ê½´°¿Ú£¬»¹ÓĞ·ÇÄ£Ê½´°¿Ú
+	 * @param owner å®ƒçš„çˆ¶çª—å£
+	 * @param title çª—å£å
+	 * @param modal æŒ‡å®šçš„æ¨¡å¼çª—å£ï¼Œè¿˜æœ‰éæ¨¡å¼çª—å£
 	 */
 	public AddDrinkFrame(JDialog owner, String title, boolean modal,Administrator admin){
 		super(owner, title, modal);
@@ -48,7 +48,7 @@ public class AddDrinkFrame extends javax.swing.JDialog {
                 
     private void initComponents() {
     	this.jd = this;
-        jButton1 = new javax.swing.JButton("Ìí¼ÓÍ¼Æ¬");
+        jButton1 = new javax.swing.JButton("ç”»åƒã‚’è¿½åŠ ");
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -58,14 +58,14 @@ public class AddDrinkFrame extends javax.swing.JDialog {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
 
-        //Í¼Æ¬Ìí¼Ó
+        //å›¾ç‰‡æ·»åŠ 
         jButton1.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				 JFileChooser chooser = new JFileChooser();
-				// ÒÔÏÂ´úÂëµ¯³öÒ»¸öÕë¶ÔÓÃ»§Ö÷Ä¿Â¼µÄÎÄ¼şÑ¡ÔñÆ÷£¬ÆäÖĞÖ»ÏÔÊ¾ .jpg ºÍ .gif Í¼Ïñ£º 
+				// ä»¥ä¸‹ä»£ç å¼¹å‡ºä¸€ä¸ªé’ˆå¯¹ç”¨æˆ·ä¸»ç›®å½•çš„æ–‡ä»¶é€‰æ‹©å™¨ï¼Œå…¶ä¸­åªæ˜¾ç¤º .jpg å’Œ .gif å›¾åƒï¼š 
 				 FileNameExtensionFilter filter = new FileNameExtensionFilter("JPG & GIF Images", "jpg", "gif","png");
 				 chooser.setFileFilter(filter);
 				 int returnVal = chooser.showOpenDialog(jd);
@@ -82,17 +82,17 @@ public class AddDrinkFrame extends javax.swing.JDialog {
 		});
         
 
-        jLabel1.setFont(new java.awt.Font("Ó×Ô²", 1, 12)); // NOI18N
-        jLabel1.setText("±àºÅ:");
+        jLabel1.setFont(new java.awt.Font("å¹¼åœ†", 1, 12)); // NOI18N
+        jLabel1.setText("ç•ªå·ï¼š");
 
-        jLabel2.setFont(new java.awt.Font("Ó×Ô²", 1, 12)); // NOI18N
-        jLabel2.setText("ÒûÁÏÃû:");
+        jLabel2.setFont(new java.awt.Font("å¹¼åœ†", 1, 12)); // NOI18N
+        jLabel2.setText("å•†å“ã®åå‰ï¼š");
 
-        jLabel4.setFont(new java.awt.Font("Ó×Ô²", 1, 12)); // NOI18N
-        jLabel4.setText("¼Û¸ñ:");
+        jLabel4.setFont(new java.awt.Font("å¹¼åœ†", 1, 12)); // NOI18N
+        jLabel4.setText("ä¾¡é¡ï¼š");
 
-        jButton2.setFont(new java.awt.Font("Ó×Ô²", 1, 12)); // NOI18N
-        jButton2.setText("Ìí¼Ó");
+        jButton2.setFont(new java.awt.Font("å¹¼åœ†", 1, 12)); // NOI18N
+        jButton2.setText("è¿½åŠ ");
         jButton2.addActionListener(new ActionListener() {
 			
 			@Override
@@ -102,16 +102,16 @@ public class AddDrinkFrame extends javax.swing.JDialog {
 				String name = jTextField2.getText().trim();
 				String price = jTextField4.getText().trim();
 				if(id.equals("")){
-					JOptionPane.showMessageDialog(jd, "±àºÅ²»ÄÜÎª¿Õ!!");
+					JOptionPane.showMessageDialog(jd, "ç•ªå·ã¯ç©ºã«ã§ãã¾ã›ã‚“ï¼ï¼");
 					return ;
 				}else if(name.equals("")){
-					JOptionPane.showMessageDialog(jd, "ÒûÁÏÃû²»ÄÜÎª¿Õ!!");
+					JOptionPane.showMessageDialog(jd, "å•†å“ã®åå‰ã¯ç©ºã«ã§ãã¾ã›ã‚“ï¼ï¼");
 					return ;
 				}else if(price.equals("")){
-					JOptionPane.showMessageDialog(jd, "¼Û¸ñ²»ÄÜÎª¿Õ!!");
+					JOptionPane.showMessageDialog(jd, "ä¾¡é¡ã¯ç©ºã«ã§ãã¾ã›ã‚“ï¼ï¼");
 					return ;
 				}else if(filepath==null){
-					JOptionPane.showMessageDialog(jd, "ÇëÌí¼ÓÍ¼Æ¬!!");
+					JOptionPane.showMessageDialog(jd, "ç”»åƒã‚’è¿½åŠ ã—ã¦ãã ã•ã„ï¼ï¼");
 					return ;
 				}else{
 					String filename = "img/"+fileName;
@@ -123,16 +123,16 @@ public class AddDrinkFrame extends javax.swing.JDialog {
 						drink.setPrice(Integer.parseInt(price));
 						drink.setDrinkImg(filename);
 						if(manageHelper.addDrink(drink)){
-							JOptionPane.showMessageDialog(jd, "Ìí¼Ó³É¹¦!!");		
+							JOptionPane.showMessageDialog(jd, "è¿½åŠ ã§ãã¾ã—ãŸï¼ï¼");		
 							jd.dispose();
 							return ;
 						}else {
-							JOptionPane.showMessageDialog(jd, "Ìí¼ÓÊ§°Ü!!");
+							JOptionPane.showMessageDialog(jd, "è¿½åŠ ã§ãã¾ã›ã‚“ã§ã—ãŸï¼ï¼");
 							jd.dispose();
 							return ;
 						}
 					}else{
-						JOptionPane.showMessageDialog(jd, "Ìí¼ÓÊ§°Ü!!");
+						JOptionPane.showMessageDialog(jd, "è¿½åŠ ã§ãã¾ã›ã‚“ã§ã—ãŸï¼ï¼");
 						jd.dispose();
 						return ;
 					}
@@ -141,8 +141,8 @@ public class AddDrinkFrame extends javax.swing.JDialog {
 			}
 		});
 
-        jButton3.setFont(new java.awt.Font("Ó×Ô²", 1, 12)); // NOI18N
-        jButton3.setText("È¡Ïû");
+        jButton3.setFont(new java.awt.Font("å¹¼åœ†", 1, 12)); // NOI18N
+        jButton3.setText("ã‚­ãƒ£ãƒ³ã‚»ãƒ«");
        jButton3.addActionListener(new ActionListener() {
 		
 		@Override
