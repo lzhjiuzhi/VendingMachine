@@ -25,9 +25,9 @@ public class CashManageFrame extends javax.swing.JDialog {
 	    private JDialog jd;
 	    	/**
 			 * 
-			 * @param owner ËüµÄ¸¸´°¿Ú
-			 * @param title ´°¿ÚÃû
-			 * @param modal Ö¸¶¨µÄÄ£Ê½´°¿Ú£¬»¹ÓĞ·ÇÄ£Ê½´°¿Ú
+			 * @param owner å®ƒçš„çˆ¶çª—å£
+			 * @param title çª—å£å
+			 * @param modal æŒ‡å®šçš„æ¨¡å¼çª—å£ï¼Œè¿˜æœ‰éæ¨¡å¼çª—å£
 			 */
 			public CashManageFrame(JFrame owner, String title, boolean modal,Administrator admin){
 		    	super(owner, title, modal);
@@ -46,55 +46,55 @@ public class CashManageFrame extends javax.swing.JDialog {
 
       
 
-        jButton1.setFont(new java.awt.Font("Ó×Ô²", 1, 12)); // NOI18N
-        jButton1.setText("½ğ¶î²é¿´");
+        jButton1.setFont(new java.awt.Font("å¹¼åœ†", 1, 12)); // NOI18N
+        jButton1.setText("é‡‘é¡ã‚’è¡¨ç¤ºï¼š");
         jButton1.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
-				AmountQuery amountQuery = new AmountQuery(jd, "½ğ¶î²é¿´", true);
+				AmountQuery amountQuery = new AmountQuery(jd, "é‡‘é¡ã‚’è¡¨ç¤º", true);
 			}
 		});
        
 
-        jButton2.setFont(new java.awt.Font("Ó×Ô²", 1, 12)); // NOI18N
-        jButton2.setText("ÁãÇ®²¹³ä");
+        jButton2.setFont(new java.awt.Font("å¹¼åœ†", 1, 12)); // NOI18N
+        jButton2.setText("ç´°ã‹ã„ãŠé‡‘ã‚’è£œå……");
         jButton2.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				AddCoinFrame addCoinFrame = new AddCoinFrame(jd, "²¹³äÁãÇ®", true,admin);
+				AddCoinFrame addCoinFrame = new AddCoinFrame(jd, "ç´°ã‹ã„ãŠé‡‘ã‚’è£œå……", true,admin);
 			}
 		});
 
-        jButton3.setFont(new java.awt.Font("Ó×Ô²", 1, 12)); // NOI18N
-        jButton3.setText("½ğ¶îÈ¡ÏÖ");
+        jButton3.setFont(new java.awt.Font("å¹¼åœ†", 1, 12)); // NOI18N
+        jButton3.setText("ãŠé‡‘ã‚’å¼•ãå‡ºã—");
        jButton3.addActionListener(new ActionListener() {
 		
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
 			// TODO Auto-generated method stub
-			 int option = JOptionPane.showConfirmDialog(jd, "È«²¿È¡ÏÖ", "È¡Ïû", JOptionPane.YES_NO_OPTION);
+			 int option = JOptionPane.showConfirmDialog(jd, "å…¨éƒ¨å¼•ãå‡ºã—", "ã‚­ãƒ£ãƒ³ã‚»ãƒ«", JOptionPane.YES_NO_OPTION);
 			 if(option==JOptionPane.YES_OPTION){
-				 //È«²¿È¡ÏÖ
+				 //å…¨éƒ¨å–ç°
 				 AdminManageHelper helper = new AdminManageHelper();
 				 int totalAmount = VendingMachine.getInstance().getTotalAmount();
-				// Ìí¼ÓÈ¡ÏÖ¼ÇÂ¼
+				// æ·»åŠ å–ç°è®°å½•
 				 CashRecords record = new CashRecords();
 				 record.setAdministrator(admin.getUsername());
 				 record.setBeforeCash(totalAmount);
 				 if(totalAmount!=0){
 					 VendingMachine.getInstance().setTotalAmount(0);
 					 helper.updateVendingMachine(VendingMachine.getInstance());
-					 JOptionPane.showMessageDialog(jd, "ÄúÒ»¹²È¡³öÁË:"+totalAmount+"Ôª!!");	
+					 JOptionPane.showMessageDialog(jd, "å¼•ãå‡ºã—ãŸé‡‘é¡ã¯ï¼š"+totalAmount+"å††ï¼ï¼");	
 					 record.setCash(totalAmount);
 					 record.setAfterCash(0);
-					 helper.addCashRecords(record);//Ìí¼ÓÈ¡ÏÖ¼ÇÂ¼
+					 helper.addCashRecords(record);//æ·»åŠ å–ç°è®°å½•
 
 				 }else{
-					 JOptionPane.showMessageDialog(jd, "ÔİÎŞ¿ÉÈ¡ÏÖµÄ½ğ¶î!!");
+					 JOptionPane.showMessageDialog(jd, "å¼•ãå‡ºã›ã‚‹ãŠé‡‘ã¯ã‚ã‚Šã¾ã›ã‚“ã€‚");
 				 }
 				 
 			}
