@@ -19,9 +19,9 @@ public class RecordsManageFrame extends javax.swing.JDialog {
     private JDialog jd;
 	/**
 	 * 
-	 * @param owner ËüµÄ¸¸´°¿Ú
-	 * @param title ´°¿ÚÃû
-	 * @param modal Ö¸¶¨µÄÄ£Ê½´°¿Ú£¬»¹ÓĞ·ÇÄ£Ê½´°¿Ú
+	 * @param owner å®ƒçš„çˆ¶çª—å£
+	 * @param title çª—å£å
+	 * @param modal æŒ‡å®šçš„æ¨¡å¼çª—å£ï¼Œè¿˜æœ‰éæ¨¡å¼çª—å£
 	 */
 	public RecordsManageFrame(JFrame owner, String title, boolean modal){
     	super(owner, title, modal);
@@ -40,38 +40,38 @@ public class RecordsManageFrame extends javax.swing.JDialog {
 
       
 
-        jButton1.setFont(new java.awt.Font("Ó×Ô²", 1, 12)); // NOI18N
-        jButton1.setText("È¡ÏÖ¼ÇÂ¼");
+        jButton1.setFont(new java.awt.Font("å¹¼åœ†", 1, 12)); // NOI18N
+        jButton1.setText("ãŠé‡‘ã®å¼•ãå‡ºã—å±¥æ­´");
         jButton1.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
-				CashRecordsFrame frame = new CashRecordsFrame(jd, "È¡ÏÖ¼ÇÂ¼", true);
+				CashRecordsFrame frame = new CashRecordsFrame(jd, "ãŠé‡‘ã®å¼•ãå‡ºã—å±¥æ­´", true);
 			}
 		});
 
-        jButton2.setFont(new java.awt.Font("Ó×Ô²", 1, 12)); // NOI18N
-        jButton2.setText("ÁãÇ®²¹³ä¼ÇÂ¼");
+        jButton2.setFont(new java.awt.Font("å¹¼åœ†", 1, 12)); // NOI18N
+        jButton2.setText("ç´°ã‹ã„ãŠé‡‘ã®è£œå……å±¥æ­´");
         jButton2.addActionListener(new ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AddRecordFrame frame = new AddRecordFrame(jd, "ÁãÇ®²¹³ä¼ÇÂ¼", true);
+                AddRecordFrame frame = new AddRecordFrame(jd, "ç´°ã‹ã„ãŠé‡‘ã®è£œå……å±¥æ­´", true);
             }
         });
 
-        jButton3.setFont(new java.awt.Font("Ó×Ô²", 1, 12)); // NOI18N
-        jButton3.setText("ÒûÁÏ²¹³ä¼ÇÂ¼");
+        jButton3.setFont(new java.awt.Font("å¹¼åœ†", 1, 12)); // NOI18N
+        jButton3.setText("å•†å“ã®è£œå……å±¥æ­´");
         jButton3.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-               AddDrinkRecordFrame frame = new AddDrinkRecordFrame(jd, "ÒûÁÏ²¹³ä¼ÇÂ¼", true);
+               AddDrinkRecordFrame frame = new AddDrinkRecordFrame(jd, "å•†å“ã®è£œå……å±¥æ­´", true);
             }
         });
 
-        jButton4.setFont(new java.awt.Font("Ó×Ô²", 1, 12)); // NOI18N
-        jButton4.setText("¹Ë¿Í¹ºÂò¼ÇÂ¼");
+        jButton4.setFont(new java.awt.Font("å¹¼åœ†", 1, 12)); // NOI18N
+        jButton4.setText("é¡§å®¢ã®è³¼å…¥å±¥æ­´");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PurchaseRecordsFrame frame = new PurchaseRecordsFrame(jd, "¹Ë¿Í¹ºÂò¼ÇÂ¼", true);
+                PurchaseRecordsFrame frame = new PurchaseRecordsFrame(jd, "é¡§å®¢ã®è³¼å…¥å±¥æ­´", true);
             }
         });
 
