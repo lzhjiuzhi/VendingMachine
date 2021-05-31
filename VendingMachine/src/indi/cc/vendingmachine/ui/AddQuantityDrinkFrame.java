@@ -25,9 +25,9 @@ public class AddQuantityDrinkFrame extends javax.swing.JDialog {
 	     private Administrator admin;
 	    /**
 		 * 
-		 * @param owner ËüµÄ¸¸´°¿Ú
-		 * @param title ´°¿ÚÃû
-		 * @param modal Ö¸¶¨µÄÄ£Ê½´°¿Ú£¬»¹ÓÐ·ÇÄ£Ê½´°¿Ú
+		 * @param owner å®ƒçš„çˆ¶çª—å£
+		 * @param title çª—å£å
+		 * @param modal æŒ‡å®šçš„æ¨¡å¼çª—å£ï¼Œè¿˜æœ‰éžæ¨¡å¼çª—å£
 		 */
 		public AddQuantityDrinkFrame(JDialog owner, String title, boolean modal,Drink drink,Administrator admin){
 	    	super(owner, title, modal);
@@ -46,42 +46,42 @@ public class AddQuantityDrinkFrame extends javax.swing.JDialog {
         jTextField1 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jTextField1.addKeyListener(new KeyAdapter(){  
-        	//ÏÞÖÆÖ»ÄÜÊäÈëÊý×Ö
+        	//é™åˆ¶åªèƒ½è¾“å…¥æ•°å­—
             public void keyTyped(KeyEvent e) {  
                 int keyChar = e.getKeyChar();                 
                 if(keyChar >= KeyEvent.VK_0 && keyChar <= KeyEvent.VK_9){  
                       
                 }else{  
-                    e.consume(); //¹Ø¼ü£¬ÆÁ±Îµô·Ç·¨ÊäÈë  
+                    e.consume(); //å…³é”®ï¼Œå±è”½æŽ‰éžæ³•è¾“å…¥  
                 }  
             }  
         }); 
        
-        jLabel1.setFont(new java.awt.Font("Ó×Ô²", 1, 12)); // NOI18N
-        jLabel1.setText("Çë²¹³äÒûÁÏ:");
+        jLabel1.setFont(new java.awt.Font("å¹¼åœ†", 1, 12)); // NOI18N
+        jLabel1.setText("å•†å“ã‚’è£œå……ã—ã¦ãã ã•ã„ï¼");
 
-        jButton1.setText("Ìí¼Ó");
+        jButton1.setText("è¿½åŠ ");
         jButton1.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				String s = jTextField1.getText().trim();	//µÃµ½ÊäÈëµÄÖµ
+				String s = jTextField1.getText().trim();	//å¾—åˆ°è¾“å…¥çš„å€¼
 				if(s.equals("")||Integer.parseInt(s)==0){
-					JOptionPane.showMessageDialog(jd, "Çë²¹³äÒûÁÏ!!");
+					JOptionPane.showMessageDialog(jd, "å•†å“ã‚’è£œå……ã—ã¦ãã ã•ã„ï¼ï¼");
 				}else{
 					AdminManageHelper helper = new AdminManageHelper();
-					//Ìí¼ÓÒûÁÏ²¹³ä¼ÇÂ¼
+					//æ·»åŠ é¥®æ–™è¡¥å……è®°å½•
 					AddDrinkRecords record = new AddDrinkRecords();
 					record.setAdministrator(admin.getUsername());
 					record.setDrinkName(drink.getDrinkName());
-					record.setBefroeNum(drink.getQuantity());//ÉèÖÃ²¹³äÇ°µÄÊýÁ¿
-					drink.setQuantity(Integer.parseInt(s)+drink.getQuantity());//ÉèÖÃÊýÁ¿
-					record.setAddNum(Integer.parseInt(s));//ÉèÖÃ²¹³äµÄÊýÁ¿
-					record.setNowNum(drink.getQuantity());//ÉèÖÃ²¹³äºóµÄÊýÁ¿
-					helper.updateDrinkNum(drink);	//²¹³äÒûÁÏÊýÁ¿
-					helper.addAddDrinkRecords(record);	//Ìí¼Ó²¹³äÒûÁÏµÄ¼ÇÂ¼
-					JOptionPane.showMessageDialog(jd, "ÄúÒ»¹²²¹³äÁËÒûÁÏ:"+Integer.parseInt(s)+"Æ¿!!");
+					record.setBefroeNum(drink.getQuantity());//è®¾ç½®è¡¥å……å‰çš„æ•°é‡
+					drink.setQuantity(Integer.parseInt(s)+drink.getQuantity());//è®¾ç½®æ•°é‡
+					record.setAddNum(Integer.parseInt(s));//è®¾ç½®è¡¥å……çš„æ•°é‡
+					record.setNowNum(drink.getQuantity());//è®¾ç½®è¡¥å……åŽçš„æ•°é‡
+					helper.updateDrinkNum(drink);	//è¡¥å……é¥®æ–™æ•°é‡
+					helper.addAddDrinkRecords(record);	//æ·»åŠ è¡¥å……é¥®æ–™çš„è®°å½•
+					JOptionPane.showMessageDialog(jd, "è£œå……ã—ãŸå•†å“ã®æ•°é‡ã¯"+Integer.parseInt(s)+"å€‹ï¼ï¼");
 					
 					jd.dispose();
 				}
