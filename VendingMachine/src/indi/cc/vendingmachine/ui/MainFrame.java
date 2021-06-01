@@ -118,7 +118,7 @@ public class MainFrame extends javax.swing.JFrame {
 		});
        
 
-        jLabel2.setText("足りないお金は：");
+        jLabel2.setText("足りないお金：");
 
         jLabel3.setText("0円");
 
@@ -197,6 +197,7 @@ public class MainFrame extends javax.swing.JFrame {
     	 for(int i=0;i<drinks.size();i++){
          	Drink drink = drinks.get(i);   	
          	String s;
+
          	JButton jb;//按钮
          	//对数量为0的饮料进行判断并且处理
          	if(drinks.get(i).getQuantity()==0){
@@ -204,8 +205,8 @@ public class MainFrame extends javax.swing.JFrame {
          		jb = new JButton(s,new ImageIcon(drink.getDrinkImg()));
          		jb.setEnabled(false);//设置不可用
          	}else{
-         		s = drink.getDrinkName()+"|円："+drink.getPrice()+"円|在庫数："+drink.getQuantity();
-         		jb = new JButton(s,new ImageIcon(drink.getDrinkImg()));
+         		s = drink.getDrinkName()+"<br>"+"値段："+drink.getPrice()+"円<br>"+"在庫数："+drink.getQuantity();
+         		jb = new JButton("<html>"+s+"</html>",new ImageIcon(drink.getDrinkImg()));
          	}
          	//对饮料机的零钱小于10的时候(无法找零的时候)进行判断和处理
          	if(VendingMachine.getInstance().getCoin()<10){
