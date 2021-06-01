@@ -3,7 +3,7 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/VendingMachine/src/indi/cc/vendingmachine/bean/AddDrinkRecords.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/VendingMachine/src/indi/cc/vendingmachine/bean/AddRecords.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/VendingMachine/src/indi/cc/vendingmachine/model/AddDrinkRecordsModel.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/VendingMachine/src/indi/cc/vendingmachine/model/AddDrinkRecordsModel.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/VendingMachine/src/indi/cc/vendingmachine/model/AddRecordModel.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/VendingMachine/src/indi/cc/vendingmachine/model/CashRecordsModel.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/VendingMachine/src/indi/cc/vendingmachine/ui/MainFrame.java" charset="GBK" />

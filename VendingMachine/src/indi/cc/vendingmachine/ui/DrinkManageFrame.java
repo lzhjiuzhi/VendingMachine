@@ -314,7 +314,7 @@ public class DrinkManageFrame extends JDialog {
 	    private void updateContent(){
 	    	jTextField1.setText(drinks.get(count).getId());
 	    	jTextField2.setText(drinks.get(count).getDrinkName());
-	    	jTextField3.setText(drinks.get(count).getPrice()+"ิช");
+	    	jTextField3.setText(drinks.get(count).getPrice()+"า");
 	    	jTextField4.setText(drinks.get(count).getQuantity()+"ฦฟ");
 	    	jButton3.setIcon(new ImageIcon(drinks.get(count).getDrinkImg()));
 	    	jButton3.updateUI();

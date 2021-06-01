@@ -22,21 +22,21 @@ public class PurchaseRecordsModel extends AbstractTableModel{
 			
 			columnNames = new Vector<String>();
 			rowData = new Vector<Vector<String>>();
-			columnNames.add("顾客编号");
-			columnNames.add("饮料名称");
-			columnNames.add("价格");
-			columnNames.add("支付金额");
-			columnNames.add("找回金额");
-			columnNames.add("购买时间");
+			columnNames.add("ID");
+			columnNames.add("商品名");
+			columnNames.add("価額");
+			columnNames.add("支払い金額");
+			columnNames.add("お釣り");
+			columnNames.add("日付");
 			
 			if(records!=null){
 				for(PurchaseRecords record : records){
 					Vector<String> hang = new Vector<String>();
 					hang.add(String.valueOf(record.getCustomerId()));
 					hang.add(record.getDrinkName());
-					hang.add(record.getPrice()+"元");
-					hang.add(record.getPayment()+"元");
-					hang.add(record.getRepayment()+"元");
+					hang.add(record.getPrice()+"円");
+					hang.add(record.getPayment()+"円");
+					hang.add(record.getRepayment()+"円");
 					hang.add(record.getDate());
 					rowData.add(hang);
 					
@@ -46,10 +46,10 @@ public class PurchaseRecordsModel extends AbstractTableModel{
 			
 			
 			if(getRowCount()!=0){
-				JOptionPane.showMessageDialog(jd, "一共有"+getRowCount()+"条记录！");
+				JOptionPane.showMessageDialog(jd, getRowCount()+"個の履歴があります");
 				return ;
 			}else{
-				JOptionPane.showMessageDialog(jd, "没有任何记录！");
+				JOptionPane.showMessageDialog(jd, "履歴はありません");
 				return ;
 			}
 		}

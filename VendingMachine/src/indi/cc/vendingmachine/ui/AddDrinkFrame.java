@@ -48,7 +48,7 @@ public class AddDrinkFrame extends javax.swing.JDialog {
                 
     private void initComponents() {
     	this.jd = this;
-        jButton1 = new javax.swing.JButton("添加图片");
+        jButton1 = new javax.swing.JButton("画像");
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -83,16 +83,16 @@ public class AddDrinkFrame extends javax.swing.JDialog {
         
 
         jLabel1.setFont(new java.awt.Font("幼圆", 1, 12)); // NOI18N
-        jLabel1.setText("编号:");
+        jLabel1.setText("ID：");
 
         jLabel2.setFont(new java.awt.Font("幼圆", 1, 12)); // NOI18N
-        jLabel2.setText("饮料名:");
+        jLabel2.setText("商品名:");
 
         jLabel4.setFont(new java.awt.Font("幼圆", 1, 12)); // NOI18N
-        jLabel4.setText("价格:");
+        jLabel4.setText("価額:");
 
         jButton2.setFont(new java.awt.Font("幼圆", 1, 12)); // NOI18N
-        jButton2.setText("添加");
+        jButton2.setText("追加");
         jButton2.addActionListener(new ActionListener() {
 			
 			@Override
@@ -102,16 +102,16 @@ public class AddDrinkFrame extends javax.swing.JDialog {
 				String name = jTextField2.getText().trim();
 				String price = jTextField4.getText().trim();
 				if(id.equals("")){
-					JOptionPane.showMessageDialog(jd, "编号不能为空!!");
+					JOptionPane.showMessageDialog(jd, "IDを入力してください");
 					return ;
 				}else if(name.equals("")){
-					JOptionPane.showMessageDialog(jd, "饮料名不能为空!!");
+					JOptionPane.showMessageDialog(jd, "商品名を入力してください");
 					return ;
 				}else if(price.equals("")){
-					JOptionPane.showMessageDialog(jd, "价格不能为空!!");
+					JOptionPane.showMessageDialog(jd, "値段を入力してください");
 					return ;
 				}else if(filepath==null){
-					JOptionPane.showMessageDialog(jd, "请添加图片!!");
+					JOptionPane.showMessageDialog(jd, "画像を入力してください");
 					return ;
 				}else{
 					String filename = "img/"+fileName;
@@ -123,16 +123,16 @@ public class AddDrinkFrame extends javax.swing.JDialog {
 						drink.setPrice(Integer.parseInt(price));
 						drink.setDrinkImg(filename);
 						if(manageHelper.addDrink(drink)){
-							JOptionPane.showMessageDialog(jd, "添加成功!!");		
+							JOptionPane.showMessageDialog(jd, "成功!!");
 							jd.dispose();
 							return ;
 						}else {
-							JOptionPane.showMessageDialog(jd, "添加失败!!");
+							JOptionPane.showMessageDialog(jd, "失败!!");
 							jd.dispose();
 							return ;
 						}
 					}else{
-						JOptionPane.showMessageDialog(jd, "添加失败!!");
+						JOptionPane.showMessageDialog(jd, "失败!!");
 						jd.dispose();
 						return ;
 					}
@@ -142,7 +142,7 @@ public class AddDrinkFrame extends javax.swing.JDialog {
 		});
 
         jButton3.setFont(new java.awt.Font("幼圆", 1, 12)); // NOI18N
-        jButton3.setText("取消");
+        jButton3.setText("戻る");
        jButton3.addActionListener(new ActionListener() {
 		
 		@Override

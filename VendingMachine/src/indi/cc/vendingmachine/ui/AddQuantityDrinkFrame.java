@@ -58,9 +58,9 @@ public class AddQuantityDrinkFrame extends javax.swing.JDialog {
         }); 
        
         jLabel1.setFont(new java.awt.Font("幼圆", 1, 12)); // NOI18N
-        jLabel1.setText("请补充饮料:");
+        jLabel1.setText("商品を補充してください:");
 
-        jButton1.setText("添加");
+        jButton1.setText("補充　");
         jButton1.addActionListener(new ActionListener() {
 			
 			@Override
@@ -68,7 +68,7 @@ public class AddQuantityDrinkFrame extends javax.swing.JDialog {
 				// TODO Auto-generated method stub
 				String s = jTextField1.getText().trim();	//得到输入的值
 				if(s.equals("")||Integer.parseInt(s)==0){
-					JOptionPane.showMessageDialog(jd, "请补充饮料!!");
+					JOptionPane.showMessageDialog(jd, "商品を補充してください:");
 				}else{
 					AdminManageHelper helper = new AdminManageHelper();
 					//添加饮料补充记录
@@ -81,7 +81,7 @@ public class AddQuantityDrinkFrame extends javax.swing.JDialog {
 					record.setNowNum(drink.getQuantity());//设置补充后的数量
 					helper.updateDrinkNum(drink);	//补充饮料数量
 					helper.addAddDrinkRecords(record);	//添加补充饮料的记录
-					JOptionPane.showMessageDialog(jd, "您一共补充了饮料:"+Integer.parseInt(s)+"瓶!!");
+					JOptionPane.showMessageDialog(jd, Integer.parseInt(s)+"瓶を追加しました");
 					
 					jd.dispose();
 				}

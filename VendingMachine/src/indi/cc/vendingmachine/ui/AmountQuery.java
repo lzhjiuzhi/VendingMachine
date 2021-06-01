@@ -34,18 +34,18 @@ public class AmountQuery extends javax.swing.JDialog {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField( VendingMachine.getInstance().getTotalAmount()+"元");
+        jTextField1 = new javax.swing.JTextField( VendingMachine.getInstance().getTotalAmount()+"円");
         jTextField1.setEditable(false);
-        jTextField2 = new javax.swing.JTextField(VendingMachine.getInstance().getCoin()+"元");
+        jTextField2 = new javax.swing.JTextField(VendingMachine.getInstance().getCoin()+"円");
         jTextField2.setEditable(false);
         
        
         
         jLabel1.setFont(new java.awt.Font("幼圆", 1, 12)); // NOI18N
-        jLabel1.setText("总金额:");
+        jLabel1.setText("総金額:");
 
         jLabel2.setFont(new java.awt.Font("幼圆", 1, 12)); // NOI18N
-        jLabel2.setText("零钱:");
+        jLabel2.setText("お釣り:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
