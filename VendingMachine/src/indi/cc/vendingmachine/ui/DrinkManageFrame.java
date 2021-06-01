@@ -86,19 +86,19 @@ public class DrinkManageFrame extends JDialog {
 
 	
 	        jLabel2.setFont(new java.awt.Font("幼圆", 1, 12)); // NOI18N
-	        jLabel2.setText("编号：");
+	        jLabel2.setText("ID：");
 	
 	        jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
 	
 	       
 	
 	        jLabel3.setFont(new java.awt.Font("幼圆", 1, 12)); // NOI18N
-	        jLabel3.setText("饮料名：");
+	        jLabel3.setText("商品名：");
 	
 	        
 	
 	        jLabel4.setFont(new java.awt.Font("幼圆", 1, 12)); // NOI18N
-	        jLabel4.setText("价格：");
+	        jLabel4.setText("価額：");
 	
 	       
 	
@@ -108,7 +108,7 @@ public class DrinkManageFrame extends JDialog {
 	        jLabel1.setText("数量：");
 	
 	        jButton4.setFont(new java.awt.Font("幼圆", 1, 12)); // NOI18N
-	        jButton4.setText("上一条");
+	        jButton4.setText("前に");
 	        jButton4.addActionListener(new ActionListener() {
 				
 				@Override
@@ -116,7 +116,7 @@ public class DrinkManageFrame extends JDialog {
 					// TODO Auto-generated method stub
 					
 					if(count<=0){
-						JOptionPane.showMessageDialog(jd, "已经是最前一条了!!");
+						JOptionPane.showMessageDialog(jd, "ラストです");
 						return ;
 					}else{
 						count--;
@@ -126,7 +126,7 @@ public class DrinkManageFrame extends JDialog {
 			});
 	
 	        jButton5.setFont(new java.awt.Font("幼圆", 1, 12)); // NOI18N
-	        jButton5.setText("下一条");
+	        jButton5.setText("次に");
 	       jButton5.addActionListener(new ActionListener() {
 			
 			@Override
@@ -134,7 +134,7 @@ public class DrinkManageFrame extends JDialog {
 				// TODO Auto-generated method stub
 				
 				if(count>=drinks.size()-1){
-					JOptionPane.showMessageDialog(jd, "已经是最后一条了!!");
+					JOptionPane.showMessageDialog(jd, "ラストです");
 					return ;
 				}else{
 					count++;
@@ -144,20 +144,20 @@ public class DrinkManageFrame extends JDialog {
 		});
 	
 	        jButton6.setFont(new java.awt.Font("幼圆", 1, 12)); // NOI18N
-	        jButton6.setText("修改饮料信息");
+	        jButton6.setText("商品情報更新");
 	       jButton6.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
-				UpdateDrinkFrame drinkFrame = new UpdateDrinkFrame(jd, "修改饮料信息", true, drinks.get(count));
+				UpdateDrinkFrame drinkFrame = new UpdateDrinkFrame(jd, "商品情報更新", true, drinks.get(count));
 				drinks = helper.getAllDrink();	//更新所有饮料
 				updateContent();	//更新状态
 			}
 		});
 	
 	        jButton7.setFont(new java.awt.Font("幼圆", 1, 12)); // NOI18N
-	        jButton7.setText("删除该饮料");
+	        jButton7.setText("商品を作成");
 	        jButton7.addActionListener(new ActionListener() {
 				
 				@Override
@@ -165,7 +165,7 @@ public class DrinkManageFrame extends JDialog {
 					// TODO Auto-generated method stub
 					AdminManageHelper helper = new AdminManageHelper();
 					if(helper.deleteDrink(drinks.get(count))){
-						JOptionPane.showMessageDialog(jd, "删除成功!!");
+						JOptionPane.showMessageDialog(jd, "実行成功");
 						drinks = helper.getAllDrink();	//更新所有饮料
 						if(count==0){	//删除的是第一条
 							//不需要改变
@@ -175,7 +175,7 @@ public class DrinkManageFrame extends JDialog {
 						updateContent();//更新状态
 						return ;
 					}else {
-						JOptionPane.showMessageDialog(jd, "删除失败!!");
+						JOptionPane.showMessageDialog(jd, "実行失败");
 						return ;
 					}
 					
@@ -183,26 +183,26 @@ public class DrinkManageFrame extends JDialog {
 			});
 
         jButton1.setFont(new java.awt.Font("幼圆", 1, 12)); // NOI18N
-        jButton1.setText("添加新饮料");
+        jButton1.setText("新商品追加");
         jButton1.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
-				AddDrinkFrame drinkFrame = new AddDrinkFrame(jd, "添加新饮料", true,admin);
+				AddDrinkFrame drinkFrame = new AddDrinkFrame(jd, "新商品追加", true,admin);
 				drinks = helper.getAllDrink();	//更新所有饮料
 				updateContent();//更新状态
 			}
 		});
 
         jButton2.setFont(new java.awt.Font("幼圆", 1, 12)); // NOI18N
-        jButton2.setText("补充该饮料");
+        jButton2.setText("商品追加");
         jButton2.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
-				AddQuantityDrinkFrame drinkFrame = new AddQuantityDrinkFrame(jd, "补充"+drinks.get(count).getDrinkName()+"饮料", true,drinks.get(count),admin);
+				AddQuantityDrinkFrame drinkFrame = new AddQuantityDrinkFrame(jd, drinks.get(count).getDrinkName()+"商品追加", true,drinks.get(count),admin);
 				updateContent();//更新状态
 			}
 		});
