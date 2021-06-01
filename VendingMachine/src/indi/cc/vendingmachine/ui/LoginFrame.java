@@ -1,9 +1,5 @@
 package indi.cc.vendingmachine.ui;
 
-import indi.cc.vendingmachine.bean.Administrator;
-import indi.cc.vendingmachine.dao.AdminManageHelper;
-import indi.cc.vendingmachine.util.WindowUtil;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
@@ -16,9 +12,13 @@ import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+import indi.cc.vendingmachine.bean.Administrator;
+import indi.cc.vendingmachine.dao.AdminManageHelper;
+import indi.cc.vendingmachine.util.WindowUtil;
+
 public class LoginFrame extends javax.swing.JFrame {
 
-	   private JButton jButton1;
+	    private JButton jButton1;
 	    private JLabel jLabel1;
 	    private JLabel jLabel2;
 	    private JPasswordField jPasswordField1;
@@ -44,10 +44,10 @@ public class LoginFrame extends javax.swing.JFrame {
         jButton1 = new JButton();
 
         
-        setTitle("¹ÜÀíÔ±µÇÂ½");
+        setTitle("ç®¡ç†äººãƒ­ã‚°ã‚¤ãƒ³ç”»é¢");
         getContentPane().setLayout(null);
 
-        jLabel1.setText("ÃÜÂë£º");
+        jLabel1.setText("ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰");
         getContentPane().add(jLabel1);
         jLabel1.setBounds(60, 100, 50, 24);
 
@@ -55,7 +55,7 @@ public class LoginFrame extends javax.swing.JFrame {
         getContentPane().add(jTextField1);
         jTextField1.setBounds(110, 50, 114, 21);
 
-        jLabel2.setText("ÓÃ»§Ãû£º");
+        jLabel2.setText("ID");
         getContentPane().add(jLabel2);
         jLabel2.setBounds(60, 50, 60, 24);
 
@@ -63,8 +63,9 @@ public class LoginFrame extends javax.swing.JFrame {
         getContentPane().add(jPasswordField1);
         jPasswordField1.setBounds(110, 100, 113, 21);
 
-        jButton1.setText("µÇÂ½");
-       //×¢²áÊÂ¼ş
+        jButton1.setText("ãƒ­ã‚°ã‚¤ãƒ³");
+        
+        // ãƒœã‚¿ãƒ³ã‚’æŠ¼ã—ãŸã‚ã¨ã€IDã¨ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã®ç¢ºèª
         jButton1.addActionListener(new ActionListener() {
 			
 			@Override
@@ -73,24 +74,24 @@ public class LoginFrame extends javax.swing.JFrame {
 				String username = jTextField1.getText().trim();
 				String password = String.valueOf(jPasswordField1.getPassword());
 				if(username.equals("")){
-					JOptionPane.showMessageDialog(jf, "ÓÃ»§Ãû²»ÄÜÎª¿Õ!!");
+					JOptionPane.showMessageDialog(jf, "IDã‹ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ãŒé•ã„ã¾ã™");
 					return ;
 				}else if(password.equals("")){
-					JOptionPane.showMessageDialog(jf, "ÃÜÂë²»ÄÜÎª¿Õ!!");
+					JOptionPane.showMessageDialog(jf, "ï¿½ï¿½ï¿½ë²»ï¿½ï¿½Îªï¿½ï¿½!!");
 					return ;
 				}else{
 					Administrator admin = new Administrator(username,password);
 					AdminManageHelper manageHelper = new AdminManageHelper();
 					if(manageHelper.Login(admin)){
-						JOptionPane.showMessageDialog(jf, "µÇÂ½³É¹¦!!");
+						JOptionPane.showMessageDialog(jf, "ï¿½ï¿½Â½ï¿½É¹ï¿½!!");
 						AdminChoose adminChoose = new AdminChoose(admin);
 						jf.dispose();
 						return ;
 					}else{
-						JOptionPane.showMessageDialog(jf, "ÓÃ»§Ãû»òÃÜÂë´íÎó!!");
+						JOptionPane.showMessageDialog(jf, "ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½!!");
 						jTextField1.setText("");
 						jPasswordField1.setText("");
-						jTextField1.requestFocus();//»ñÈ¡½¹µã
+						jTextField1.requestFocus();//ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½
 						return ;
 					}
 				}
@@ -98,9 +99,11 @@ public class LoginFrame extends javax.swing.JFrame {
 			}
 		});
         
+        // ãƒœã‚¿ãƒ³ã®é…ç½®
         getContentPane().add(jButton1);
         jButton1.setBounds(140, 150, 60, 23);
-        //×¢²á´°¿ÚÊÂ¼ş
+        
+        // ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã®ã‚¤ãƒ™ãƒ³ãƒˆ
         this.addWindowListener(new WindowListener() {
 			
 			@Override

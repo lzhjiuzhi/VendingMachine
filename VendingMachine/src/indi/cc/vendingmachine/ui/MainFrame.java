@@ -101,7 +101,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         
         jButton1.setFont(new java.awt.Font("幼圆", 1, 12)); // ボタンのフォントを指定
-        jButton1.setText("管理员入口");	// ボタンのテキストを指定
+        jButton1.setText("管理人入り口");	// ボタンのテキストを指定
         
         // 登録の問題
         // ボタンにアクションイベントを受け取れるようにする
@@ -115,10 +115,10 @@ public class MainFrame extends javax.swing.JFrame {
 				
 			}
 		});
-        jLabel1.setText("投币口：");	// 文字の指定
+        jLabel1.setText("お金投入口：");	// 文字の指定
 
         jButton2.setFont(new java.awt.Font("幼圆", 1, 15)); // フォントを指定
-        jButton2.setText("确认投币");		// 文字の指定
+        jButton2.setText("お金を確認");		// 文字の指定
         
         // ボタンにアクションイベントを追加
         // 計算する処理を行う
@@ -144,58 +144,53 @@ public class MainFrame extends javax.swing.JFrame {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);	// layoutを設定
         
-        // 全体の画面
         // 水平軸に沿ってコンポーネントの配置とサイズを指定するように設定
-        layout.setHorizontalGroup(
-        		
-        	// 配置方法Alignment.LEADINGでParallelGroup(子の配置とサイズ設定を行うGroup)を作成し、返す
-        	// Alignment.LEADING -> 要素が原点に配置されるように指定する。左から右方向の水平軸の場合、左端に揃えて配置する
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            
-            // SequentialGroup(要素の配置とサイズ設定を1つずつ順番に行うGroup)を作成し、返す
-//            .addGroup(layout.createSequentialGroup()
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            	// コンポーネント間で幅を作る
-//                .addContainerGap()
-                // 指定のサイズで、このGroupにComponentを追加。最小、推奨、最大サイズの順番
-                // PREFERRED_SIZE -> getPreferredSize(推奨サイズ)を得る
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 540, javax.swing.GroupLayout.PREFERRED_SIZE)
-                // もっとも近いコンポーネント間の推奨ギャップを表す要素を追加
-                // RELATED -> 2つのコンポーネントが視覚的に関連しており、これらのコンポーネントが同じ親の下に配置されることを示す列挙値
-//                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                
-                
-                // 配置方法Alignment.LEADINGでParallelGroup(子の配置とサイズ設定を行うGroup)を作成し、返す
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                	// SequentialGroup(要素の配置とサイズ設定を1つずつ順番に行うGroup)を作成し、返す
-                	// 右側の各ボタンやラベルの大きさを変えれる
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        	// 管理者用のボタン
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton1))
-                            
-                            // ラベル
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(10, 10, 10)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(18, 18, 18)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4)
-                            .addComponent(jSeparator1))
-                        .addGap(5, 5, 5))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap())))
-        );
+        // 横方向の要素の整列
+        GroupLayout.SequentialGroup hGroup = layout.createSequentialGroup();
+        hGroup.addGroup(
+	    		layout.createParallelGroup()
+	    		.addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 540, javax.swing.GroupLayout.PREFERRED_SIZE)
+	//        		.addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 419, javax.swing.GroupLayout.PREFERRED_SIZE)
+//	                .addGap(18, 18, 18)
+	            .addComponent(jButton1)
+	            .addComponent(jLabel2)
+	            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+	            .addComponent(jLabel1)
+	            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+	            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel4)
+                .addComponent(jSeparator1)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+    	);
         
+   
+    
+//    	hGroup.addGroup(
+//    			layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+//                // ラベル
+//                .addComponent(jLabel2)
+//                .addGap(10, 10, 10)
+//                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+//                
+//                .addComponent(jLabel1)
+//                .addGap(18, 18, 18)
+//                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+//                
+//                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+//                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+//                .addComponent(jLabel4)
+//                .addComponent(jSeparator1)
+//                .addGap(5, 5, 5)
+//                
+//                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+//                
+//        );
+        
+        layout.setHorizontalGroup(hGroup);
+        
+        
+        // 縦方向の要素の整列
         GroupLayout.SequentialGroup vGroup = layout.createSequentialGroup();
         vGroup.addGroup(
         		layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
@@ -206,25 +201,6 @@ public class MainFrame extends javax.swing.JFrame {
         		layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
         		.addComponent(jButton1)
                 .addGap(10, 10, 10)
-//                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-//                .addGap(44, 44, 44)
-//                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-//                    .addComponent(jLabel2)
-//                    .addComponent(jLabel3))
-//                .addGap(33, 33, 33)
-//                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-//                    .addGroup(layout.createSequentialGroup()
-//                        .addGap(3, 3, 3)
-//                        .addComponent(jLabel1))
-//                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-//                .addGap(18, 18, 18)
-//                .addComponent(jButton2)
-//                .addGap(10, 10, 10)
-//                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-//                .addGap(4, 4, 4)
-//                .addComponent(jLabel4)
-////                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-//                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         
         vGroup.addGroup(
@@ -270,40 +246,6 @@ public class MainFrame extends javax.swing.JFrame {
         );
         
         layout.setVerticalGroup(vGroup);
-        
-//        layout.setVerticalGroup(
-//        	// 上端に揃えて配置
-//            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-//            .addGroup(layout.createSequentialGroup()
-//                .addContainerGap()
-//                // 下端に揃えて配置する
-//                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-//                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 419, javax.swing.GroupLayout.PREFERRED_SIZE)
-////              .addGroup(layout.createSequentialGroup()
-//                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-//                    .addComponent(jButton1)
-//                    .addGap(10, 10, 10)
-//                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-//                    .addGap(44, 44, 44)
-//                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-//                        .addComponent(jLabel2)
-//                        .addComponent(jLabel3))
-//                    .addGap(33, 33, 33)
-//                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-//                        .addGroup(layout.createSequentialGroup()
-//                            .addGap(3, 3, 3)
-//                            .addComponent(jLabel1))
-//                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-//                    .addGap(18, 18, 18)
-//                    .addComponent(jButton2)
-//                    .addGap(10, 10, 10)
-//                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-//                    .addGap(4, 4, 4)
-//                    .addComponent(jLabel4)
-////                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-//                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)))
-//                .addContainerGap(15, Short.MAX_VALUE))
-//        );
 
         pack();
     }
