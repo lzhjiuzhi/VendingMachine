@@ -44,26 +44,26 @@ public class LoginFrame extends javax.swing.JFrame {
         jButton1 = new JButton();
 
         
-        setTitle("管理员登陆");
+        setTitle("管理者ログイン");
         getContentPane().setLayout(null);
 
-        jLabel1.setText("密码：");
+        jLabel1.setText("パス：");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(60, 100, 50, 24);
+        jLabel1.setBounds(60, 100, 70, 24);
 
       
         getContentPane().add(jTextField1);
         jTextField1.setBounds(110, 50, 114, 21);
 
-        jLabel2.setText("用户名：");
+        jLabel2.setText("ユーザー：");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(60, 50, 60, 24);
+        jLabel2.setBounds(60, 50, 70, 24);
 
        
         getContentPane().add(jPasswordField1);
         jPasswordField1.setBounds(110, 100, 113, 21);
 
-        jButton1.setText("登陆");
+        jButton1.setText("ログイン");
        //注册事件
         jButton1.addActionListener(new ActionListener() {
 			
@@ -73,21 +73,21 @@ public class LoginFrame extends javax.swing.JFrame {
 				String username = jTextField1.getText().trim();
 				String password = String.valueOf(jPasswordField1.getPassword());
 				if(username.equals("")){
-					JOptionPane.showMessageDialog(jf, "用户名不能为空!!");
+					JOptionPane.showMessageDialog(jf, "ユーザー名を記入してください");
 					return ;
 				}else if(password.equals("")){
-					JOptionPane.showMessageDialog(jf, "密码不能为空!!");
+					JOptionPane.showMessageDialog(jf, "パスワードを記入してください");
 					return ;
 				}else{
 					Administrator admin = new Administrator(username,password);
 					AdminManageHelper manageHelper = new AdminManageHelper();
 					if(manageHelper.Login(admin)){
-						JOptionPane.showMessageDialog(jf, "登陆成功!!");
+						JOptionPane.showMessageDialog(jf, "ログインしました");
 						AdminChoose adminChoose = new AdminChoose(admin);
 						jf.dispose();
 						return ;
 					}else{
-						JOptionPane.showMessageDialog(jf, "用户名或密码错误!!");
+						JOptionPane.showMessageDialog(jf, "ユーザー名かパスワードが間違っています");
 						jTextField1.setText("");
 						jPasswordField1.setText("");
 						jTextField1.requestFocus();//获取焦点
@@ -99,7 +99,7 @@ public class LoginFrame extends javax.swing.JFrame {
 		});
         
         getContentPane().add(jButton1);
-        jButton1.setBounds(140, 150, 60, 23);
+        jButton1.setBounds(110, 150, 100, 23);
         //注册窗口事件
         this.addWindowListener(new WindowListener() {
 			

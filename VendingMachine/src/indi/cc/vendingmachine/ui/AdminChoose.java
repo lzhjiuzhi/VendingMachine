@@ -40,57 +40,57 @@ public class AdminChoose extends javax.swing.JFrame {
         jButton6 = new JButton();
         jButton3 = new JButton();
 
-        setTitle("管理员："+admin.getUsername());
+        setTitle("管理者："+admin.getUsername());
         setBackground(new java.awt.Color(255, 255, 255));
 
         jButton1.setFont(new java.awt.Font("幼圆", 1, 12)); // NOI18N
-        jButton1.setText("添加新管理员");
+        jButton1.setText("管理者追加");
         jButton1.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				AddAdminFrame addAdminFrame = new AddAdminFrame(jf, "添加新管理员", true);
+				AddAdminFrame addAdminFrame = new AddAdminFrame(jf, "管理者追加", true);
 			}
 		});
 
         jButton2.setFont(new java.awt.Font("幼圆", 1, 12)); // NOI18N
-        jButton2.setText("修改密码");
+        jButton2.setText("パスワード更新");
         jButton2.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				UpdatePasswordFrame frame = new UpdatePasswordFrame(jf, "修改密码", true,admin);
+				UpdatePasswordFrame frame = new UpdatePasswordFrame(jf, "パスワード更新", true,admin);
 			}
 		});
 
-        jButton4.setFont(new java.awt.Font("幼圆", 1, 12)); // NOI18N
-        jButton4.setText("金额管理");
-        jButton4.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				// TODO Auto-generated method stub
-				CashManageFrame frame = new CashManageFrame(jf, "金额管理", true,admin);
-			}
-		});
-        
+//        jButton4.setFont(new java.awt.Font("幼圆", 1, 12)); // NOI18N
+//        jButton4.setText("金额管理");
+//        jButton4.addActionListener(new ActionListener() {
+//
+//			@Override
+//			public void actionPerformed(ActionEvent arg0) {
+//				// TODO Auto-generated method stub
+//				CashManageFrame frame = new CashManageFrame(jf, "金额管理", true,admin);
+//			}
+//		});
+//
         
         jButton5.setFont(new java.awt.Font("幼圆", 1, 12)); // NOI18N
-        jButton5.setText("记录查看");
+        jButton5.setText("履歴チェック");
         jButton5.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
-				RecordsManageFrame frame = new RecordsManageFrame(jf, "记录查看", true);
+				RecordsManageFrame frame = new RecordsManageFrame(jf, "履歴チェック", true);
 			}
 		});
        
 
         jButton6.setFont(new java.awt.Font("幼圆", 1, 12)); // NOI18N
-        jButton6.setText("退出系统");
+        jButton6.setText("ログアウト");
         jButton6.addActionListener(new ActionListener() {
     		
     		@Override
@@ -103,13 +103,13 @@ public class AdminChoose extends javax.swing.JFrame {
     	});
       
         jButton3.setFont(new java.awt.Font("幼圆", 1, 12)); // NOI18N
-        jButton3.setText("饮料管理");
+        jButton3.setText("商品管理");
         jButton3.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
-				DrinkManageFrame drinkManage = new DrinkManageFrame(jf, "饮料管理", true,admin);
+				DrinkManageFrame drinkManage = new DrinkManageFrame(jf, "商品管理", true,admin);
 			}
 		});
         
@@ -124,7 +124,7 @@ public class AdminChoose extends javax.swing.JFrame {
                     .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+//                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(92, Short.MAX_VALUE))
         );
@@ -138,8 +138,8 @@ public class AdminChoose extends javax.swing.JFrame {
                 .addGap(30, 30, 30)
                 .addComponent(jButton3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
-                .addComponent(jButton4)
-                .addGap(26, 26, 26)
+//                .addComponent(jButton4)
+//                .addGap(26, 26, 26)
                 .addComponent(jButton5)
                 .addGap(28, 28, 28)
                 .addComponent(jButton6)

@@ -118,7 +118,7 @@ public class MainFrame extends javax.swing.JFrame {
 		});
        
 
-        jLabel2.setText("×ã¤ê¤Ê¤¤¤ª½ð?£º");
+        jLabel2.setText("×ã¤ê¤Ê¤¤¤ª½ð¤Ï£º");
 
         jLabel3.setText("0ƒÒ");
 

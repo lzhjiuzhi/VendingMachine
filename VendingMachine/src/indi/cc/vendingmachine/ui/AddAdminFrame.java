@@ -51,15 +51,15 @@ public class AddAdminFrame extends javax.swing.JDialog {
         jButton2 = new javax.swing.JButton();
 
 
-        jLabel1.setText("用户名:");
+        jLabel1.setText("ユーザー名");
 
-        jLabel2.setText("密码:");
+        jLabel2.setText("パスワード");
 
-        jLabel3.setText("确认密码:");
+        jLabel3.setText("パスワード");
 
        
 
-        jButton1.setText("创建");
+        jButton1.setText("作成");
         jButton1.addActionListener(new ActionListener() {
 			
 			@Override
@@ -69,26 +69,26 @@ public class AddAdminFrame extends javax.swing.JDialog {
 				String password = String.valueOf(jPasswordField1.getPassword());
 				String rePassword = String.valueOf(jPasswordField2.getPassword());
 				if(username.equals("")){
-					JOptionPane.showMessageDialog(jd, "用户名不能空!!");
+					JOptionPane.showMessageDialog(jd, "ユーザー名を記入してください");
 					return ;
 				}else if(password.equals("")){
-					JOptionPane.showMessageDialog(jd, "密码不能为空!!");
+					JOptionPane.showMessageDialog(jd, "パスワードを記入してください");
 					return ;
 				}else if(rePassword.equals("")){
-					JOptionPane.showMessageDialog(jd, "确认密码不能为空!!");
+					JOptionPane.showMessageDialog(jd, "パスワードを記入してください");
 					return ;
 				}else if(!password.equals(rePassword)){
-					JOptionPane.showMessageDialog(jd, "两次密码不一致!!");
+					JOptionPane.showMessageDialog(jd, "パスワードは一致していません");
 					return ;
 				}else {
 					Administrator admin = new Administrator(username, password);
 					AdminManageHelper manageHelper = new AdminManageHelper();
 					if(manageHelper.addAdmin(admin)){
-						JOptionPane.showMessageDialog(jd, "创建成功!!");
+						JOptionPane.showMessageDialog(jd, "成功");
 						jd.dispose();
 						return ;
 					}else{
-						JOptionPane.showMessageDialog(jd, "创建失败!!");
+						JOptionPane.showMessageDialog(jd, "失败");
 						jd.dispose();
 						return ;
 					}
@@ -96,7 +96,7 @@ public class AddAdminFrame extends javax.swing.JDialog {
 			}
 		});
 
-        jButton2.setText("取消");
+        jButton2.setText("戻る");
         jButton2.addActionListener(new ActionListener() {
 			
 			@Override
