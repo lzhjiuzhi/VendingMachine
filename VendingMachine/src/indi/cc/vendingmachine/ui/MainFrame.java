@@ -85,7 +85,7 @@ public class MainFrame extends javax.swing.JFrame {
                 if(keyChar >= KeyEvent.VK_0 && keyChar <= KeyEvent.VK_9){  
                       
                 }else{  
-                    e.consume(); //关键，屏蔽掉非法输入  
+                    e.consume(); //关键，屏蔽掉非法输入
                 }  
             }  
         }); 
@@ -193,13 +193,12 @@ public class MainFrame extends javax.swing.JFrame {
     
     private void upateJpanel(){
     	AdminManageHelper manageHelper = new AdminManageHelper();
-    	Vector<Drink> drinks = manageHelper.getAllDrink();	//获得所有的饮料
+    	Vector<Drink> drinks = manageHelper.getAllDrink();
     	 for(int i=0;i<drinks.size();i++){
          	Drink drink = drinks.get(i);   	
          	String s;
 
-         	JButton jb;//按钮
-         	//对数量为0的饮料进行判断并且处理
+         	JButton jb;
          	if(drinks.get(i).getQuantity()==0){
          		s = drink.getDrinkName()+"|売り切れ";
          		jb = new JButton(s,new ImageIcon(drink.getDrinkImg()));
@@ -208,9 +207,9 @@ public class MainFrame extends javax.swing.JFrame {
          		s = drink.getDrinkName()+"<br>"+"値段："+drink.getPrice()+"円<br>"+"在庫数："+drink.getQuantity();
          		jb = new JButton("<html>"+s+"</html>",new ImageIcon(drink.getDrinkImg()));
          	}
-         	//对饮料机的零钱小于10的时候(无法找零的时候)进行判断和处理
+
          	if(VendingMachine.getInstance().getCoin()<10){
-         		jb.setEnabled(false);	//设置不可用。
+         		jb.setEnabled(false);
          	}
          	
          	jb.addActionListener(new ActionListener() {
@@ -225,7 +224,7 @@ public class MainFrame extends javax.swing.JFrame {
 	 					jLabel5.setIcon((new ImageIcon(drink.getDrinkImg())));
 	 					jLabel3.setText(drink.getPrice()+"円");
 	 					price = drink.getPrice();
-	 					need = price;	//设置还需的金额
+	 					need = price;
 	 					jLabel5.updateUI();
  					}
  				}
@@ -237,6 +236,7 @@ public class MainFrame extends javax.swing.JFrame {
     
     //计算处理投币的方法
     private void computing(){
+		AdminManageHelper manageHelper = new AdminManageHelper();
     	int repayment = 0;	//おつり
 		int oncePay = 0;	//First inserted amount
 		String s = jTextField1.getText().trim();

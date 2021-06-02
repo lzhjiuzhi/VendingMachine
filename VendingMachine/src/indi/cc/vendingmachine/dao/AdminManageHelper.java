@@ -237,4 +237,11 @@ public class AdminManageHelper {
 		helper.close();
 		
 	}
+
+	public int getAllSum(){
+		helper = new SqlHelper();
+		int money = helper.getSumOfMoney();
+		helper.close();
+		return money;
+	}
 }

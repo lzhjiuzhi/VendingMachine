@@ -177,9 +177,24 @@ public class SqlHelper implements JdbcConfig{
 			}
 			return drinks;
 		}
-		
-		
-		/**
+
+	/**
+	 *  Get Sum of money
+	 */
+	public int getSumOfMoney(){
+		int money = 0;
+		try{
+			ps = ct.prepareStatement("select sum(price) from Drink");
+			rs= ps.executeQuery();
+			while(rs.next()){
+				money = rs.getInt(1);
+			}
+		} catch (SQLException e){
+			e.printStackTrace();
+		}
+		return money;
+	}
+	/**
 		 * ÃÌº”“˚¡œ
 		 * @param drink
 		 * @return
