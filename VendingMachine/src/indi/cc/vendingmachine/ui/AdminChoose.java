@@ -65,17 +65,17 @@ public class AdminChoose extends javax.swing.JFrame {
 			}
 		});
 
-//        jButton4.setFont(new java.awt.Font("幼圆", 1, 12)); // NOI18N
-//        jButton4.setText("金额管理");
-//        jButton4.addActionListener(new ActionListener() {
-//
-//			@Override
-//			public void actionPerformed(ActionEvent arg0) {
-//				// TODO Auto-generated method stub
-//				CashManageFrame frame = new CashManageFrame(jf, "金额管理", true,admin);
-//			}
-//		});
-//
+        jButton4.setFont(new java.awt.Font("幼圆", 1, 12)); // NOI18N
+        jButton4.setText("売上高");
+        jButton4.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				SumofMoneyFrame frame = new SumofMoneyFrame(jf, "売上高", true);
+			}
+		});
+
         
         jButton5.setFont(new java.awt.Font("幼圆", 1, 12)); // NOI18N
         jButton5.setText("履歴チェック");
@@ -124,7 +124,7 @@ public class AdminChoose extends javax.swing.JFrame {
                     .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-//                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(92, Short.MAX_VALUE))
         );
@@ -138,8 +138,8 @@ public class AdminChoose extends javax.swing.JFrame {
                 .addGap(30, 30, 30)
                 .addComponent(jButton3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
-//                .addComponent(jButton4)
-//                .addGap(26, 26, 26)
+                .addComponent(jButton4)
+                .addGap(26, 26, 26)
                 .addComponent(jButton5)
                 .addGap(28, 28, 28)
                 .addComponent(jButton6)
