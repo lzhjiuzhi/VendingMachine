@@ -91,7 +91,7 @@ public class MainFrame extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);	// デフォルトのクローズ操作の指定
         setTitle("自動販売機");	// タイトル(画面最上部)
         setBackground(new java.awt.Color(245, 140, 100));	// タイトルバーをRGBで設定
-        jPanel1.setBackground(Color.GRAY);
+        jPanel1.setBackground(Color.lightGray);
 
 
         // 数字のみの入力制限（テンプレートコード）
@@ -200,22 +200,23 @@ public class MainFrame extends javax.swing.JFrame {
     	 for(int i=0;i<drinks.size();i++){
          	Drink drink = drinks.get(i);   	
          	String s;
+         	String s1;
          	JButton jb;	// ボタン
          	// 数量0の飲料を判定?加工
          	if(drinks.get(i).getQuantity()==0){
-         		s = drink.getDrinkName()+"|完売";
-         		jb = new JButton(s,new ImageIcon(drink.getDrinkImg()));
+         		s = drink.getDrinkName()+"<br>"+"完売";
+         		jb = new JButton("<html>"+s+"</html>",new ImageIcon(drink.getDrinkImg()));
          		jb.setEnabled(false);	// 利用できない状態
          	}else{
-         		s = drink.getDrinkName()+"|価格:"+drink.getPrice()+"元|数量:"+drink.getQuantity();
-         		jb = new JButton(s,new ImageIcon(drink.getDrinkImg()));
+         		s = drink.getDrinkName()+"<br>"+"価格:"+drink.getPrice()+"円"+"<br>"+"数量:"+drink.getQuantity();
+         		jb = new JButton("<html>"+s+"</html>",new ImageIcon(drink.getDrinkImg()));
          	}
          	// 飲料機の変化が10回未満の場合（変化が見られない場合）を判定?処理
          	if(VendingMachine.getInstance().getCoin()<10){
          		jb.setEnabled(false);	// 利用できない状態
          	}
          	jb.setOpaque(true);
-            jb.setBackground(Color.GRAY);
+            jb.setBackground(Color.WHITE);
          	
          	jb.addActionListener(new ActionListener() {
  				
@@ -266,14 +267,24 @@ public class MainFrame extends javax.swing.JFrame {
  			            @Override
  			            public void actionPerformed(ActionEvent e) {
  			                
- 			                second -= 8;
+ 			                second -= 1;
+
+
  			                
  			                counterLabel.setText(""+ second);
  			                if (second <= 0)
  			                {
- 			                    timer.stop();
- 			                    dialog.dispose();
- 			                   second = 31;
+								timer.stop();
+								dialog.dispose();
+								second = 31;
+
+								jPanel1.removeAll();//移除面板上的控件
+								jPanel1.updateUI();
+								upateJpanel(); //更新面板上的按钮
+								jPanel1.updateUI();
+								need = 0; //设置回原来的值
+								price = 0; //设置回原来的值
+								pay = 0; //设置回原来的值
  			                }
  			            }
  			        });
@@ -296,7 +307,19 @@ public class MainFrame extends javax.swing.JFrame {
  						
  						@Override
  						public void actionPerformed(ActionEvent e) {
- 							dialog.dispose();
+
+							timer.stop();
+							dialog.dispose();
+							second = 31;
+							jPanel1.removeAll();//移除面板上的控件
+							jPanel1.updateUI();
+							upateJpanel(); //更新面板上的按钮
+							jPanel1.updateUI();
+							need = 0; //设置回原来的值
+							price = 0; //设置回原来的值
+							pay = 0; //设置回原来的值
+
+// 							dialog.dispose();
  						}
  					});
  					
@@ -346,44 +369,105 @@ public class MainFrame extends javax.swing.JFrame {
 		}else{
 			
 			switch (oncePay) {
-			case 1:
-					need = need - 1;
+				case 10:
+					need = need - 10;
 					if(need!=0){
-						JOptionPane.showMessageDialog(thisJframe, "投資が必要："+need+"元");
+						JOptionPane.showMessageDialog(thisJframe, "必要なお金："+need+"円");
 					}
-					pay += oncePay;	//得到一共支付的金额
+					pay += oncePay;	//
 					break;
-			case 5:
-					if(need<5){	//支付的5元钱大于还需的金额,则找回钱
-						repayment = 5 - need;
+				case 50:
+					if(need<50){	//
+						repayment = 50 - need;
 						need = 0;	//金额付满
 					}else{//支付的5元钱小于于还需的金额,还需继续付钱
-						need = need - 5;	
+						need = need - 50;
 						if(need!=0){
-							JOptionPane.showMessageDialog(thisJframe, "投資が必要："+need+"元");
+							JOptionPane.showMessageDialog(thisJframe, "必要なお金："+need+"円");
 						}
 					}
 					pay += oncePay;	//得到一共支付的金额
 					break;
-			case 10:
-				    need -= 10;
-					if(need!=0){
-
-						JOptionPane.showMessageDialog(thisJframe, "投資が必要："+need+"元");
+				case 100:
+					if(need<100){	//
+						repayment = 100 - need;
+						need = 0;	//金额付满
+					}else{//支付的5元钱小于于还需的金额,还需继续付钱
+						need = need - 100;
+						if(need!=0){
+							JOptionPane.showMessageDialog(thisJframe, "必要なお金："+need+"円");
+						}
 					}
 					pay += oncePay;	//得到一共支付的金额
 					break;
-					
-			default:
-					JOptionPane.showMessageDialog(thisJframe, "1元硬貨または5元札、10元札を入れてください!!");
-					JOptionPane.showMessageDialog(thisJframe, "お金を返してください!!");
+//				    need -= 10;
+//					if(need!=0){
+//
+//						JOptionPane.showMessageDialog(thisJframe, "Amount needed："+need+"?");
+//					}
+//					pay += oncePay;	//得到一共支付的金额
+//					break;
+				case 500:
+					if(need<500){	//
+						repayment = 500 - need;
+						need = 0;	//金额付满
+					}else{//支付的5元钱小于于还需的金额,还需继续付钱
+						need = need - 500;
+						if(need!=0){
+							JOptionPane.showMessageDialog(thisJframe, "必要なお金："+need+"円");
+						}
+					}
+					pay += oncePay;	//得到一共支付的金额
+					break;
+				case 1000:
+					if(need<1000){	//
+						repayment = 1000 - need;
+						need = 0;	//金额付满
+					}else{//支付的5元钱小于于还需的金额,还需继续付钱
+						need = need - 1000;
+						if(need!=0){
+							JOptionPane.showMessageDialog(thisJframe, "必要なお金："+need+"円");
+						}
+					}
+					pay += oncePay;	//得到一共支付的金额
+					break;
+
+				case 5000:
+					if(need<5000){	//
+						repayment = 5000 - need;
+						need = 0;	//金额付满
+					}else{//支付的5元钱小于于还需的金额,还需继续付钱
+						need = need - 5000;
+						if(need!=0){
+							JOptionPane.showMessageDialog(thisJframe, "必要なお金："+need+"円");
+						}
+					}
+					pay += oncePay;	//得到一共支付的金额
+					break;
+
+				case 10000:
+					if(need<10000){	//
+						repayment = 10000 - need;
+						need = 0;	//金额付满
+
+					}else{//支付的5元钱小于于还需的金额,还需继续付钱
+						need = need - 10000;
+						if(need!=0){
+							JOptionPane.showMessageDialog(thisJframe, "必要なお金："+need+"円");
+						}
+					}
+					pay += oncePay;	//得到一共支付的金额
+					break;
+				default:
+					JOptionPane.showMessageDialog(thisJframe, "この硬貨は使用できません");
+					JOptionPane.showMessageDialog(thisJframe, "お金を受け取りなさい");
 					jTextField1.setText("");
 					break;
 			}
-			
-			
+
+
 			if(repayment!=0){
-				JOptionPane.showMessageDialog(thisJframe, "完全に取り戻す："+repayment+"元");
+				JOptionPane.showMessageDialog(thisJframe, "お釣りは"+repayment+"円");
 			}
 			if(price!=0 && need==0){//付款成功
 				JOptionPane.showMessageDialog(thisJframe, "ドリンクの購入に成功しました。出てくるまでお待ちください!!");
@@ -415,9 +499,11 @@ public class MainFrame extends javax.swing.JFrame {
 				pay = 0;	//设置回原来的值
 				jLabel5.setIcon(null);
 				jLabel5.updateUI();
+				timer.stop();
+
 			}
 			jTextField1.setText("");
-			jLabel3.setText(need+"元");
+			jLabel3.setText(need+"円");
 		}
 		
     }
