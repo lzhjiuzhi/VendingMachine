@@ -1,5 +1,9 @@
 package indi.cc.vendingmachine.ui;
 
+import indi.cc.vendingmachine.bean.Administrator;
+import indi.cc.vendingmachine.dao.AdminManageHelper;
+import indi.cc.vendingmachine.util.WindowUtil;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
@@ -12,153 +16,146 @@ import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-import indi.cc.vendingmachine.bean.Administrator;
-import indi.cc.vendingmachine.dao.AdminManageHelper;
-import indi.cc.vendingmachine.util.WindowUtil;
-
 public class LoginFrame extends javax.swing.JFrame {
 
-	    private JButton jButton1;
-	    private JLabel jLabel1;
-	    private JLabel jLabel2;
-	    private JPasswordField jPasswordField1;
-	    private JTextField jTextField1;
-	    private JFrame jf;
-	    
-	    public LoginFrame() {
-    	this.jf = this;
-        initComponents();
-        this.setSize(320, 250);
-        WindowUtil.setFrameCenter(this);
-        this.setResizable(false);
-        this.setVisible(true);
-    }
+	private JButton jButton1;
+	private JLabel jLabel1;
+	private JLabel jLabel2;
+	private JPasswordField jPasswordField1;
+	private JTextField jTextField1;
+	private JFrame jf;
+
+	public LoginFrame() {
+		this.jf = this;
+		initComponents();
+		this.setSize(320, 250);
+		WindowUtil.setFrameCenter(this);
+		this.setResizable(false);
+		this.setVisible(true);
+	}
 
 
-    private void initComponents() {
+	private void initComponents() {
 
-        jLabel1 = new JLabel();
-        jTextField1 = new JTextField();
-        jLabel2 = new JLabel();
-        jPasswordField1 = new JPasswordField();
-        jButton1 = new JButton();
+		jLabel1 = new JLabel();
+		jTextField1 = new JTextField();
+		jLabel2 = new JLabel();
+		jPasswordField1 = new JPasswordField();
+		jButton1 = new JButton();
 
-        
-        setTitle("ç®¡ç†äººãƒ­ã‚°ã‚¤ãƒ³ç”»é¢");
-        getContentPane().setLayout(null);
 
-        jLabel1.setText("ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(60, 100, 50, 24);
+		setTitle("¹ÜÀíÕß¥í¥°¥¤¥ó");
+		getContentPane().setLayout(null);
 
-      
-        getContentPane().add(jTextField1);
-        jTextField1.setBounds(110, 50, 114, 21);
+		jLabel1.setText("¥Ñ¥¹£º");
+		getContentPane().add(jLabel1);
+		jLabel1.setBounds(60, 100, 70, 24);
 
-        jLabel2.setText("ID");
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(60, 50, 60, 24);
 
-       
-        getContentPane().add(jPasswordField1);
-        jPasswordField1.setBounds(110, 100, 113, 21);
+		getContentPane().add(jTextField1);
+		jTextField1.setBounds(110, 50, 114, 21);
 
-        jButton1.setText("ãƒ­ã‚°ã‚¤ãƒ³");
-        
-        // ãƒœã‚¿ãƒ³ã‚’æŠ¼ã—ãŸã‚ã¨ã€IDã¨ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã®ç¢ºèª
-        jButton1.addActionListener(new ActionListener() {
-			
+		jLabel2.setText("¥æ©`¥¶©`£º");
+		getContentPane().add(jLabel2);
+		jLabel2.setBounds(60, 50, 70, 24);
+
+
+		getContentPane().add(jPasswordField1);
+		jPasswordField1.setBounds(110, 100, 113, 21);
+
+		jButton1.setText("¥í¥°¥¤¥ó");
+		//×¢²áÊÂ¼ş
+		jButton1.addActionListener(new ActionListener() {
+
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
 				String username = jTextField1.getText().trim();
 				String password = String.valueOf(jPasswordField1.getPassword());
 				if(username.equals("")){
-					JOptionPane.showMessageDialog(jf, "IDã‹ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ãŒé•ã„ã¾ã™");
+					JOptionPane.showMessageDialog(jf, "¥æ©`¥¶©`Ãû¤òÓ›Èë¤·¤Æ¤¯¤À¤µ¤¤");
 					return ;
 				}else if(password.equals("")){
-					JOptionPane.showMessageDialog(jf, "ï¿½ï¿½ï¿½ë²»ï¿½ï¿½Îªï¿½ï¿½!!");
+					JOptionPane.showMessageDialog(jf, "¥Ñ¥¹¥ï©`¥É¤òÓ›Èë¤·¤Æ¤¯¤À¤µ¤¤");
 					return ;
 				}else{
 					Administrator admin = new Administrator(username,password);
 					AdminManageHelper manageHelper = new AdminManageHelper();
 					if(manageHelper.Login(admin)){
-						JOptionPane.showMessageDialog(jf, "ï¿½ï¿½Â½ï¿½É¹ï¿½!!");
+						JOptionPane.showMessageDialog(jf, "¥í¥°¥¤¥ó¤·¤Ş¤·¤¿");
 						AdminChoose adminChoose = new AdminChoose(admin);
 						jf.dispose();
 						return ;
 					}else{
-						JOptionPane.showMessageDialog(jf, "ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½!!");
+						JOptionPane.showMessageDialog(jf, "¥æ©`¥¶©`Ãû¤«¥Ñ¥¹¥ï©`¥É¤¬égß`¤Ã¤Æ¤¤¤Ş¤¹");
 						jTextField1.setText("");
 						jPasswordField1.setText("");
-						jTextField1.requestFocus();//ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½
+						jTextField1.requestFocus();//»ñÈ¡½¹µã
 						return ;
 					}
 				}
-				
+
 			}
 		});
-        
-        // ãƒœã‚¿ãƒ³ã®é…ç½®
-        getContentPane().add(jButton1);
-        jButton1.setBounds(140, 150, 60, 23);
-        
-        // ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã®ã‚¤ãƒ™ãƒ³ãƒˆ
-        this.addWindowListener(new WindowListener() {
-			
+
+		getContentPane().add(jButton1);
+		jButton1.setBounds(110, 150, 100, 23);
+		//×¢²á´°¿ÚÊÂ¼ş
+		this.addWindowListener(new WindowListener() {
+
 			@Override
 			public void windowOpened(WindowEvent arg0) {
 				// TODO Auto-generated method stub
-				
+
 			}
-			
+
 			@Override
 			public void windowIconified(WindowEvent arg0) {
 				// TODO Auto-generated method stub
-				
+
 			}
-			
+
 			@Override
 			public void windowDeiconified(WindowEvent arg0) {
 				// TODO Auto-generated method stub
-				
+
 			}
-			
+
 			@Override
 			public void windowDeactivated(WindowEvent arg0) {
 				// TODO Auto-generated method stub
-				
+
 			}
-			
+
 			@Override
 			public void windowClosing(WindowEvent arg0) {
 				// TODO Auto-generated method stub
 				MainFrame frame = new MainFrame();
-				
-				
-				
+
+
+
 			}
-			
+
 			@Override
 			public void windowClosed(WindowEvent arg0) {
-				
-				
-				
+
+
+
 			}
-			
+
 			@Override
 			public void windowActivated(WindowEvent arg0) {
 				// TODO Auto-generated method stub
-				
+
 			}
 		});
-        
-        pack();
-    }
 
-    
-    
+		pack();
+	}
 
-   
+
+
+
+
 }
 

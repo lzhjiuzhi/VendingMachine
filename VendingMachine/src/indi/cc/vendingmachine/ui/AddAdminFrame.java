@@ -12,56 +12,56 @@ import indi.cc.vendingmachine.dao.AdminManageHelper;
 import indi.cc.vendingmachine.util.WindowUtil;
 
 public class AddAdminFrame extends javax.swing.JDialog {
-		
-		private javax.swing.JButton jButton1;
-	    private javax.swing.JButton jButton2;
-	    private javax.swing.JLabel jLabel1;
-	    private javax.swing.JLabel jLabel2;
-	    private javax.swing.JLabel jLabel3;
-	    private javax.swing.JPasswordField jPasswordField1;
-	    private javax.swing.JPasswordField jPasswordField2;
-	    private javax.swing.JTextField jTextField1;
-	    private JDialog jd;
-	    /**
-		 * 
-		 * @param owner 它的父窗口
-		 * @param title 窗口名
-		 * @param modal 指定的模式窗口，还有非模式窗口
-		 */
-		public AddAdminFrame(JFrame owner, String title, boolean modal){
-	    	super(owner, title, modal);
-			  initComponents();
-			  WindowUtil.setFrameCenter(this);
-		        this.setResizable(false);
-		        this.setVisible(true);
-        
-        
-		}
 
-                      
-    private void initComponents() {
-    	this.jd = this;
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jPasswordField2 = new javax.swing.JPasswordField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+	private javax.swing.JButton jButton1;
+	private javax.swing.JButton jButton2;
+	private javax.swing.JLabel jLabel1;
+	private javax.swing.JLabel jLabel2;
+	private javax.swing.JLabel jLabel3;
+	private javax.swing.JPasswordField jPasswordField1;
+	private javax.swing.JPasswordField jPasswordField2;
+	private javax.swing.JTextField jTextField1;
+	private JDialog jd;
+	/**
+	 *
+	 * @param owner 它的父窗口
+	 * @param title 窗口名
+	 * @param modal 指定的模式窗口，还有非模式窗口
+	 */
+	public AddAdminFrame(JFrame owner, String title, boolean modal){
+		super(owner, title, modal);
+		initComponents();
+		WindowUtil.setFrameCenter(this);
+		this.setResizable(false);
+		this.setVisible(true);
 
 
-        jLabel1.setText("用户名:");
+	}
 
-        jLabel2.setText("密码:");
 
-        jLabel3.setText("确认密码:");
+	private void initComponents() {
+		this.jd = this;
+		jLabel1 = new javax.swing.JLabel();
+		jLabel2 = new javax.swing.JLabel();
+		jLabel3 = new javax.swing.JLabel();
+		jTextField1 = new javax.swing.JTextField();
+		jPasswordField1 = new javax.swing.JPasswordField();
+		jPasswordField2 = new javax.swing.JPasswordField();
+		jButton1 = new javax.swing.JButton();
+		jButton2 = new javax.swing.JButton();
 
-       
 
-        jButton1.setText("创建");
-        jButton1.addActionListener(new ActionListener() {
-			
+		jLabel1.setText("ユーザー名");
+
+		jLabel2.setText("パスワード");
+
+		jLabel3.setText("パスワード");
+
+
+
+		jButton1.setText("作成");
+		jButton1.addActionListener(new ActionListener() {
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
@@ -69,26 +69,26 @@ public class AddAdminFrame extends javax.swing.JDialog {
 				String password = String.valueOf(jPasswordField1.getPassword());
 				String rePassword = String.valueOf(jPasswordField2.getPassword());
 				if(username.equals("")){
-					JOptionPane.showMessageDialog(jd, "用户名不能空!!");
+					JOptionPane.showMessageDialog(jd, "ユーザー名を記入してください");
 					return ;
 				}else if(password.equals("")){
-					JOptionPane.showMessageDialog(jd, "密码不能为空!!");
+					JOptionPane.showMessageDialog(jd, "パスワードを記入してください");
 					return ;
 				}else if(rePassword.equals("")){
-					JOptionPane.showMessageDialog(jd, "确认密码不能为空!!");
+					JOptionPane.showMessageDialog(jd, "パスワードを記入してください");
 					return ;
 				}else if(!password.equals(rePassword)){
-					JOptionPane.showMessageDialog(jd, "两次密码不一致!!");
+					JOptionPane.showMessageDialog(jd, "パスワードは一致していません");
 					return ;
 				}else {
 					Administrator admin = new Administrator(username, password);
 					AdminManageHelper manageHelper = new AdminManageHelper();
 					if(manageHelper.addAdmin(admin)){
-						JOptionPane.showMessageDialog(jd, "创建成功!!");
+						JOptionPane.showMessageDialog(jd, "成功");
 						jd.dispose();
 						return ;
 					}else{
-						JOptionPane.showMessageDialog(jd, "创建失败!!");
+						JOptionPane.showMessageDialog(jd, "失败");
 						jd.dispose();
 						return ;
 					}
@@ -96,73 +96,73 @@ public class AddAdminFrame extends javax.swing.JDialog {
 			}
 		});
 
-        jButton2.setText("取消");
-        jButton2.addActionListener(new ActionListener() {
-			
+		jButton2.setText("戻る");
+		jButton2.addActionListener(new ActionListener() {
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				jd.dispose();
 			}
 		});
-        
-        
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(68, 68, 68)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jPasswordField2, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1)
-                                    .addComponent(jLabel2))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
-                                    .addComponent(jPasswordField1))))
-                        .addContainerGap(67, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
-                        .addComponent(jButton2)
-                        .addGap(59, 59, 59))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(47, 47, 47)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jPasswordField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
-                .addContainerGap(34, Short.MAX_VALUE))
-        );
 
-        pack();
-    }                      
 
-                                        
+		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+		getContentPane().setLayout(layout);
+		layout.setHorizontalGroup(
+				layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+						.addGroup(layout.createSequentialGroup()
+								.addGap(68, 68, 68)
+								.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+										.addGroup(layout.createSequentialGroup()
+												.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+														.addGroup(layout.createSequentialGroup()
+																.addComponent(jLabel3)
+																.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+																.addComponent(jPasswordField2, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
+														.addGroup(layout.createSequentialGroup()
+																.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+																		.addComponent(jLabel1)
+																		.addComponent(jLabel2))
+																.addGap(18, 18, 18)
+																.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+																		.addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
+																		.addComponent(jPasswordField1))))
+												.addContainerGap(67, Short.MAX_VALUE))
+										.addGroup(layout.createSequentialGroup()
+												.addComponent(jButton1)
+												.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
+												.addComponent(jButton2)
+												.addGap(59, 59, 59))))
+		);
+		layout.setVerticalGroup(
+				layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+						.addGroup(layout.createSequentialGroup()
+								.addGap(47, 47, 47)
+								.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+										.addComponent(jLabel1)
+										.addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+								.addGap(28, 28, 28)
+								.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+										.addComponent(jLabel2)
+										.addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+								.addGap(25, 25, 25)
+								.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+										.addComponent(jLabel3)
+										.addComponent(jPasswordField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+								.addGap(29, 29, 29)
+								.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+										.addComponent(jButton1)
+										.addComponent(jButton2))
+								.addContainerGap(34, Short.MAX_VALUE))
+		);
 
-                   
-   
-                    
+		pack();
+	}
+
+
+
+
+
+
 }

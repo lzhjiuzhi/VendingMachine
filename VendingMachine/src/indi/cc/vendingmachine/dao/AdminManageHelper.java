@@ -13,11 +13,11 @@ import indi.cc.vendingmachine.bean.VendingMachine;
 //管理员操作数据库帮助类
 public class AdminManageHelper {
 	private SqlHelper helper;
-	
+
 	public AdminManageHelper(){
-		
+
 	}
-	
+
 	/**
 	 * 得到管理员对象 
 	 * @param admin 管理员
@@ -29,10 +29,10 @@ public class AdminManageHelper {
 		helper.close();
 		return administrator;
 	}
-	
-	
-	
-	
+
+
+
+
 	/**
 	 * 管理员登陆
 	 * @param admin 管理员
@@ -45,7 +45,7 @@ public class AdminManageHelper {
 		}
 		return false;
 	}
-	
+
 	/**
 	 * 添加管理员
 	 * @param admin	管理员
@@ -57,7 +57,7 @@ public class AdminManageHelper {
 		helper.close();
 		return b;
 	}
-	
+
 	/**
 	 * 修改管理员密码
 	 * @param oldAdmin 旧管理员
@@ -70,8 +70,8 @@ public class AdminManageHelper {
 		helper.close();
 		return b;
 	}
-	
-	
+
+
 	/**
 	 * 返回所有的饮料
 	 * @return 所有的饮料集合
@@ -82,7 +82,7 @@ public class AdminManageHelper {
 		helper.close();
 		return drinks;
 	}
-	
+
 	/**
 	 * 添加饮料
 	 * @param drink 饮料对象
@@ -94,7 +94,7 @@ public class AdminManageHelper {
 		helper.close();
 		return b;
 	}
-	
+
 	/**
 	 * 修改饮料信息
 	 * @param oldDrink 旧饮料对象
@@ -107,7 +107,7 @@ public class AdminManageHelper {
 		helper.close();
 		return b;
 	}
-	
+
 	/**
 	 * 删除饮料
 	 * @param drink 饮料对象
@@ -119,7 +119,7 @@ public class AdminManageHelper {
 		helper.close();
 		return b;
 	}
-	
+
 	/**
 	 * 修改饮料数量
 	 * @param drink 饮料对象
@@ -131,19 +131,19 @@ public class AdminManageHelper {
 		helper.close();
 		return b;
 	}
-	
-	
+
+
 	/**
 	 * 初始化饮料机对象
-	 * 
+	 *
 	 */
 	public void getVendingMachine(){
 		helper = new SqlHelper();
 		helper.getVendingMachine();
 		helper.close();
 	}
-	
-	
+
+
 	/**
 	 * 修改饮料机对象
 	 * @param machine 饮料机对象
@@ -155,7 +155,7 @@ public class AdminManageHelper {
 		helper.close();
 		return b;
 	}
-	
+
 	/**
 	 * 获得所有的零钱补充记录
 	 * @return 返回零钱补充记录集合
@@ -166,8 +166,8 @@ public class AdminManageHelper {
 		helper.close();
 		return records;
 	}
-	
-	
+
+
 	/**
 	 * 添加补充零钱记录
 	 * @param record 补充零钱记录
@@ -177,9 +177,9 @@ public class AdminManageHelper {
 		helper.addAddRecords(record);
 		helper.close();
 	}
-	
-	
-	
+
+
+
 	/**
 	 * 获得所有的取现记录
 	 * @return 返回取现记录集合
@@ -190,8 +190,8 @@ public class AdminManageHelper {
 		helper.close();
 		return records;
 	}
-	
-	
+
+
 	/**
 	 * 添加取现记录
 	 * @param record
@@ -200,9 +200,9 @@ public class AdminManageHelper {
 		helper = new SqlHelper();
 		helper.addCashRecords(record);
 		helper.close();
-		
+
 	}
-	
+
 	/**
 	 * 获得所有的顾客购买记录
 	 * @return 返回顾客购买记录集合
@@ -213,8 +213,8 @@ public class AdminManageHelper {
 		helper.close();
 		return records;
 	}
-	
-	
+
+
 	/**
 	 * 得到所有添加饮料的记录
 	 * @return 返回所有添加饮料记录
@@ -225,8 +225,8 @@ public class AdminManageHelper {
 		helper.close();
 		return records;
 	}
-	
-	
+
+
 	/**
 	 * 添加饮料补充记录
 	 * @param record 饮料补充记录
@@ -235,6 +235,13 @@ public class AdminManageHelper {
 		helper = new SqlHelper();
 		helper.addAddDrinkRecords(record);
 		helper.close();
-		
+
+	}
+
+	public int getAllSum(){
+		helper = new SqlHelper();
+		int money = helper.getSumOfMoney();
+		helper.close();
+		return money;
 	}
 }
