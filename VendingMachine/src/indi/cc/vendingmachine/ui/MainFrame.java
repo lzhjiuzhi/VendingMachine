@@ -3,6 +3,7 @@ package indi.cc.vendingmachine.ui;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
@@ -23,6 +24,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
 import javax.swing.JTextField;
+import javax.swing.Timer;
 
 import indi.cc.vendingmachine.bean.Drink;
 import indi.cc.vendingmachine.bean.PurchaseRecords;
@@ -52,6 +54,9 @@ public class MainFrame extends javax.swing.JFrame {
     private int need = 0;	// まだ必要な金額
     private Drink chooseDrink;	// 選択されたドリンク
     private int pay = 0;	// 総支払額
+    
+    int second = 31;
+    Timer timer;
     
     public MainFrame() {
     	// 飲料機オブジェクトの初期化
@@ -221,6 +226,7 @@ public class MainFrame extends javax.swing.JFrame {
  						JOptionPane.showMessageDialog(thisJframe, "支払いを完了してください!!");
  					}else{
 	 					chooseDrink = drink;
+//	 					Timelimit.main(null);
 	 					jLabel5.setIcon((new ImageIcon(drink.getDrinkImg())));
 	 					jLabel3.setText(drink.getPrice()+"元");
 	 					jLabel4.setText(drink.getDrinkName());
@@ -237,7 +243,7 @@ public class MainFrame extends javax.swing.JFrame {
  					gbc.gridx = 0;
  					gbc.gridy = 0;
  					
- 					// 画像と商品の説明のレイアウト
+ 					// 画像と商品の説明、タイマーのレイアウト
  					JPanel panel1 = new JPanel();
  					panel1.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 10));
  					panel1.add(jLabel5);
@@ -249,10 +255,37 @@ public class MainFrame extends javax.swing.JFrame {
  					panel1_1.add(new Label("を選択中"));
  					panel1_1.add(jTextField1);
  					
- 					panel1.add(panel1_1);
- 					
- 					dialog.add(panel1, gbc);
- 					
+ 					// タイマーの設置
+ 					JLabel counterLabel= new JLabel("  ");
+ 			        counterLabel.setFont(new Font("Arial", Font.PLAIN, 32));
+ 			        
+ 			       
+ 			        
+ 			        timer = new Timer(1000, new ActionListener() {
+ 			            
+ 			            @Override
+ 			            public void actionPerformed(ActionEvent e) {
+ 			                
+ 			                second -= 8;
+ 			                
+ 			                counterLabel.setText(""+ second);
+ 			                if (second <= 0)
+ 			                {
+ 			                    timer.stop();
+ 			                    dialog.dispose();
+ 			                   second = 31;
+ 			                }
+ 			            }
+ 			        });
+ 			        
+ 			       timer.start();
+ 			         			        
+ 			        panel1_1.add(counterLabel);
+ 			       
+ 			       	panel1.add(panel1_1);
+					dialog.add(panel1, gbc);
+ 			       
+ 			       
  					// フッターのレイアウト
  					JPanel panel2 = new JPanel();
  					panel2.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 10));
@@ -388,4 +421,9 @@ public class MainFrame extends javax.swing.JFrame {
 		}
 		
     }
+    
+    
+    
 }
+
+
