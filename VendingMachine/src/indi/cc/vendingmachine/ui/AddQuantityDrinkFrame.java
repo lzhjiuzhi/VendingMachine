@@ -81,7 +81,7 @@ public class AddQuantityDrinkFrame extends javax.swing.JDialog {
 					record.setNowNum(drink.getQuantity());//设置补充后的数量
 					helper.updateDrinkNum(drink);	//补充饮料数量
 					helper.addAddDrinkRecords(record);	//添加补充饮料的记录
-					JOptionPane.showMessageDialog(jd, Integer.parseInt(s)+"瓶を追加しました");
+					JOptionPane.showMessageDialog(jd, Integer.parseInt(s)+"個を追加しました");
 
 					jd.dispose();
 				}

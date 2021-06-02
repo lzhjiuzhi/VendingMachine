@@ -59,13 +59,13 @@ public class UpdatePasswordFrame extends javax.swing.JDialog {
 
        
 
-        jLabel1.setText("旧密码:");
+        jLabel1.setText("旧パスワード");
 
-        jLabel2.setText("新密码:");
+        jLabel2.setText("新パスワード");
 
-        jLabel3.setText("确认密码:");
+        jLabel3.setText("新パスワード");
 
-        jButton1.setText("修改");
+        jButton1.setText("完成");
         jButton1.addActionListener(new ActionListener() {
 			
 			@Override
@@ -75,26 +75,26 @@ public class UpdatePasswordFrame extends javax.swing.JDialog {
 				String newPass = String.valueOf(jPasswordField1.getPassword());
 				String rePass = String.valueOf(jPasswordField2.getPassword());
 				if(oldPass.equals("")){
-					JOptionPane.showMessageDialog(jd, "旧密码不能为空!!");
+					JOptionPane.showMessageDialog(jd, "旧パスワードをいれてください");
 					return ;
 				}else if(newPass.equals("")){
-					JOptionPane.showMessageDialog(jd, "新密码不能为空!!");
+					JOptionPane.showMessageDialog(jd, "新パスワードをいれてください");
 					return ;
 				}else if(rePass.equals("")){
-					JOptionPane.showMessageDialog(jd, "确认密码不能为空!!");
+					JOptionPane.showMessageDialog(jd, "新パスワードをいれてください");
 					return ;
 				}else if(!newPass.equals(rePass)){
-					JOptionPane.showMessageDialog(jd, "两次密码不一致!!");
+					JOptionPane.showMessageDialog(jd, "二回のパスワードが一致していません");
 					return ;
 				}else{
 					Administrator newAdmin = new Administrator(admin.getUsername(), newPass);
 					AdminManageHelper manageHelper = new AdminManageHelper();
 					if(manageHelper.getAdmin(admin).getPassword().equals(oldPass)&&manageHelper.updatePassword(admin, newAdmin)){
-						JOptionPane.showMessageDialog(jd, "修改成功!!");
+						JOptionPane.showMessageDialog(jd, "更新成功");
 						jd.dispose();
 						return ;
 					}else{
-						JOptionPane.showMessageDialog(jd, "修改失败!!");
+						JOptionPane.showMessageDialog(jd, "更新失敗");
 						jd.dispose();
 						return ;
 					}
@@ -102,7 +102,7 @@ public class UpdatePasswordFrame extends javax.swing.JDialog {
 			}
 		});
 
-        jButton2.setText("取消");
+        jButton2.setText("戻る");
         jButton2.addActionListener(new ActionListener() {
 			
 			@Override

@@ -68,12 +68,12 @@ public class DrinkManageFrame extends JDialog {
 		jTextField2 = new javax.swing.JTextField(drinks.get(count).getDrinkName());
 		jTextField2.setEditable(false);//设置不可编辑
 		jLabel4 = new javax.swing.JLabel();
-		jTextField3 = new javax.swing.JTextField(drinks.get(count).getPrice()+"元");
+		jTextField3 = new javax.swing.JTextField(drinks.get(count).getPrice()+"円");
 		jTextField3.setEditable(false);//设置不可编辑
 		jSeparator3 = new javax.swing.JSeparator();
 		jSeparator4 = new javax.swing.JSeparator();
 		jLabel1 = new javax.swing.JLabel();
-		jTextField4 = new javax.swing.JTextField(drinks.get(count).getQuantity()+"瓶");
+		jTextField4 = new javax.swing.JTextField(drinks.get(count).getQuantity()+"個");
 		jTextField4.setEditable(false);//设置不可编辑
 		jButton4 = new javax.swing.JButton();
 		jButton5 = new javax.swing.JButton();
@@ -157,7 +157,7 @@ public class DrinkManageFrame extends JDialog {
 		});
 
 		jButton7.setFont(new java.awt.Font("幼圆", 1, 12)); // NOI18N
-		jButton7.setText("商品を作成");
+		jButton7.setText("商品削除");
 		jButton7.addActionListener(new ActionListener() {
 
 			@Override

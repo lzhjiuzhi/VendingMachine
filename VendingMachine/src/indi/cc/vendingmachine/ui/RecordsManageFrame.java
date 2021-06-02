@@ -60,18 +60,18 @@ public class RecordsManageFrame extends javax.swing.JDialog {
         });
 
         jButton3.setFont(new java.awt.Font("Ó×Ô²", 1, 12)); // NOI18N
-        jButton3.setText("ÒûÁÏ²¹³ä¼ÇÂ¼");
+        jButton3.setText("ÉÌÆ·Ña³äÂÄšs");
         jButton3.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-               AddDrinkRecordFrame frame = new AddDrinkRecordFrame(jd, "ÒûÁÏ²¹³ä¼ÇÂ¼", true);
+               AddDrinkRecordFrame frame = new AddDrinkRecordFrame(jd, "ÉÌÆ·Ña³äÂÄšs", true);
             }
         });
 
         jButton4.setFont(new java.awt.Font("Ó×Ô²", 1, 12)); // NOI18N
-        jButton4.setText("¹Ë¿Í¹ºÂò¼ÇÂ¼");
+        jButton4.setText("Øœ‰ÓÂÄšs");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PurchaseRecordsFrame frame = new PurchaseRecordsFrame(jd, "¹Ë¿Í¹ºÂò¼ÇÂ¼", true);
+                PurchaseRecordsFrame frame = new PurchaseRecordsFrame(jd, "Øœ‰ÓÂÄšs", true);
             }
         });
 
@@ -82,8 +82,8 @@ public class RecordsManageFrame extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addGap(113, 113, 113)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+//                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+//                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(123, Short.MAX_VALUE))
@@ -91,10 +91,10 @@ public class RecordsManageFrame extends javax.swing.JDialog {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(48, 48, 48)
-                .addComponent(jButton1)
-                .addGap(40, 40, 40)
-                .addComponent(jButton2)
+//                .addGap(48, 48, 48)
+//                .addComponent(jButton1)
+//                .addGap(40, 40, 40)
+//                .addComponent(jButton2)
                 .addGap(40, 40, 40)
                 .addComponent(jButton3)
                 .addGap(38, 38, 38)
