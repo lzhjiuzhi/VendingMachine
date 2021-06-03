@@ -315,7 +315,7 @@ public class DrinkManageFrame extends JDialog {
 		jTextField1.setText(drinks.get(count).getId());
 		jTextField2.setText(drinks.get(count).getDrinkName());
 		jTextField3.setText(drinks.get(count).getPrice()+"É“");
-		jTextField4.setText(drinks.get(count).getQuantity()+"∆ø");
+		jTextField4.setText(drinks.get(count).getQuantity()+"ÇÄ");
 		jButton3.setIcon(new ImageIcon(drinks.get(count).getDrinkImg()));
 		jButton3.updateUI();
 	}
