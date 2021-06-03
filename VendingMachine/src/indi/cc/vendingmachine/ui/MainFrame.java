@@ -129,8 +129,8 @@ public class MainFrame extends javax.swing.JFrame {
 		jLabel1.setOpaque(true);
 //        jLabel1.setBackground(Color.YELLOW);
 
-		jButton2.setFont(new java.awt.Font("幼圆", 1, 15)); // フォントを指定
-		jButton2.setText("お金を確認");		// 文字の指定
+		jButton2.setFont(new java.awt.Font("幼圆", 1, 12)); // フォントを指定
+		jButton2.setText("お金を投入");		// 文字の指定
 
 		// ボタンにアクションイベントを追加
 		// 計算する処理を行う
@@ -228,7 +228,7 @@ public class MainFrame extends javax.swing.JFrame {
 						chooseDrink = drink;
 //	 					Timelimit.main(null);
 						jLabel5.setIcon((new ImageIcon(drink.getDrinkImg())));
-						jLabel3.setText(drink.getPrice()+"元");
+						jLabel3.setText(drink.getPrice()+"円");
 						jLabel4.setText(drink.getDrinkName());
 						price = drink.getPrice();
 						need = price;	// 残額を設定する
@@ -270,7 +270,7 @@ public class MainFrame extends javax.swing.JFrame {
 
 							second -= 1;
 
-							counterLabel.setText(""+ second);
+							counterLabel.setText(""+ second +"s");
 							if (second <= 0)
 							{
 								timer.stop();
