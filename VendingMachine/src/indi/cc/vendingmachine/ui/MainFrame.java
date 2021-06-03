@@ -274,6 +274,7 @@ public class MainFrame extends javax.swing.JFrame {
 							if (second <= 0)
 							{
 								timer.stop();
+								JOptionPane.showMessageDialog(thisJframe, "投入して金額"+pay+"円をお返しします");
 								dialog.dispose();
 								second = 31;
 
@@ -307,6 +308,7 @@ public class MainFrame extends javax.swing.JFrame {
 						@Override
 						public void actionPerformed(ActionEvent e) {
 							timer.stop();
+							JOptionPane.showMessageDialog(thisJframe, "投入して金額"+pay+"円をお返しします");
 							dialog.dispose();
 
 							second = 31;
@@ -358,11 +360,11 @@ public class MainFrame extends javax.swing.JFrame {
 		if(price==0){
 
 			if(oncePay!=0){
-				JOptionPane.showMessageDialog(thisJframe, "ドリンクを選んでコインを追加してください!!");
+				JOptionPane.showMessageDialog(thisJframe, "商品を選んでコインを追加してください!!");
 				JOptionPane.showMessageDialog(thisJframe, "お金を返してください!!");
 				jTextField1.setText("");
 			}else{
-				JOptionPane.showMessageDialog(thisJframe, "ドリンクを選んでください!!");
+				JOptionPane.showMessageDialog(thisJframe, "商品を選んでください!!");
 				jTextField1.setText("");
 			}
 		}else if(price!=0 && oncePay==0){
@@ -495,6 +497,7 @@ public class MainFrame extends javax.swing.JFrame {
 
 				//更新界面
 				timer.stop();
+				//JOptionPane.showMessageDialog(thisJframe, "投入して金額"+pay+"円をお返しします");
 				dialog.dispose();
 				jPanel1.removeAll();//移除面板上的控件
 				jPanel1.updateUI();
