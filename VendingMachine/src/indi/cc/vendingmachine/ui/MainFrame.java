@@ -274,7 +274,7 @@ public class MainFrame extends javax.swing.JFrame {
 							if (second <= 0)
 							{
 								timer.stop();
-								JOptionPane.showMessageDialog(thisJframe, "投入して金額"+pay+"円をお返しします");
+								JOptionPane.showMessageDialog(thisJframe, "投入した金額"+pay+"円をお返しします");
 								dialog.dispose();
 								second = 31;
 
@@ -308,7 +308,7 @@ public class MainFrame extends javax.swing.JFrame {
 						@Override
 						public void actionPerformed(ActionEvent e) {
 							timer.stop();
-							JOptionPane.showMessageDialog(thisJframe, "投入して金額"+pay+"円をお返しします");
+							JOptionPane.showMessageDialog(thisJframe, "投入した金額"+pay+"円をお返しします");
 							dialog.dispose();
 
 							second = 31;
