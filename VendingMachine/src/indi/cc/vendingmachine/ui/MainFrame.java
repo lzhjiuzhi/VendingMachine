@@ -274,7 +274,10 @@ public class MainFrame extends javax.swing.JFrame {
 							if (second <= 0)
 							{
 								timer.stop();
-								JOptionPane.showMessageDialog(thisJframe, "投入した金額"+pay+"円をお返しします");
+								if (pay != 0){
+									JOptionPane.showMessageDialog(thisJframe, "投入した金額"+pay+"円をお返しします");
+								}
+
 								dialog.dispose();
 								second = 31;
 
@@ -308,7 +311,10 @@ public class MainFrame extends javax.swing.JFrame {
 						@Override
 						public void actionPerformed(ActionEvent e) {
 							timer.stop();
-							JOptionPane.showMessageDialog(thisJframe, "投入した金額"+pay+"円をお返しします");
+							if (pay != 0){
+								JOptionPane.showMessageDialog(thisJframe, "投入した金額"+pay+"円をお返しします");
+							}
+
 							dialog.dispose();
 
 							second = 31;
@@ -476,7 +482,7 @@ public class MainFrame extends javax.swing.JFrame {
 				JOptionPane.showMessageDialog(thisJframe, "お釣りは"+repayment+"円");
 			}
 			if(price!=0 && need==0){//付款成功
-				JOptionPane.showMessageDialog(thisJframe, "ドリンクの購入に成功しました。出てくるまでお待ちください!!");
+				JOptionPane.showMessageDialog(thisJframe, "商品の購入に成功しました。出てくるまでお待ちください!!");
 				//对应的饮料数量需要减少!!
 				//顾客操作的帮助类实现饮料数量的减少
 				CustomerManageHelper helper = new CustomerManageHelper();

@@ -184,7 +184,7 @@ public class SqlHelper implements JdbcConfig{
 	public int getSumOfMoney(){
 		int money = 0;
 		try{
-			ps = ct.prepareStatement("select sum(price) from Drink");
+			ps = ct.prepareStatement("select sum(price) from PurchaseRecords");
 			rs= ps.executeQuery();
 			while(rs.next()){
 				money = rs.getInt(1);
